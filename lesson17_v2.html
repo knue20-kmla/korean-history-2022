@@ -1,0 +1,1348 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5. 독립 국가 건설 노력</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--vw:1vw;--navy:#101e34;--cream:#f6f2e9;--gold:#d8ad62;--teal:#73b8ae;--dim:#a9b8c8;--badge:rgba(216,173,98,.16);--badge-line:rgba(216,173,98,.6);--line:rgba(255,255,255,.17)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:'Noto Sans KR','DM Sans',sans-serif}
+body{position:relative;background:radial-gradient(circle at 82% 14%,rgba(72,111,151,.5) 0,transparent 34%),radial-gradient(circle at 8% 88%,rgba(115,184,174,.12),transparent 30%),linear-gradient(135deg,#0d1a2e,#172b47 68%,#0d2038);color:var(--cream);min-height:100vh}
+body:before{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;z-index:0}
+button,a{font:inherit}button{cursor:pointer}
+button:disabled{opacity:.3;cursor:default}
+.top,.stage{position:relative;z-index:1}
+
+/* header (same structure as the original) */
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:22px clamp(24px,calc(var(--vw) * 4.5),76px) 0;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px;font-size:clamp(13px,calc(var(--vw) * 1.3),17px);font-weight:800;letter-spacing:-.03em}
+.brand .logo{width:40px;height:40px;border-radius:50%;background:#fff;object-fit:contain}
+.brand .names{display:flex;align-items:center;gap:10px}
+.brand .div{width:1px;height:16px;background:rgba(255,255,255,.25)}
+.brand .subject{color:var(--gold)}
+.top-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.icon-btn,.text-btn{border:1px solid var(--line);background:rgba(255,255,255,.05);color:#fff;border-radius:999px;min-height:36px;padding:0 15px;transition:.2s}
+.icon-btn:hover,.text-btn:hover{background:rgba(216,173,98,.22);border-color:rgba(216,173,98,.5)}
+.icon-btn{min-width:36px;padding:0 10px}
+.text-btn{font-size:12px;font-weight:700}
+.slide-counter{font-size:12px;font-weight:700;color:var(--dim);letter-spacing:.06em;padding:0 4px}
+
+/* stage */
+.slide[hidden]{display:none}
+.stage>*{position:relative;left:var(--cx,0px)}
+@media (min-width:980px){:root{--vw:17px}}
+.stage{padding:26px clamp(24px,calc(var(--vw) * 4.5),76px) 22px;max-width:1500px;margin:0 auto}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);gap:clamp(24px,calc(var(--vw) * 3),48px);align-items:start}
+.split .points{max-width:none}
+.eyebrow{color:var(--gold);font-size:20px;letter-spacing:.18em;font-weight:800;margin:0 0 10px;display:flex;align-items:center}
+.eyebrow:before{content:"";display:inline-block;width:28px;height:1px;background:var(--gold);margin-right:12px}
+.heading{font-weight:800;letter-spacing:-.055em;line-height:1.2;font-size:clamp(26px,calc(var(--vw) * 3.2),42px);margin:0 0 40px;word-break:keep-all;max-width:1120px}
+/* 대단원(5) > 중단원(17·18·19) > 소단원 */
+.unit .eyebrow{color:var(--teal);font-size:32px;letter-spacing:.14em;margin-bottom:-7px}
+.unit .eyebrow:before{background:var(--teal);width:46px}
+.unit .heading{font-size:clamp(38px,calc(var(--vw) * 4.8),66px);color:#fff}
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:800;color:#fff;background:rgba(216,173,98,.16);border:1px solid rgba(216,173,98,.4);padding:8px 16px 8px 12px;border-radius:999px;margin-bottom:16px}
+.section-tag b{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--navy);font-size:12px}
+.lead{font-size:clamp(15px,calc(var(--vw) * 1.55),21px);line-height:1.75;color:#e6e1f1;margin:0 0 40px;max-width:1200px;word-break:keep-all}
+.lead em{font-style:normal;font-weight:700;background:linear-gradient(90deg,#f3ddad,#d8ad62);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* numbered list — the core pattern from the reference */
+.points{list-style:none;margin:0;padding:0;display:grid;gap:26px;max-width:none}
+.point{display:grid;grid-template-columns:52px 1fr;gap:20px;align-items:start}
+.num{width:52px;height:52px;border-radius:50%;background:var(--badge);border:1.5px solid var(--badge-line);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;box-shadow:0 0 22px rgba(216,173,98,.28)}
+.point h3{margin:2px 0 6px;font-size:clamp(17px,calc(var(--vw) * 1.7),23px);font-weight:800;letter-spacing:-.03em;line-height:1.35;word-break:keep-all}
+.point p{margin:0;font-size:clamp(13px,calc(var(--vw) * 1.15),15.5px);line-height:1.7;color:var(--dim);word-break:keep-all}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
+.chip{border:1px solid rgba(216,173,98,.4);background:rgba(216,173,98,.1);color:#f3ddad;border-radius:999px;padding:5px 13px;font-size:12.5px;font-weight:700}
+button.chip:hover{background:rgba(216,173,98,.28);border-color:var(--gold)}
+button.chip:after{content:" ↗";font-size:10px;opacity:.7}
+.chip.plain{border-color:var(--line);background:rgba(255,255,255,.04);color:#cfc9de}
+
+.ln{display:block;padding-left:1.15em;text-indent:-1.15em}
+.ln+.ln{margin-top:4px}
+.ln:before{content:"▸ ";color:var(--gold);font-size:.85em;text-indent:0}
+.ln+.ln{margin-top:4px}
+.box{display:block;color:#dfe6ee}
+.arr{display:block;text-align:center;margin:3px 0;color:var(--gold);font-weight:800;font-size:1.15em;line-height:1.2}
+
+
+/* category with two branches (한·중 연합 작전 → 한국 독립군 / 조선 혁명군) */
+.cat-wrap{display:grid;gap:26px;min-width:0}
+.cat{display:flex;align-items:flex-start}
+.cat-label{position:relative;flex:0 0 auto;margin-right:64px;padding:16px 20px;border-radius:12px;background:linear-gradient(145deg,rgba(216,173,98,.34),rgba(216,173,98,.14));border:1px solid rgba(216,173,98,.7);text-align:center;font-weight:800;font-size:clamp(15px,calc(var(--vw) * 1.4),19px);line-height:1.4;color:#fff;box-shadow:0 10px 28px rgba(3,11,23,.25)}
+.cat-label span{display:block;font-size:.8em;color:var(--gold);font-weight:700}
+.cat-lbl-h.br-h{display:block;position:absolute;left:100%;top:50%;width:32px;height:2px;border-top:0;background:var(--gold)}
+.cat-rows{position:relative;display:grid;gap:14px;min-width:0;flex:1}
+.cat-vline.br-v{display:block;left:-32px;width:2px;border-left:0;background:var(--gold)}
+.cat-nm-h.br-h{display:block;position:absolute;right:100%;top:50%;width:32px;height:2px;border-top:0;background:var(--gold)}
+.cat-name{position:relative}
+.cat-row{position:relative;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding-left:0}
+.cat-name{border:1px solid rgba(216,173,98,.6);background:rgba(255,255,255,.05);color:#fff;border-radius:10px;padding:10px 16px;font-weight:800;font-size:clamp(14px,calc(var(--vw) * 1.3),17px);text-align:center;line-height:1.35;min-width:118px}
+.cat-name small{display:block;font-size:.78em;color:var(--gold);font-weight:700}
+.cat.eq .cat-name{width:310px;display:flex;align-items:center;justify-content:center}
+.cat-name:hover{background:rgba(216,173,98,.2);border-color:var(--gold)}
+.cat-body .desc{margin:0;font-size:clamp(13px,calc(var(--vw) * 1.15),15.5px);line-height:1.7;color:#dfe6ee}
+.cat-body .chips{margin-top:8px}
+
+/* teacher mode: move / resize maps and photos */
+.fig-bar{position:fixed;right:18px;bottom:16px;z-index:40;display:none;gap:8px;align-items:center;background:rgba(9,19,34,.92);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:8px 10px;font-size:12px;color:#c5d1de}
+body.teacher-mode .fig-bar{display:flex}
+.fig-bar button{border:1px solid rgba(216,173,98,.5);background:rgba(216,173,98,.14);color:var(--gold);border-radius:8px;padding:6px 12px;font-weight:700;font-size:12px}
+.fig-bar button:hover{background:rgba(216,173,98,.3)}
+.text-btn.active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.fig{position:relative}
+.fig-handle{display:none;position:absolute;right:6px;bottom:6px;width:22px;height:22px;border-radius:50%;background:var(--gold);border:2px solid var(--navy);cursor:nwse-resize;z-index:6}
+body.teacher-mode .fig{outline:2px dashed rgba(216,173,98,.7);outline-offset:3px;cursor:move;z-index:5}
+body.teacher-mode .fig-handle{display:block}
+body.teacher-mode .fig img{pointer-events:none;user-select:none}
+
+.vthumb{position:relative}
+.vthumb .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.6);border:2px solid #fff;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;padding-left:4px}
+.vwrap{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#000}
+.vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.split.no-aside{grid-template-columns:1fr}
+.split.wide{grid-template-columns:minmax(0,1fr) minmax(220px,300px)}
+.split.wide .cat-wrap{display:contents}
+.split.wide .cat{grid-column:1/-1}
+.split.wide .points{grid-column:1;grid-row:2}
+.split.wide .aside{grid-column:2;grid-row:2}
+.split.wide.no-aside .points{grid-column:1/-1}
+body.teacher-mode [data-eid]:hover{outline:1px dashed rgba(216,173,98,.6);outline-offset:2px}
+body.teacher-mode .sel{outline:2px solid #ff6b6b !important;outline-offset:3px}
+body.teacher-mode .editing{outline:2px solid var(--teal) !important;background:rgba(115,184,174,.12);cursor:text !important}
+.fig-bar{flex-wrap:wrap;max-width:min(560px,92vw)}
+.fig-bar .mode{font-weight:800;color:var(--gold)}
+.fig-bar .tx{display:flex;align-items:center;gap:6px;color:#c5d1de}
+.fig-bar input[type=color]{width:34px;height:26px;padding:0;border:1px solid rgba(255,255,255,.3);border-radius:6px;background:none}
+.fig-bar input[type=number]{width:52px;background:#12233d;color:#e9e4f5;border:1px solid rgba(255,255,255,.25);border-radius:6px;padding:4px 6px;font-size:12px}
+.fig-bar select{background:#12233d;color:#e9e4f5;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:5px 8px;font-size:12px}
+.fig-bar .del{border-color:rgba(255,107,107,.6);background:rgba(255,107,107,.14);color:#ff9a9a}
+
+.cat-body,.point,.lead,.commons,.tl-cap{position:relative}
+.w-handle{display:none;position:absolute;right:-10px;top:50%;transform:translateY(-50%);width:12px;height:46px;border-radius:6px;background:var(--gold);border:2px solid var(--navy);cursor:ew-resize;z-index:7}
+body.teacher-mode .wsel>.w-handle{display:block}
+body.teacher-mode .wsel{box-shadow:inset 0 0 0 1px rgba(216,173,98,.5)}
+
+.rubber{position:fixed;z-index:55;border:1px dashed var(--gold);background:rgba(216,173,98,.12);pointer-events:none}
+.guide-v,.guide-h{position:fixed;z-index:60;pointer-events:none;display:none}
+.guide-v{top:0;bottom:0;width:0;border-left:1px dashed #ff4fd8}
+.guide-h{left:0;right:0;height:0;border-top:1px dashed #ff4fd8}
+body.teacher-mode{user-select:none;-webkit-user-select:none}
+body.teacher-mode .editing{user-select:text;-webkit-user-select:text}
+body.teacher-mode [data-mv]{cursor:move}
+
+.duo{display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin:4px 0 8px}
+.duo-item{font-size:clamp(13px,calc(var(--vw) * 1.15),15.5px);line-height:1.7;color:var(--dim);font-weight:400}
+.duo-item:first-child:before{content:"▸ ";color:var(--gold);font-size:.85em}
+.duo-item small{display:inline;font-size:inherit;color:inherit;font-weight:inherit}
+.duo-arrow{color:var(--gold);font-size:clamp(24px,calc(var(--vw) * 2.2),32px);font-weight:800;line-height:1}
+
+.points.wide{max-width:none}
+.points.wide .compare{margin-top:6px}
+.net{position:relative;width:760px;height:330px;margin:14px 0 10px}
+.net-lines{position:absolute;inset:0;pointer-events:none}
+.net-node{position:absolute;width:220px;height:78px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 12px 30px rgba(3,11,23,.35);border:1px solid rgba(216,173,98,.6);background:linear-gradient(145deg,rgba(216,173,98,.3),rgba(216,173,98,.1))}
+.net-node b{font-size:17px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.net-node small{margin-top:3px;font-size:12px;color:#f3ddad;font-weight:600}
+.net-node.n-gov{left:0;top:20px}
+.net-node.n-ind{right:0;top:20px}
+.net-node.n-fdn{left:270px;top:230px;border-color:rgba(115,184,174,.7);background:linear-gradient(145deg,rgba(115,184,174,.32),rgba(115,184,174,.1))}
+.net-node.n-fdn small{color:#bfe6df}
+.net-pill{position:absolute;transform:translate(-50%,-50%);padding:5px 13px;border-radius:999px;font-size:12.5px;font-weight:700;white-space:nowrap;background:#0f1d33;border:1px solid rgba(216,173,98,.6);color:#f3ddad}
+.net-pill.p-top{left:380px;top:58px}
+.net-pill.p-left,.net-pill.p-right{border-color:rgba(115,184,174,.7);color:#bfe6df}
+.net-pill.p-left{left:232px;top:164px}
+.net-pill.p-right{left:528px;top:164px}
+
+.sg{padding:4px 2px 2px}
+.sg-top{width:230px;margin:0 auto;text-align:center;padding:12px 16px;border-radius:14px;background:linear-gradient(145deg,rgba(216,173,98,.4),rgba(216,173,98,.14));border:1px solid rgba(216,173,98,.75);box-shadow:0 10px 28px rgba(3,11,23,.35)}
+.sg-top b{display:block;font-size:22px;font-weight:900;color:#fff;letter-spacing:-.03em}
+.sg-top small{display:block;margin-top:2px;font-size:12px;color:#f3ddad;font-weight:700}
+.sg-desc{margin:12px 0 0;text-align:center;font-size:13px;color:#cfd9e4}
+.sg-tree{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px}
+.sg-tree:before{content:"";position:absolute;top:-26px;left:calc((100% - 28px)/6);right:calc((100% - 28px)/6);height:26px;border:2px solid var(--gold);border-bottom:0;border-radius:10px 10px 0 0}
+.sg-tree:after{content:"";position:absolute;top:-52px;left:50%;height:26px;border-left:2px solid var(--gold)}
+.sg-card{position:relative;padding:16px 14px 14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--line);text-align:center;overflow:hidden}
+.sg-card:before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--gold)}
+.sg-card.c2:before{background:var(--teal)}
+.sg-card.c3:before{background:#e9d5ff}
+.sg-no{display:flex;width:34px;height:34px;margin:0 auto 8px;align-items:center;justify-content:center;border-radius:50%;background:var(--badge);border:1.5px solid var(--badge-line);color:var(--gold);font-weight:800}
+.sg-card.c2 .sg-no{color:var(--teal);border-color:rgba(115,184,174,.7);background:rgba(115,184,174,.16)}
+.sg-card.c3 .sg-no{color:#e9d5ff;border-color:rgba(233,213,255,.6);background:rgba(233,213,255,.12)}
+.sg-card h4{margin:0 0 8px;font-size:17px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.sg-key{padding:7px 8px;border-radius:10px;background:rgba(216,173,98,.14);border:1px solid rgba(216,173,98,.4);color:#f3ddad;font-weight:800;font-size:13.5px;line-height:1.4}
+.sg-card.c2 .sg-key{background:rgba(115,184,174,.14);border-color:rgba(115,184,174,.5);color:#bfe6df}
+.sg-card.c3 .sg-key{background:rgba(233,213,255,.1);border-color:rgba(233,213,255,.45);color:#f1e5ff}
+.sg-card p{margin:9px 0 0;font-size:12.5px;line-height:1.6;color:#b9c6d4}
+.sg-goal{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 8px;margin-top:16px;padding:12px 16px;border-radius:14px;background:linear-gradient(90deg,rgba(216,173,98,.2),rgba(115,184,174,.2));border:1px solid rgba(255,255,255,.22);font-size:13.5px;font-weight:700;color:#fff;text-align:center;line-height:1.5}
+.sg-goal span{padding:3px 10px;border-radius:999px;background:var(--gold);color:var(--navy);font-size:12px;font-weight:800}
+.sg-goal i{font-style:normal;color:var(--gold);font-weight:900}
+.sg-src{margin-top:10px;text-align:center;font-size:11.5px;color:var(--dim)}
+@media (max-width:640px){.sg-tree{grid-template-columns:1fr}.sg-tree:before,.sg-tree:after{display:none}}
+
+.sec h3{margin:6px 0 6px;font-size:clamp(17px,calc(var(--vw) * 1.7),23px);font-weight:800;letter-spacing:-.03em;line-height:1.35;word-break:keep-all}
+.sec>p{margin:0 0 10px;font-size:clamp(13px,calc(var(--vw) * 1.15),15.5px);line-height:1.7;color:var(--dim)}
+.tri{position:relative;width:1000px;height:456px;margin:6px auto 12px}
+.tri-lines{position:absolute;inset:0;pointer-events:none}
+.tri-node{position:absolute;width:320px;min-height:186px;margin:0}
+.tri-node.t-gov{left:340px;top:0}
+.tri-node.t-ind{left:0;top:262px}
+.tri-node.t-fdn{right:0;top:262px;border-color:rgba(115,184,174,.55)}
+.tri-node.t-gov{border-color:rgba(216,173,98,.7);background:linear-gradient(145deg,rgba(216,173,98,.16),rgba(216,173,98,.04))}
+.tri-pill{position:absolute;transform:translate(-50%,-50%);padding:5px 13px;border-radius:999px;font-size:12.5px;font-weight:700;white-space:nowrap;background:#0f1d33;border:1px solid rgba(216,173,98,.6);color:#f3ddad}
+.tri-pill.p1{left:284px;top:223px}
+.tri-pill.p2{left:716px;top:223px;border-color:rgba(115,184,174,.7);color:#bfe6df}
+.tri-pill.p3{left:500px;top:358px;border-color:rgba(115,184,174,.7);color:#bfe6df}
+
+.hl{color:var(--gold);font-weight:800}
+.lnk{color:var(--gold);font-weight:800;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.lnk:hover{color:#fff}
+.lnk:after{content:" ↗";font-size:.75em}
+.sec .commons{width:1000px;max-width:100%;margin-left:auto;margin-right:auto}
+
+.tlv{max-width:none;margin:8px 0 6px}
+.tlv-row{display:grid;grid-template-columns:340px 64px minmax(0,1fr);align-items:start}
+.tlv-row>.tlv-card,.tlv-row>.tlv-goal{margin-bottom:16px}
+.tlv-row>.tlv-text{padding-bottom:16px}
+.tlv-row.last>.tlv-goal,.tlv-row.last>.tlv-text{margin-bottom:0;padding-bottom:0}
+.tlv-row.last>.tlv-goal{align-self:stretch}
+.tlv-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#12233d;cursor:pointer;transition:.2s}
+.tlv-card:hover{border-color:var(--gold);box-shadow:0 12px 36px rgba(216,173,98,.22)}
+.tlv-head{padding:8px 14px;background:linear-gradient(90deg,rgba(216,173,98,.4),rgba(216,173,98,.12));font-weight:800;font-size:15.5px;color:#fff;letter-spacing:-.02em}
+.tlv-head span{margin-left:4px;color:#f3ddad;font-weight:700}
+.tlv-card img{display:block;width:100%;height:132px;object-fit:cover;object-position:center 0%;background:#fff}
+.tlv-goal{display:flex;flex-direction:column;justify-content:center;gap:2px;padding:12px 16px;border-radius:14px;border:1px solid rgba(216,173,98,.75);background:linear-gradient(145deg,rgba(216,173,98,.4),rgba(216,173,98,.12));text-align:center;min-height:64px}
+.tlv-goal b{font-size:19px;font-weight:900;color:#fff;letter-spacing:-.02em}
+.tlv-goal span{font-size:13px;font-weight:700;color:#f3ddad}
+.tlv-rail{position:relative;align-self:stretch}
+.tlv-rail i{position:absolute;left:22px;top:13px;width:21px;height:21px;border-radius:50%;background:var(--navy);border:4px solid #a9b4c1;z-index:2}
+.tlv-v.br-v{display:block;border-left:0;left:30px;top:0;bottom:0;width:5px;background:#a9b4c1}
+.tlv-row:first-child .tlv-v.br-v{top:22px}
+.tlv-row.last .tlv-v.br-v{bottom:8px}
+.tlv-h.br-h{display:block;border-top:1.5px dashed #a9b4c1;left:0;top:23px;width:24px}
+.tlv-tip{position:absolute;left:33px;bottom:0;transform:translateX(-50%);border-left:12px solid transparent;border-right:12px solid transparent;border-top:17px solid #a9b4c1;z-index:1}
+.rot-handle{display:none;position:absolute;width:12px;height:12px;border-radius:50%;background:#ff8f7a;border:2px solid var(--navy);cursor:grab;z-index:9}
+.tlv-v>.rot-handle{left:-3.5px;top:-16px}
+.tlv-h>.rot-handle{right:-16px;top:-6px}
+body.teacher-mode .tlv-v.sel>.rot-handle,body.teacher-mode .tlv-h.sel>.rot-handle{display:block}
+.tlv-row.last .tlv-rail i{background:#a9b4c1}
+.tlv-text{padding-top:4px;min-width:0;position:relative}
+.tlv-text p{margin:0;font-size:clamp(13px,calc(var(--vw) * 1.15),15.5px);line-height:1.7;color:var(--dim)}
+
+.br-v{position:absolute;width:0;border-left:2px dotted #a9b4c1;display:none}
+.br-h{position:absolute;height:0;border-top:2px dotted #a9b4c1;display:none}
+.br-t{position:absolute;white-space:nowrap;font-size:clamp(13px,calc(var(--vw) * 1.15),15.5px);display:none}
+.cat-rows.has-br .br-v,.cat-rows.has-br .br-h,.cat-rows.has-br .br-t{display:block}
+.br-v:before{content:"";position:absolute;left:-8px;right:-8px;top:0;bottom:0}
+.br-h:before{content:"";position:absolute;top:-8px;bottom:-8px;left:0;right:0}
+.br-handle{display:none;position:absolute;width:14px;height:14px;border-radius:50%;background:var(--gold);border:2px solid var(--navy);z-index:8}
+.br-v>.br-handle{left:-8px;bottom:-9px;cursor:ns-resize}
+.br-h>.br-handle{right:-9px;top:-8px;cursor:ew-resize}
+body.teacher-mode .br-v.sel>.br-handle,body.teacher-mode .br-h.sel>.br-handle{display:block}
+
+.modal-card:has(.wide){width:min(1000px,100%)}
+.jp-top{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.jp-top span{padding:11px 22px;border-radius:14px;font-size:18px;font-weight:900;color:#fff;background:linear-gradient(145deg,rgba(216,173,98,.4),rgba(216,173,98,.14));border:1px solid rgba(216,173,98,.75)}
+.jp-top span:last-child{background:linear-gradient(145deg,rgba(115,184,174,.4),rgba(115,184,174,.14));border-color:rgba(115,184,174,.75)}
+.jp-top i{font-style:normal;color:var(--gold);font-weight:900;font-size:15px;letter-spacing:.05em}
+.jp-desc{margin:12px 0 0;text-align:center;font-size:13.5px;line-height:1.65;color:#cfd9e4}
+.jp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+.jp-card{position:relative;padding:14px 14px 13px 14px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);overflow:hidden}
+.jp-card:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--gold)}
+.jp-no{display:flex;width:26px;height:26px;align-items:center;justify-content:center;border-radius:50%;font-size:13px;font-weight:900;color:var(--navy);background:var(--gold);margin-bottom:6px}
+.jp-card h4{margin:0 0 5px;font-size:15px;font-weight:800;color:#fff;letter-spacing:-.02em}
+.jp-card p{margin:0;font-size:12.5px;line-height:1.6;color:#b9c6d4}
+.jp-card.k2:before,.jp-no{background:var(--gold)}
+.jp-card.k2:before{background:var(--teal)}.jp-card.k2 .jp-no{background:var(--teal)}
+.jp-card.k3:before{background:#e9d5ff}.jp-card.k3 .jp-no{background:#e9d5ff}
+.jp-card.k4:before{background:#a9b4c1}.jp-card.k4 .jp-no{background:#a9b4c1}
+.jp-goal{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 8px;margin-top:14px;padding:11px 16px;border-radius:14px;background:linear-gradient(90deg,rgba(216,173,98,.2),rgba(115,184,174,.2));border:1px solid rgba(255,255,255,.22);font-size:13px;font-weight:700;color:#fff;text-align:center;line-height:1.5}
+.jp-goal span{padding:3px 10px;border-radius:999px;background:var(--gold);color:var(--navy);font-size:12px;font-weight:800}
+.jp-em{font-size:16px;font-weight:900;color:#fff;padding:5px 14px;border-radius:10px;background:linear-gradient(145deg,rgba(115,184,174,.55),rgba(115,184,174,.2));border:1.5px solid var(--teal);box-shadow:0 0 14px rgba(115,184,174,.4)}
+.jp-goal i{font-style:normal;color:var(--gold);font-weight:900}
+@media (max-width:760px){.jp-grid{grid-template-columns:1fr}}
+
+.fig.sm img{height:225px;object-fit:contain;background:#fff}
+
+.pillbtn{margin-left:14px;vertical-align:middle;border:1px solid rgba(216,173,98,.45);background:rgba(216,173,98,.12);color:#f3ddad;border-radius:999px;padding:4px 14px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}
+.pillbtn:hover{background:rgba(216,173,98,.3);border-color:var(--gold)}
+.pillbtn:after{content:" ↗";font-size:10px;opacity:.75}
+.modal-card:has(.wide2){width:min(1240px,100%)}
+.dg{position:relative;width:1140px;height:790px;margin:2px auto 0}
+.dg-page{zoom:.92;margin:4px auto 0}
+.dg-lines{position:absolute;inset:0;pointer-events:none}
+.dg-route{position:absolute;left:0;top:0;width:1140px;display:flex;align-items:center;flex-wrap:nowrap;gap:7px;font-size:14px;font-weight:600;color:#cfd9e4;white-space:nowrap}
+.dg-route i{font-style:normal;color:var(--gold);font-weight:800}
+.dg-route .hl{padding:3px 10px;border-radius:8px;background:rgba(216,173,98,.22);color:#f3ddad;font-weight:800}
+.dg-label{padding:5px 14px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;font-weight:800;margin-right:8px}
+.dg-n{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4px 10px;border-radius:12px;font-size:14px;font-weight:700;line-height:1.3;color:#fff;border:1px solid var(--line);background-image:linear-gradient(rgba(255,255,255,.06),rgba(255,255,255,.06))}
+.dg-n small{display:block;margin-top:2px;font-size:12px;font-weight:600;color:#bfe6df}
+.dg-n.g{border-color:rgba(216,173,98,.55);background:linear-gradient(145deg,rgba(216,173,98,.22),rgba(216,173,98,.07))}
+.dg-n.t{border-color:rgba(115,184,174,.6);background:linear-gradient(145deg,rgba(115,184,174,.24),rgba(115,184,174,.07))}
+.dg-n.b{border-color:rgba(127,178,255,.75);background:linear-gradient(145deg,rgba(127,178,255,.3),rgba(127,178,255,.09))}
+.dg-n.v{border-color:rgba(190,150,255,.65);background:linear-gradient(145deg,rgba(190,150,255,.26),rgba(190,150,255,.08))}
+.dg-n.g.strong{background:linear-gradient(145deg,rgba(216,173,98,.45),rgba(216,173,98,.16));border-color:var(--gold);box-shadow:0 8px 22px rgba(3,11,23,.35)}
+.dg-p{position:absolute;transform:translate(-50%,-50%);padding:4px 12px;border-radius:999px;font-size:12.5px;font-weight:700;white-space:nowrap;background:#12203a;border:1px solid var(--line);color:#d6dfe9}
+.dg-p.g{border-color:rgba(216,173,98,.6);color:#f3ddad}
+.dg-p.t{border-color:rgba(115,184,174,.65);color:#bfe6df}
+.dg-p.r{border-color:rgba(255,143,122,.75);color:#ffb3a3;background-image:linear-gradient(rgba(255,143,122,.14),rgba(255,143,122,.14))}
+/* buttons sit in front of arrows and dotted lines and hide the part of them they cover */
+.dg-n,.dg-p{background-color:#152640 !important;position:absolute;z-index:3}
+.dg-lines{z-index:1}
+.dg-group{position:absolute;border-radius:14px;border:1px dashed rgba(216,173,98,.55);background:rgba(216,173,98,.05)}
+.dg-row{position:absolute;left:12px;right:12px;height:32px;display:flex;align-items:center;gap:10px}
+.dg-row span{flex:1;height:100%;display:flex;align-items:center;justify-content:center;border-radius:9px;border:1px solid var(--line);background:rgba(255,255,255,.06);font-size:13.5px;font-weight:700}
+.dg-row b{flex:0 0 74px;text-align:center;color:#f3ddad;font-size:14px}
+.dg-row.hot span{background:rgba(216,173,98,.4);border-color:var(--gold)}
+.dg-list{position:absolute;display:grid;gap:6px;padding:8px 12px;border-radius:12px;border:1px solid rgba(216,173,98,.45);background:rgba(216,173,98,.06)}
+.dg-list div{display:flex;align-items:center;justify-content:center;border-radius:8px;background:rgba(255,255,255,.06);font-size:13.5px;font-weight:700;color:#e6ecf3}
+.dg-list .hot{background:rgba(216,173,98,.4);color:#fff}
+.dg-note{position:absolute;font-size:14px;font-weight:600;color:#cfd9e4}
+
+body.teacher-mode .dg-lines [data-hit],body.teacher-mode .tri-lines [data-hit]{pointer-events:stroke;cursor:move}
+.dg-lines .arrow-sel,.tri-lines .arrow-sel{filter:drop-shadow(0 0 5px #ff6b6b)}
+.dg-h{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--gold);border:2px solid var(--navy);cursor:crosshair;z-index:25}
+
+.rs-handle{display:none;position:absolute;right:-3px;bottom:-3px;width:16px;height:16px;border-radius:3px;background:var(--gold);border:2px solid var(--navy);cursor:nwse-resize;z-index:30}
+body.teacher-mode .dg-n.sel>.rs-handle,body.teacher-mode .dg-p.sel>.rs-handle{display:block}
+
+/* right-hand figure column */
+.aside{display:grid;gap:18px}
+.fig{margin:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#12233d;cursor:pointer;transition:.2s;text-align:left;padding:0;color:inherit;width:100%}
+.fig:hover{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 12px 40px rgba(216,173,98,.22)}
+.fig img{display:block;width:100%;background:#fff}
+.fig figcaption{padding:10px 14px;font-size:12px;color:var(--dim);line-height:1.5}
+.fig figcaption b{color:#fff}
+
+/* timeline strip (slide 7) */
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:6px 0 34px}
+.tl{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#12233d;cursor:pointer;transition:.2s;padding:0;text-align:left;color:inherit}
+.tl:hover{border-color:var(--gold);box-shadow:0 12px 40px rgba(216,173,98,.22)}
+.tl img{display:block;width:100%;height:190px;object-fit:cover;object-position:center 30%}
+.tl-cap{padding:12px 15px 15px}
+.tl-cap b{display:block;font-size:15px;font-weight:800}
+.tl-cap span{display:block;font-size:12px;color:var(--gold);font-weight:700;margin:2px 0 6px;font-family:'DM Sans',sans-serif;letter-spacing:.04em}
+.tl-cap p{margin:0;font-size:12.5px;line-height:1.6;color:var(--dim)}
+
+/* comparison table (slide 6) */
+.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.cmp{border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:rgba(255,255,255,.03)}
+.cmp small{font-family:'DM Sans',sans-serif;letter-spacing:.14em;color:var(--gold);font-weight:700;font-size:11px}
+.cmp h4{margin:6px 0 4px;font-size:17px;font-weight:800;letter-spacing:-.03em}
+.cmp .who{font-size:12.5px;color:var(--dim);margin-bottom:10px;display:block}
+.cmp ul{margin:0;padding-left:18px;font-size:13px;line-height:1.75;color:#d6d0e4}
+.commons{margin-top:22px;padding:16px 20px;border-radius:14px;border:1px dashed rgba(216,173,98,.5);background:rgba(216,173,98,.07);font-size:15.5px;line-height:1.7}
+.commons b{color:#f3ddad}
+
+/* bottom progress bar */
+.progress{position:fixed;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.06);z-index:20}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--teal));transition:width .4s}
+
+/* popup + toc */
+.modal,.toc-overlay{position:fixed;inset:0;background:rgba(7,17,31,.82);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:28px;z-index:50}
+.modal.open,.toc-overlay.open{display:flex}
+.modal-card,.toc-card{background:#172a45;border:1px solid rgba(216,173,98,.35);border-radius:20px;width:min(760px,100%);max-height:90vh;overflow:auto;padding:22px}
+.toc-card{width:min(520px,100%)}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:20px}
+.modal-head h3{margin:0;font-size:17px;color:#fff}
+.modal-close{border:1px solid var(--line);background:rgba(255,255,255,.06);color:#fff;border-radius:50%;width:32px;height:32px}
+.modal-card img{width:100%;border-radius:12px;display:block;background:#fff}
+.modal-card img+img{margin-top:14px}
+.modal-caption{margin-top:14px;font-size:13.5px;line-height:1.7;color:#cfc9de}
+.modal-caption b{color:#fff}
+.modal-quotes{margin-top:16px;display:grid;gap:10px}
+.modal-quotes blockquote{margin:0;padding:12px 16px;border-left:3px solid var(--gold);background:rgba(255,255,255,.05);border-radius:0 10px 10px 0;font-size:13px;line-height:1.7;color:#d9d3e8}
+.modal-quotes cite{display:block;margin-top:6px;font-style:normal;font-size:11.5px;color:var(--gold);font-weight:700}
+.infobox{width:min(340px,100%);margin:0 auto;border-radius:14px;overflow:hidden;border:1px solid rgba(216,173,98,.45)}
+.infobox-name{background:linear-gradient(145deg,rgba(216,173,98,.3),rgba(216,173,98,.12));padding:12px 14px;text-align:center;font-weight:800;font-size:15px}
+.infobox-name small{display:block;margin-top:2px;font-size:11px;font-weight:600;color:#f3ddad}
+.infobox-photo img{max-height:340px;object-fit:cover}
+.infobox-row{display:grid;grid-template-columns:84px 1fr;border-top:1px solid var(--line)}
+.infobox-row dt{margin:0;padding:9px 10px;background:rgba(255,255,255,.05);font-size:11px;font-weight:800;color:#a79fbd;display:flex;align-items:center}
+.infobox-row dd{margin:0;padding:9px 12px;font-size:12.5px;line-height:1.55;color:#e8e3f3}
+.toc-list{display:grid;gap:8px;margin-top:14px}
+.toc-list button{text-align:left;background:rgba(255,255,255,.04);border:1px solid var(--line);color:#e9e4f5;border-radius:10px;padding:13px 16px;font-size:13.5px}
+.toc-list button:hover,.toc-list button.current{border-color:var(--gold);background:rgba(216,173,98,.12)}
+.toc-list span{color:var(--gold);font-size:11px;margin-right:10px;font-weight:800}
+
+@media (max-width:980px){.split{grid-template-columns:1fr}.timeline,.compare{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <img class="logo" src="https://i.imgur.com/Mo4ogKc.png" alt="민족사관고등학교 로고">
+    <div class="names"><span>민족사관고등학교</span><span class="div"></span><span class="subject">한국사</span></div>
+  </div>
+  <div class="top-right">
+    <button class="icon-btn" id="prevBtn" type="button" aria-label="이전">‹</button>
+    <span class="slide-counter" id="slideCounter">1 / 1</span>
+    <button class="icon-btn" id="nextBtn" type="button" aria-label="다음">›</button>
+    <button class="text-btn" id="teacherToggle" type="button">교사 모드</button>
+    <button class="text-btn" id="tocButton" type="button">전체 목차</button>
+    <button class="icon-btn" id="playButton" type="button" title="자동 재생">▶</button>
+    <button class="icon-btn" id="fullButton" type="button" title="전체 보기">⛶</button>
+  </div>
+</header>
+
+<main id="stageRoot">
+
+<section class="slide unit" data-sid="s0" data-title="5단원 독립 국가 건설 노력">
+  <div class="stage">
+    <p class="eyebrow">5</p>
+    <h2 class="heading">독립 국가 건설 노력</h2>
+    <p class="lead">1930년대 이후 한국인들은 <em>만주와 중국 관내에서 적극적인 항일 무장 투쟁</em> 전개. 1940년대에는 독립에 대한 희망이 높아지며 <em>독립 이후 국가의 모습</em> 구상.</p>
+    <ol class="points">
+      <li class="point"><span class="num">17</span><div><h3>만주에서 항일 연합 전선을 만들어 투쟁하다</h3><p>만주 사변(1931), 한·중 연합 작전, 사회주의 세력의 항일 유격 투쟁</p></div></li>
+      <li class="point"><span class="num">18</span><div><h3>중국 관내에서 독립운동을 전개하다</h3><p>한인 애국단의 의열 투쟁, 민족 혁명당 결성, 조선 의용대 창설</p></div></li>
+      <li class="point"><span class="num">19</span><div><h3>건국을 준비하다</h3><p>임시 정부 재정비, 한국광복군 창설, 국내외 건국 강령, 국제 사회의 한국 독립 약속</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s1" data-title="17-1 한·중 연합 작전">
+  <div class="stage">
+      <p class="eyebrow">17</p>
+      <h2 class="heading">만주에서 항일 연합 전선을 만들어 투쟁하다</h2>
+      <div class="section-tag"><b>1</b> 한·중 연합 작전</div>
+      <p class="lead">만주 사변(1931)과 만주국 수립으로 만주 일대가 사실상 일제의 점령 지역으로 변화. 중국 내 항일 감정이 높아지며 <em>한국 독립군과 조선 혁명군이 각각 중국인 부대와 연합</em>하여 항일 전쟁 전개.</p>
+      <div class="split"><div class="cat-wrap">
+        <div class="cat">
+          <div class="cat-label"><b>한·중 연합 작전</b></div>
+          <div class="cat-rows">
+            <div class="cat-row">
+              <button class="cat-name" type="button" data-popup="jichungcheon">한국 독립군<small>(지청천)</small></button>
+              <div class="cat-body">
+                <p class="desc">중국 호로군과 연합 : 쌍성보·사도하자·대전자령 전투.</p>
+                <div class="chips"><button class="chip" type="button" data-popup="agreement1">한국 독립군·중국군의 합의(1931)</button></div>
+              </div>
+            </div>
+            <div class="cat-row">
+              <button class="cat-name" type="button" data-popup="yangsebong">조선 혁명군<small>(양세봉)</small></button>
+              <div class="cat-body">
+                <p class="desc">중국 의용군과 연합 : 영릉가·흥경성 전투.</p>
+                <div class="chips"><button class="chip" type="button" data-popup="agreement2">조선 혁명군·중국군의 합의(1932)</button><button class="chip" type="button" data-popup="yangsebong-yt">양세봉 영상</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="points">
+          <li class="point"><span class="num">→</span><div>
+            <h3>연합 작전의 위축</h3>
+            <p>일제의 만주 장악과 거센 공격으로 중국군의 활동 위축, 독립군의 활동 곤란. 지청천 등 일부는 관내로 이동하여 임시 정부에 합류, 한국광복군 창설에 기여. 조선 혁명군은 양세봉 전사(1934) 이후 세력 약화, 1930년대 후반까지 항일 투쟁 전개, 일부는 동북 항일 연군에 가담.</p>
+          </div></li>
+        </ol></div>
+      <aside class="aside">
+      <div class="fig" role="button" tabindex="0" data-popup="manchuria-map"><img src="assets/tb-manchuria-map.png" alt="1930년대 만주 지역 독립군의 활동"><figcaption><b>1930년대 만주 지역 독립군의 활동</b> (눌러서 크게 보기)</figcaption></div>
+    </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s2" data-title="17-2 사회주의 세력의 항일 유격 투쟁">
+  <div class="stage">
+    <div>
+      <p class="eyebrow">17</p><h2 class="heading">만주에서 항일 연합 전선을 만들어 투쟁하다</h2>
+      <div class="section-tag"><b>2</b> 사회주의 세력의 항일 유격 투쟁</div>
+      <p class="lead">만주 사변(1931) 이후 <em>중국 공산당이 항일 무장 투쟁 주도</em>. 만주의 한인 사회주의 세력도 항일 유격대를 조직하여 중국 사회주의 세력과 연합.</p>
+      <div class="split"><ol class="points">
+        <li class="point"><span class="num">1</span><div>
+          <h3>동북 인민 혁명군(1933) → 동북 항일 연군(1936)</h3>
+          <p>중국 공산당이 각지의 항일 유격대를 규합하여 동북 인민 혁명군 조직. 모든 반일 세력을 받아들인다는 원칙 아래 동북 항일 연군으로 확대·개편.</p>
+        </div></li>
+        <li class="point"><span class="num">2</span><div>
+          <h3>조국 광복회(1936)와 보천보 전투(1937)</h3>
+          <p>동북 항일 연군 내 한인 유격대가 사회주의 세력과 민족주의 세력을 포함하여 조국 광복회 결성. 함경남도 보천보 등에서 경찰 주재소와 면사무소 등 일제의 통치 기구 파괴.</p>
+          <div class="chips"><button class="chip" type="button" data-popup="reorg">동북 항일 연군</button><button class="chip" type="button" data-popup="bocheonbo-video">보천보 전투 영상</button></div>
+        </div></li>
+        <li class="point"><span class="num">3</span><div>
+          <h3>1930년대 후반, 소련으로 이동</h3>
+          <p>일본군의 대공세로 동북 항일 연군이 큰 타격을 입고 남은 부대 대부분 소련 연해주로 이동. 일부 한인 유격대는 광복 이후 소련군을 따라 입국하여 북한 정권 수립에 핵심 역할 수행.</p>
+        </div></li>
+      </ol><aside class="aside">
+        <div class="fig sm" role="button" tabindex="0" data-popup="bocheonbo-map"><img src="assets/s03-map.png" alt="보천보 전투 위치"><figcaption><b>보천보 전투 위치(1937)</b></figcaption></div>
+        <div class="fig sm" role="button" tabindex="0" data-popup="bocheonbo-news"><img src="assets/s03-bocheonbo-news.png" alt="보천보 전투를 보도한 동아일보"><figcaption><b>동아일보 보도(1937. 6. 5.)</b></figcaption></div>
+      </aside></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s3" data-title="18-1 한인 애국단의 활동">
+  <div class="stage">
+      <p class="eyebrow">18</p>
+      <h2 class="heading">중국 관내에서 독립운동을 전개하다</h2>
+      <div class="section-tag"><b>1</b> 한인 애국단의 활동</div>
+      <p class="lead">국민 대표회의 결렬 이후 재정난 등으로 임시 정부의 활동 위축. <em>만보산 사건(1931)</em>으로 중국인의 반한 감정이 커져 독립운동 곤란. 김구가 임시 정부에 활기를 불어넣고자 <em>한인 애국단 조직(1931)</em>.</p>
+      <div class="split wide"><div class="cat-wrap">
+        <div class="cat">
+          <div class="cat-label"><b>한인 애국단(1931)</b></div>
+          <div class="cat-rows">
+            <div class="cat-row">
+              <button class="cat-name" type="button" data-popup="lee-bongchang">이봉창 의거<small>(1932. 1.)</small></button>
+              <div class="cat-body">
+                <p class="desc">일본 도쿄에서 일왕이 탄 마차에 수류탄 투척. 일왕 처단에는 실패했으나 일제에 큰 충격. 중국 신문의 아쉬움 섞인 보도에 반발한 일본인이 중국인을 습격하자, 일제가 이를 빌미로 상하이 침략(상하이 사변).</p>
+                <div class="chips"><button class="chip" type="button" data-popup="lee-video">영상 보기</button></div>
+              </div>
+            </div>
+            <div class="cat-row">
+              <button class="cat-name" type="button" data-popup="yun-bonggil">윤봉길 의거<small>(1932. 4.)</small></button>
+              <div class="cat-body">
+                <p class="desc">상하이 훙커우 공원에서 열린 일왕 생일 및 상하이 사변 승전 기념식에 폭탄 투척. 일본군 장교와 여러 고위 관리 처단.</p>
+                <div class="chips"><button class="chip" type="button" data-popup="yun-video">영상 보기</button><button class="chip" type="button" data-popup="hanin-aegukdan">백범일지</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="points">
+          <li class="point"><span class="num">→</span><div>
+          <h3>결과 — 한·중 항일 연대의 계기</h3>
+          <p>중국인의 반한 감정 크게 완화. 중국 국민당 정부의 대한민국 임시 정부 본격 지원.</p>
+        </div></li>
+        </ol></div><aside class="aside">
+      <div class="fig" role="button" tabindex="0" data-popup="yun-video"><div class="vthumb"><img src="https://img.youtube.com/vi/-wdNnBQpgJ4/hqdefault.jpg" alt="윤봉길 의거 영상"><span class="play">▶</span></div><figcaption><b>윤봉길 의거 영상</b> (눌러서 재생)</figcaption></div>
+    </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s4" data-title="18-2 민족 혁명당과 조선 의용대">
+  <div class="stage">
+      <p class="eyebrow">18</p><h2 class="heading">중국 관내에서 독립운동을 전개하다</h2>
+      <div class="section-tag"><b>2</b> 민족 혁명당과 조선 의용대</div>
+      <p class="lead">만주 사변(1931) 이후 일제의 탄압으로 만주의 독립운동 단체 대부분이 중국 관내로 이동. 노선의 차이를 넘어 <em>여러 독립운동 단체의 통합</em> 노력.</p>
+      <div class="split"><ol class="points">
+        <li class="point"><span class="num">1</span><div>
+          <h3>민족 혁명당 결성 (1935)</h3>
+          <div class="duo"><div class="duo-item">난징에서 민족 혁명당 <small>(의열단 + 조선 혁명당 + 한국 독립당 등)</small> 결성</div><span class="duo-arrow">↔</span><div class="duo-item">임정 고수 김구 <small>‘한국 국민당’(1935)</small> 결성</div></div>
+          <p>김원봉의 의열단 계열이 당을 주도하자 조소앙·지청천 등 민족주의 계열 이탈.</p>
+        </div></li>
+        <li class="point"><span class="num">2</span><div>
+          <div class="cat eq">
+            <div class="cat-label"><b>중일 전쟁 이후(1937)</b></div>
+            <div class="cat-rows">
+              <i class="br-v"></i><i class="br-h"></i><span class="br-t lnk" data-popup="tongsin">김구·김원봉 통합 시도 실패(1939)</span>
+              <div class="cat-row">
+                <div class="cat-name">한국 국민당 + 민족주의 세력</div>
+                <div class="cat-body"><p class="desc">한국 광복 운동 단체 연합회 결성.</p></div>
+              </div>
+              <div class="cat-row">
+                <div class="cat-name">조선 민족 혁명당 + 사회주의 세력</div>
+                <div class="cat-body"><p class="desc">조선 민족 전선 연맹 결성.</p></div>
+              </div>
+            </div>
+          </div>
+        </div></li>
+        <li class="point"><span class="num">3</span><div>
+          <h3>조선 의용대 창설 (1938) → 화북 이동</h3>
+          <p>조선 민족 전선 연맹이 중국 국민당 정부의 지원으로 조선 의용대 창설. 중국 관내 최초의 한인 무장 부대로 정보 수집·포로 심문 등 후방 공작 전개. 다수 대원은 적극적인 항일 투쟁을 위해 화북으로 이동하여 ‘조선 의용대 화북 지대’ 결성(1941). 이동하지 않은 병력 → 김원봉의 지휘 아래 한국광복군에 합류(1942).</p>
+          <div class="chips"><button class="chip" type="button" data-popup="uiyongdae-map">이동 경로 지도</button><button class="chip" type="button" data-popup="uiyongdae-yt">조선 의용대 영상</button><button class="chip" type="button" data-popup="uiyongdae-hwabuk-yt">조선 의용대 화북 지대 영상</button></div>
+        </div></li>
+      </ol><aside class="aside">
+      <div class="fig" role="button" tabindex="0" data-popup="uiyongdae-map"><img src="assets/tb-uiyongdae-map.png" alt="조선 의용대와 조선 의용군의 이동"><figcaption><b>조선 의용대와 조선 의용군의 이동</b></figcaption></div>
+      <div class="fig" role="button" tabindex="0" data-popup="uiyongdae-photo"><img src="assets/tb-uiyongdae-photo.png" alt="조선 의용대 창설 기념사진"><figcaption><b>조선 의용대 창설 기념사진(1938)</b></figcaption></div>
+    </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s5" data-title="19-1 임시 정부의 재정비와 한국광복군">
+  <div class="stage">
+      <p class="eyebrow">19</p>
+      <h2 class="heading">건국을 준비하다</h2>
+      <div class="section-tag"><b>1</b> 대한민국 임시 정부의 재정비와 한국광복군</div>
+      <p class="lead">윤봉길 의거 이후 일제의 탄압 심화로 임시 정부가 상하이를 떠나 <em>항저우 → 창사 → 광저우 → 충칭 이동</em>. 정당·정부·군대 체제 정비.</p>
+      <div class="split"><ol class="points">
+        <li class="point"><span class="num">1</span><div>
+          <h3>한국 독립당(1940. 5.) · 한국광복군(1940. 9.)</h3>
+          <p>김구·지청천·조소앙 등이 한국 독립당 결성. 충칭에서 중국 국민당 정부의 지원으로 한국광복군 창설. ‘<span class="lnk" data-popup="junseung">한국 광복군 행동 준승 9개항</span>’ 요구 : 중국군의 간섭(~1944). 주석 중심의 단일 지도 체제 마련, 김구를 주석으로 선출. 정당(한국 독립당)·정부(임시 정부)·군대(한국광복군) 체제 정비.</p>
+          <div class="chips"><button class="chip" type="button" data-popup="imjeong-diagram">이동 경로·체제 변화</button><button class="chip" type="button" data-popup="kwangbokgun-photo">창설식 사진</button></div>
+        </div></li>
+        <li class="point"><span class="num">2</span><div>
+          <h3>좌우 통일 전선 (1942)</h3>
+          <p>김원봉이 이끄는 조선 민족 혁명당의 임시 정부 참여, 조선 의용대 병력 일부의 한국광복군 합류. 좌우익 통일 전선의 모습 구비.</p>
+          <div class="chips"><button class="chip" type="button" data-popup="uijeongwon">제34차 임시 의정원 기념사진</button></div>
+        </div></li>
+        <li class="point"><span class="num">3</span><div>
+          <h3>한국광복군의 활동</h3>
+          <p>1941년 대일 선전 포고 후 연합군의 일원으로 인도·미얀마 전선 등에 파견되어 선전 활동과 포로 심문 담당. 1945년 5월부터 미국 전략 정보국(OSS)과 협력하여 특수 훈련, 국내 진공 작전(국내 정진군 편성) 계획. 일제의 항복으로 작전 실행 불발.</p>
+          <div class="chips"><button class="chip" type="button" data-popup="declaration">대일 선전 성명서</button></div>
+        </div></li>
+      </ol><aside class="aside">
+      <div class="fig" role="button" tabindex="0" data-popup="imjeong-diagram"><img src="assets/tb-imjeong-diagram.png" alt="대한민국 임시 정부의 이동과 체제 정비"><figcaption><b>대한민국 임시 정부의 이동과 체제 정비</b></figcaption></div>
+      <div class="fig" role="button" tabindex="0" data-popup="kwangbokgun-photo"><img src="assets/tb-kwangbokgun-photo.png" alt="한국광복군 총사령부 창설식"><figcaption><b>한국광복군 총사령부 창설식(1940)</b></figcaption></div>
+    </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s5b" data-title="19-2 임시 정부와 조선 독립 동맹의 활동">
+  <div class="stage">
+    <p class="eyebrow">19</p>
+    <h2 class="heading">건국을 준비하다</h2>
+    <div class="section-tag"><b>2</b> 임시 정부와 조선 독립 동맹의 활동</div>
+    <div class="dg dg-page"><div class="dg-route"><span class="dg-label">임정의 이동</span><b class="hl">상하이(1919~1932)</b><i>›</i>항저우<i>›</i><b class="hl">난징(1935~1937)</b><i>›</i>창사<i>›</i>광저우<i>›</i>류저우<i>›</i>치장<i>›</i><b class="hl">충칭(1940~1945)</b></div><svg class="dg-lines" viewBox="0 0 1140 790" width="1140" height="790" aria-hidden="true"><defs><marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker><marker id="at" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#73b8ae"/></marker><marker id="ab" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="an" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker></defs><line x1="758" y1="82" x2="742" y2="82" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#an)"/><line x1="550" y1="102" x2="550" y2="148" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#ag)"/><line x1="770" y1="176" x2="654" y2="176" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#ag)"/><line x1="262" y1="176" x2="348" y2="176" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#ag)" marker-start="url(#ag)"/><line x1="40" y1="204" x2="40" y2="328" stroke="#d8ad62" stroke-width="2.6" stroke-dasharray="7 6" marker-end="url(#ag)"/><line x1="450" y1="246" x2="240" y2="328" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#ag)"/><line x1="600" y1="246" x2="760" y2="328" stroke="#73b8ae" stroke-width="2.6" marker-end="url(#at)"/><line x1="312" y1="356" x2="688" y2="356" stroke="#ff8f7a" stroke-width="2.6" stroke-dasharray="7 6" marker-end="url(#ar)" marker-start="url(#ar)"/><line x1="155" y1="384" x2="155" y2="438" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#ab)"/><line x1="155" y1="486" x2="155" y2="508" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#ab)"/><line x1="155" y1="556" x2="155" y2="576" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#ab)"/><line x1="860" y1="384" x2="860" y2="438" stroke="#73b8ae" stroke-width="2.6" marker-end="url(#at)"/><line x1="860" y1="486" x2="860" y2="508" stroke="#73b8ae" stroke-width="2.6" marker-end="url(#at)"/><line x1="860" y1="556" x2="860" y2="578" stroke="#73b8ae" stroke-width="2.6" marker-end="url(#at)"/><line x1="860" y1="624" x2="860" y2="648" stroke="#73b8ae" stroke-width="2.6" marker-end="url(#at)"/><line x1="860" y1="706" x2="860" y2="722" stroke="#73b8ae" stroke-width="2.6" marker-end="url(#at)"/><path d="M560,204 V532 H314" fill="none" stroke="#a9b4c1" stroke-width="2.6" stroke-dasharray="7 6" stroke-linejoin="round" marker-end="url(#an)"/><path d="M688,462 H620 V682 H314" fill="none" stroke="#a9b4c1" stroke-width="2.6" stroke-dasharray="7 6" stroke-linejoin="round" marker-end="url(#an)"/></svg><div class="dg-n n" style="left:760px;top:62px;width:380px;height:40px">중국 국민당 정부의 적극 후원</div><div class="dg-n n" style="left:360px;top:62px;width:380px;height:40px">관내 민족주의자 + 사회주의자 연대 추진</div><div class="dg-n g" style="left:0px;top:150px;width:260px;height:52px">한국 국민당(1935, 김구)</div><div class="dg-n g strong" style="left:350px;top:150px;width:300px;height:52px">민족 혁명당(1935, 김원봉)</div><div class="dg-group" style="left:770px;top:118px;width:370px;height:176px"><div class="dg-row hot" style="top:14px"><span>의열단</span><b>김원봉</b></div><div class="dg-row " style="top:52px"><span>한국 독립당</span><b>조소앙</b></div><div class="dg-row " style="top:90px"><span>조선 혁명당</span><b>지청천</b></div><div class="dg-row " style="top:128px"><span>기타 민족운동 단체</span><b></b></div></div><span class="dg-p g" style="left:400px;top:228px">중국 관내 최대 규모의 민족 운동 단체</span><span class="dg-p n" style="left:110px;top:262px">중일 전쟁(1937)</span><span class="dg-p g" style="left:185px;top:306px">민족주의 계열 이탈</span><span class="dg-p t" style="left:865px;top:310px">사회주의 계열 연합</span><div class="dg-n g" style="left:0px;top:330px;width:310px;height:52px">한국 광복 운동 단체 연합(1937)</div><div class="dg-n t" style="left:690px;top:330px;width:340px;height:52px">조선 민족 전선 연맹(1937)</div><span class="dg-p r" style="left:440px;top:334px">김구·김원봉 통합 시도 실패</span><span class="dg-p n" style="left:437px;top:510px">일부 임시 정부 합류(1942)</span><div class="dg-n b" style="left:0px;top:440px;width:310px;height:44px">한국 독립당(1940)</div><div class="dg-n b" style="left:0px;top:510px;width:310px;height:44px">임시 정부 충칭 정착</div><div class="dg-n n" style="left:0px;top:578px;width:310px;height:34px">김구 임정 주석 취임(1940)</div><div class="dg-n n" style="left:0px;top:618px;width:310px;height:34px">항일 운동 주도</div><div class="dg-n b" style="left:0px;top:660px;width:310px;height:44px">한국 광복군 결성(1940)</div><div class="dg-note" style="left:0;top:716px;width:520px">중국 정부의 <span class="lnk" data-popup="junseung">한국 광복군 행동 준승 9개항</span> 강요</div><div class="dg-n v" style="left:690px;top:440px;width:340px;height:44px">군사 조직 : 조선 의용대 조직(1938)</div><div class="dg-n n" style="left:690px;top:510px;width:340px;height:44px">화북 지방 이동 : 중국 공산당과 활동</div><div class="dg-n v" style="left:690px;top:580px;width:340px;height:44px">조선 의용대 화북 지대 결성(1941)</div><div class="dg-n t" style="left:690px;top:650px;width:340px;height:56px">조선 독립 동맹(1942) : 김두봉 주석<small>중국 공산당 내 한인 사회주의자</small></div><div class="dg-n v" style="left:690px;top:724px;width:340px;height:44px">조선 의용군 결성(1942, 옌안) · 팔로군과 항일 연대</div><span class="dg-p n" style="left:470px;top:660px">일부 한국 광복군 편입(1942)</span></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s6" data-title="19-3 국내외 건국 준비 활동">
+  <div class="stage">
+    <p class="eyebrow">19</p>
+    <h2 class="heading">건국을 준비하다</h2>
+    <div class="section-tag"><b>3</b> 국내외 건국 준비 활동</div>
+    <p class="lead">일제의 패망 기대가 커지며 각 세력이 통일 전선 형성에 노력, <em>독립 이후 세울 국가의 이념과 체계</em> 구상.</p>
+    <div class="sec">
+      <h3>건국 강령 발표와 국내외 민족 운동 세력 연대</h3>
+      <p>1930년대 후반 세계적 연대(합작) 분위기 : 미국 + 소련, 제2차 국공 합작 → 국내외 항일 세력 연대 시도.</p>
+      <div class="tri">
+        <svg class="tri-lines" viewBox="0 0 1000 456" width="1000" height="456" aria-hidden="true">
+          <defs>
+            <marker id="trGold" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker>
+            <marker id="trTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#73b8ae"/></marker>
+          </defs>
+          <line x1="392" y1="190" x2="176" y2="256" stroke="#d8ad62" stroke-width="3" marker-end="url(#trGold)"/>
+          <line x1="824" y1="256" x2="608" y2="190" stroke="#73b8ae" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#trTeal)"/>
+          <line x1="678" y1="358" x2="324" y2="358" stroke="#73b8ae" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#trTeal)"/>
+        </svg>
+        <div class="cmp tri-node t-gov"><small>1941 · 충칭</small><h4>대한민국 임시 정부 건국 강령</h4><span class="who">대한민국 임시 정부 — 조소앙의 <span class="lnk" data-popup="samgyun">삼균주의</span> 기초</span>
+        <ul><li>정치·경제·교육의 균등, 민주 공화국 건설 지향</li><li>보통 선거 실시, 토지와 주요 산업의 국유화</li><li>무상 교육 실시, 노동권 보장</li></ul></div>
+        <div class="cmp tri-node t-ind"><small>1942 · 화북</small><h4>조선 독립 동맹의 건국 강령</h4><span class="who">김두봉 주석 — 군사 조직: <b class="hl">조선 의용군(1942)</b></span>
+        <ul><li>보통 선거에 의한 민주 공화국 수립</li><li>남녀평등권 확립, 대기업 국유화</li><li>토지 분배, 의무 교육 시행</li></ul></div>
+        <div class="cmp tri-node t-fdn"><small>1944 · 국내</small><h4>조선 건국 동맹의 건국 강령</h4><span class="who"><span class="lnk" data-popup="yeo-unhyeong">여운형</span> 주도 — 비밀 결사</span>
+        <ul><li>각 세력의 대동단결, 일본 제국주의 세력 축출</li><li>연합국과 협력하여 대일 연합 전선 형성</li><li>민주주의 원칙, 노동 대중의 해방 중시</li></ul></div>
+        <span class="tri-pill p1">1944 서신 발신 → 교류 추진</span>
+        <span class="tri-pill p2">연계 모색</span>
+        <span class="tri-pill p3">연계 모색</span>
+      </div>
+      <div class="commons"><b>공통점</b> — 세 건국 강령 모두 <b>보통 선거에 의한 민주 공화국</b> 지향. 재미 한족 연합 위원회(1941)는 임시 정부 지원과 한인 국방 경위대 조직, 이승만 중심의 외교 위원회는 미국에 임시 정부 승인 요청(수용되지 않음).</div>
+      <div class="chips" style="margin-top:14px"><button class="chip" type="button" data-popup="unity-map">광복 직전 국내외 독립운동 단체</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s7" data-title="19-4 국제 사회의 한국 독립 약속">
+  <div class="stage">
+    <p class="eyebrow">19</p><h2 class="heading">건국을 준비하다</h2>
+      <div class="section-tag"><b>4</b> 국제 사회의 한국 독립 약속</div>
+    <p class="lead">제2차 세계 대전에서 승기를 잡은 연합국이 <em>전쟁 수행과 전후 처리 문제</em>를 논의하며 여러 차례 회담 개최, 한국의 독립 문제 논의.</p>
+    <div class="tlv">
+      <div class="tlv-row">
+        <div class="tlv-card" role="button" tabindex="0" data-popup="cairo">
+          <div class="tlv-head">카이로 회담<span>(1943. 11.)</span></div>
+          <img src="assets/tb-cairo-photo.png" alt="카이로 회담">
+        </div>
+        <div class="tlv-rail"><div class="tlv-v br-v"></div><div class="tlv-h br-h"></div><i></i></div>
+        <div class="tlv-text"><p>미국·영국·중국 대표 참석. 한국의 독립 문제 최초 논의, ‘적당한 시기에 한국을 자유롭고 독립하게’ 할 것 명시(카이로 선언).</p></div>
+      </div>
+      <div class="tlv-row">
+        <div class="tlv-card" role="button" tabindex="0" data-popup="yalta">
+          <div class="tlv-head">얄타 회담<span>(1945. 2.)</span></div>
+          <img src="assets/tb-yalta-photo.png" alt="얄타 회담">
+        </div>
+        <div class="tlv-rail"><div class="tlv-v br-v"></div><div class="tlv-h br-h"></div><i></i></div>
+        <div class="tlv-text"><p>미국·영국·소련 대표 참석. 독일 분할 점령, 소련의 대일전 참전 비밀 결의, 자유 선거에 의한 정부 수립 등의 원칙 마련.</p></div>
+      </div>
+      <div class="tlv-row">
+        <div class="tlv-card" role="button" tabindex="0" data-popup="potsdam">
+          <div class="tlv-head">포츠담 회담<span>(1945. 7.)</span></div>
+          <img src="assets/tb-potsdam-photo.png" alt="포츠담 회담">
+        </div>
+        <div class="tlv-rail"><div class="tlv-v br-v"></div><div class="tlv-h br-h"></div><i></i></div>
+        <div class="tlv-text"><p>미국·영국·중국 대표 참석. 일본에 무조건 항복 요구, 카이로 선언의 한국 독립 재확인(포츠담 선언).</p></div>
+      </div>
+      <div class="tlv-row last">
+        <div class="tlv-goal"><b>1945. 8. 15.</b><span>일본의 무조건 항복 · 광복</span></div>
+        <div class="tlv-rail"><div class="tlv-v br-v"></div><div class="tlv-h br-h"></div><i></i><b class="tlv-tip"></b></div>
+        <div class="tlv-text"><p>일본이 포츠담 선언을 거부하자 미국이 히로시마·나가사키에 원자 폭탄 투하, 소련의 대일전 참전(1945. 8. 9.). 일본의 무조건 항복으로 제2차 세계 대전 종결, 우리 민족 광복.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<div class="fig-bar"><span>빈 곳을 끌어 여러 개 선택(Shift+클릭으로 추가) → 끌거나 방향키(Shift는 10칸)로 함께 이동 / 분홍 점선 = 정렬 기준선 / 사진 모서리: 크기 / 글자: 더블클릭 후 마우스로 일부 글자만 드래그 선택하면 색·굵기·크기가 그 글자에만 적용 / Delete: 삭제 / 글 한 개 선택 시 오른쪽 금색 막대: 가로 폭 / 도표 버튼: 선택 후 오른쪽 아래 금색 네모로 크기(Shift=비율 유지), Alt+방향키로 미세 조절 / 도표 화살표: 클릭 후 끝점 ●로 길이·각도(Shift=15° 단위), 선을 끌어 이동, 방향키 미세 이동, Delete 삭제 / 타임라인 선·점선: 선택 후 금색 네모로 길이, 붉은 원(회전 핸들)으로 각도(Shift=15° 단위) 조절</span><span id="txtMode" class="mode"></span><label class="tx">글자색 <input type="color" id="txtColor" value="#ffffff"></label><select id="txtWeight" title="글자 굵기"><option value="">굵기</option><option value="400">보통</option><option value="600">굵게</option><option value="800">아주 굵게</option></select><label class="tx">크기 <button type="button" id="txtSmaller" title="작게 (Shift: 4px)">A−</button><input type="number" id="txtSize" min="8" max="120" step="1" title="글자 크기(px)"><button type="button" id="txtBigger" title="크게 (Shift: 4px)">A＋</button></label><button type="button" id="txtClear">서식 지우기</button><button type="button" id="figDelete" class="del">선택 삭제</button><button type="button" id="figSave">저장</button><button type="button" id="figReset">초기화</button></div>
+
+<div class="progress"><i id="progressBar"></i></div>
+
+<div class="toc-overlay" id="tocOverlay">
+  <div class="toc-card">
+    <div class="modal-head"><h3>전체 목차</h3><button class="modal-close" id="tocClose" type="button" aria-label="닫기">✕</button></div>
+    <div class="toc-list" id="tocList"></div>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <div class="modal-head"><h3 id="modalTitle"></h3><button class="modal-close" id="modalClose" type="button" aria-label="닫기">✕</button></div>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const IMG = (src, alt) => `<img src="${src}" alt="${alt}">`;
+// YouTube popup body: inline player when served over http(s); link + thumbnail when opened as file:// (YouTube blocks embeds there)
+function ytHtml(id, alt){
+  const url='https://www.youtube.com/watch?v='+id;
+  if(location.protocol==='file:'){
+    return '<a href="'+url+'" target="_blank" rel="noopener" class="vwrap" style="display:block"><img src="https://img.youtube.com/vi/'+id+'/hqdefault.jpg" alt="'+alt+'" style="width:100%;height:100%;object-fit:cover"><span class="play" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(0,0,0,.6);border:2px solid #fff;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;padding-left:4px">▶</span></a>'
+      +'<p class="modal-caption">파일을 직접 열면(주소가 file://로 시작) YouTube가 페이지 안 재생을 막습니다. 위 그림을 누르면 YouTube에서 재생됩니다. 페이지 안에서 바로 재생하려면 start.bat으로 실행하세요.</p>';
+  }
+  return '<div class="vwrap"><iframe src="https://www.youtube.com/embed/'+id+'" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><p class="modal-caption"><a href="'+url+'" target="_blank" rel="noopener" style="color:var(--gold)">YouTube에서 보기 ↗</a></p>';
+}
+const popups = {
+  'manchuria-map': { title: '1930년대 만주 지역 독립군의 활동', html: IMG('assets/tb-manchuria-map.png','만주 지역 독립군의 활동') + `<p class="modal-caption">① 쌍성보 전투(1932) ② 사도하자 전투(1933) ③ 대전자령 전투(1933) — 한국 독립군(총사령관 지청천)<br>④ 영릉가 전투(1932) ⑤ 흥경성 전투(1933) — 조선 혁명군(총사령관 양세봉)<br>⑥ 보천보 전투(1937) — 동북 항일 연군</p>` },
+  agreement1: { title: '한국 독립군과 중국군의 합의 (1931)', html: `<div class="modal-quotes"><blockquote>한중 양군은 최악의 상황이 오는 경우에도 장기간 항전할 것을 맹세한다. 중동 철도를 경계선으로 서부 전선은 중국이 맡고, 동부 전선은 한국이 맡는다. 전시의 후방 전투 훈련은 한국 장교가 맡고, 한국군에 필요한 군수품 등은 중국군이 공급한다.<cite>한국광복군 사령부, 『광복 2』</cite></blockquote></div>` },
+  agreement2: { title: '조선 혁명군과 중국군의 합의 (1932)', html: `<div class="modal-quotes"><blockquote>중국과 한국 양국의 군민은 한마음 한뜻으로 일제에 대항하여 싸우고, 인력과 물자는 서로 나누어 쓰며, 합작의 원칙 아래 국적과 관계없이 그 능력에 따라 항일 공작을 나누어 맡는다.<cite>한국광복군 사령부, 『광복 4』</cite></blockquote></div>` },
+  jichungcheon: { title: '지청천', html: `<div class="infobox"><div class="infobox-photo"><img src="assets/jichungcheon.jpg" alt="지청천" onerror="this.closest('.infobox-photo').style.display='none'"></div>
+      <div class="infobox-name">지청천 <small>池靑天 · 한국 독립군 총사령관</small></div><dl style="margin:0">
+        <div class="infobox-row"><dt>출생·사망</dt><dd>1888 ~ 1957</dd></div>
+        <div class="infobox-row"><dt>주요 경력</dt><dd>독립군 총사령관 · 광복군 총사령관 · 한중연합군 총참모장</dd></div>
+        <div class="infobox-row"><dt>상훈</dt><dd>1962년 건국훈장 대통령장 추서</dd></div></dl></div>` },
+  yangsebong: { title: '양세봉', html: `<div class="infobox"><div class="infobox-photo"><img src="assets/yangsebong.jpg" alt="양세봉" onerror="this.closest('.infobox-photo').style.display='none'"></div>
+      <div class="infobox-name">양세봉 <small>梁世奉 · 조선 혁명군 총사령관</small></div><dl style="margin:0">
+        <div class="infobox-row"><dt>출생·사망</dt><dd>1896 ~ 1934</dd></div>
+        <div class="infobox-row"><dt>주요 경력</dt><dd>천마산대 → 대한통의부 → 참의부 → 정의부 → 국민부 → 조선 혁명군 총사령관</dd></div>
+        <div class="infobox-row"><dt>상훈</dt><dd>1962년 건국훈장 독립장 추서</dd></div></dl></div>` },
+  reorg: { title: '동북 항일 연군', html: `<p class="modal-caption" style="margin-top:0">1935년 코민테른 대회에서 통일 인민 전선 결성 결의. 이에 따라 중국 공산당이 모든 항일 운동을 정리하고 통일 전선을 결성하기로 하여, 만주 각지의 동북 인민 혁명군을 재편성한 <b>동북 항일 연군</b> 조직.</p>` },
+  'bocheonbo-map': { title: '보천보 전투 위치 (1937)', html: IMG('assets/s03-map.png','보천보 전투 위치') + `<p class="modal-caption">함경남도 보천보의 일본 관공서 습격 사건.</p>` },
+  'bocheonbo-news': { title: '동아일보 보도 (1937. 6. 5.)', html: IMG('assets/s03-bocheonbo-news.png','동아일보 1937년 6월 5일자 보도') + `<p class="modal-caption">보천보 전투를 대대적으로 보도한 동아일보 기사. 국내에도 널리 알려지는 계기.</p>` },
+  'lee-bongchang': { title: '이봉창과 한인 애국단 선서문', html: IMG('assets/tb-lee-bongchang.png','이봉창과 선서문') + `<div class="modal-quotes"><blockquote>나는 적성(참된 정성)으로써 조국의 독립과 자유를 회복하기 위하여 한인 애국단의 일원이 되어 적국의 수괴를 도륙하기로 맹세하나이다.<cite>대한민국 13년 12월 선서인 이봉창</cite></blockquote></div><p class="modal-caption">이봉창은 의거 전 한인 애국단 선서문을 가슴에 달고 사진 촬영. 윤봉길도 비슷한 내용의 선서문을 가슴에 달고 사진 촬영.</p>` },
+  samgyun: { title: '삼균주의 (三均主義)', html: `<div class="sg"><div class="sg-top"><b>삼균주의</b><small>三均主義 · 조소앙</small></div><p class="sg-desc">정치·경제·교육의 균등을 확립하여 민주 국가를 건설하려는 이념</p><div class="sg-tree"><div class="sg-card c1"><span class="sg-no">1</span><h4>정치의 균등</h4><div class="sg-key">보통 선거 실시</div><p>모든 국민이 평등하게 정치에 참여하는 민주 공화국 건설</p></div><div class="sg-card c2"><span class="sg-no">2</span><h4>경제의 균등</h4><div class="sg-key">토지·주요 산업의 국유화</div><p>균등한 사회 건설, 노동권 보장</p></div><div class="sg-card c3"><span class="sg-no">3</span><h4>교육의 균등</h4><div class="sg-key">무상 교육 실시</div><p>모든 국민에게 교육의 기회를 고르게 보장</p></div></div><div class="sg-goal"><span>목표</span>개인과 개인 · 민족과 민족 · 국가와 국가 사이의 호혜 평등 <i>→</i> 민주 국가 건설</div><div class="sg-src">대한민국 건국 강령(1941)의 바탕 사상</div></div>` },
+  uijeongwon: { title: '제34차 임시 의정원 기념사진 (1942)', html: IMG('assets/uijeongwon-1942.webp','좌우 합작을 이룬 제34차 임시 의정원 기념사진') + '<p class="modal-caption">좌우 합작을 이룬 제34차 임시 의정원 기념사진(1942).</p>' },
+  tongsin: { title: '동지 동포 제군에게 보내는 공개 통신 (1939)', html: IMG('assets/gongdong-tongsin-1939.webp','동지 동포 제군에게 보내는 공개 통신 (김구와 김원봉이 제안한 성명서, 1939)') },
+  junseung: { title: '한국광복군 행동 준승 9개항', html: `<div class="jp wide"><div class="jp-top"><span>중국 군사위원회</span><i>⇢ 통제 ⇢</i><span>한국광복군</span></div><p class="jp-desc">중국 국민당 정부가 재정 지원의 조건으로 요구한 「한국광복군 행동 준승 9개항」 — 광복군의 지휘·작전·물자·교육 전반을 중국군이 통제</p><div class="jp-grid"><div class=\"jp-card k1\"><span class=\"jp-no\">1</span><h4>지휘 통할권</h4><p>중국 군사위원회 참모총장의 통할을 받고, 그 명령을 집행</p></div><div class=\"jp-card k1\"><span class=\"jp-no\">2</span><h4>지휘관·장교 임명</h4><p>임시 정부가 협의해 임명하되, 중국군 현역 군관을 파견해 참모진 장악</p></div><div class=\"jp-card k2\"><span class=\"jp-no\">3</span><h4>작전 구역·이동 제한</h4><p>주둔지·작전 구역은 중국이 지정, 사전 허가 없이 이동 불가</p></div><div class=\"jp-card k2\"><span class=\"jp-no\">4</span><h4>부대 편제·편성</h4><p>편제·정원·조직 개편은 중국 군사위원회의 규정과 승인에 따름</p></div><div class=\"jp-card k3\"><span class=\"jp-no\">5</span><h4>무기·보급 통제</h4><p>경비·무기·탄약·군복을 중국이 심사·지급하고 사용 내역 감사</p></div><div class=\"jp-card k3\"><span class=\"jp-no\">6</span><h4>교육·훈련 통제</h4><p>교육 강령과 훈련 내용은 중국 군사위원회의 교육 방침에 따름</p></div><div class=\"jp-card k2\"><span class=\"jp-no\">7</span><h4>연합 작전·명령 복종</h4><p>대일 작전 시 중국군 최고사령관의 전투 명령에 복종</p></div><div class=\"jp-card k1\"><span class=\"jp-no\">8</span><h4>임시 정부와의 관계 제한</h4><p>임시 정부는 군령권을 직접 행사할 수 없고, 지시는 군사위원회 경유</p></div><div class=\"jp-card k4\"><span class=\"jp-no\">9</span><h4>한반도 진입 후 지위</h4><p>본토 진입 시 지휘 관계는 추후 양국 정부가 협정으로 결정</p></div></div><div class="jp-goal"><span>결과</span>중국군의 간섭으로 독자적 활동 제약 <i>→</i> <b class="jp-em">1944년부터 임시 정부가 지휘권을 가지고 독자적 군사 활동</b></div></div>` },
+  'bocheonbo-video': { title: '보천보 전투 (영상)', html: () => ytHtml('xiD--BbJEyY', '보천보 전투 영상') },
+  'uiyongdae-yt': { title: '조선 의용대 (영상)', html: () => ytHtml('sWdlyVZ9Lqs', '조선 의용대 영상') },
+  'yangsebong-yt': { title: '양세봉 (영상)', html: () => ytHtml('QrwHyA1o7NA', '양세봉 영상') },
+  'uiyongdae-hwabuk-yt': { title: '조선 의용대 화북 지대 (영상)', html: () => ytHtml('kDyv9mo2kOI', '조선 의용대 화북 지대 영상') },
+  'yun-video': { title: '윤봉길 의거 (영상)', html: () => ytHtml('-wdNnBQpgJ4', '윤봉길 의거 영상') },
+  'lee-video': { title: '이봉창 의거 (영상)', html: () => ytHtml('ItfZJk6Dv7A', '이봉창 의거 영상') },
+  'yun-bonggil': { title: '윤봉길 의거 (1932. 4. 29.)', html: IMG('assets/tb-yun-bonggil.png','윤봉길 의거 직후') + `<p class="modal-caption">상하이 훙커우 공원의 일왕 생일 및 상하이 사변 승전 기념식에 폭탄 투척, 일본군 장교와 여러 고위 관리 처단. 이를 계기로 중국인의 반한 감정 크게 완화, 중국 국민당 정부의 임시 정부 본격 지원.</p>` },
+  'hanin-aegukdan': { title: '한인 애국단 (1931)', html: IMG('assets/s04-baekbeomilji.png','백범일지 표지') + `<div class="modal-quotes"><blockquote>당시 정세로 말하자면 …… 무슨 새로운 국면을 타개할 필요가 있었다. 그래서 우리 임시 정부에서 회의한 결과 한인 애국단을 조직하여 암살과 파괴 공작을 하되, 돈이나 사람은 내가 전담하고, 다만 그 결과를 정부에 보고하도록 위임을 받았다.<cite>김구, 『백범일지』</cite></blockquote></div>` },
+  'uiyongdae-map': { title: '조선 의용대와 조선 의용군의 이동', html: IMG('assets/tb-uiyongdae-map.png','조선 의용대의 이동') + `<p class="modal-caption">조선 의용대 창설(1938, 한커우) → 타이항산 집결(1941) → 화북 지대 결성(1941)·조선 의용군으로 개편(1942). 일부 병력은 충칭에서 한국광복군에 합류(1942).</p>` },
+  'uiyongdae-photo': { title: '조선 의용대 창설 기념사진 (1938)', html: IMG('assets/tb-uiyongdae-photo.png','조선 의용대 창설 기념사진') },
+  'imjeong-diagram': { title: '대한민국 임시 정부의 이동과 체제 정비', html: IMG('assets/tb-imjeong-diagram.png','임시 정부의 이동과 체제') + `<p class="modal-caption">상하이(1919) → 항저우(1932) → 전장(1935) → 창사(1937) → 광저우·류저우(1938) → 치장(1939) → 충칭(1940)</p>` },
+  'kwangbokgun-photo': { title: '한국광복군 총사령부 창설식 (1940)', html: IMG('assets/tb-kwangbokgun-photo.png','광복군 창설식') + `<p class="modal-caption">사진 속 오광심·조순옥·김정숙·지복영 등 여성 대원은 교육과 훈련을 받고 대원 모집, 선전·첩보 수집, 구호대 활동 등 수행.</p>` },
+  declaration: { title: '대한민국 임시 정부 대일 선전 성명서 (1941)', html: `<div class="modal-quotes"><blockquote>우리는 3천만 한국인과 정부를 대표하여 중국, 영국, 미국 …… 여러 나라의 대일 선전이 일본을 패배하게 하고 동아시아를 재건하는 가장 유효한 수단이 됨을 축하한다. 1. 한국 전체 인민은 현재 이미 반침략 전선에 참가하였으니, 한 개의 전투 단위로서 축추국을 상대로 선전한다. 2. 1910년 합병 조약과 일체의 불평등 조약의 무효를 거듭 선포한다.<cite>『대한민국 임시 정부 자료집 8』</cite></blockquote></div>` },
+  'yeo-unhyeong': { title: '여운형과 조선 건국 동맹 (1944)', html: IMG('assets/tb-yeo-unhyeong.png','조선 건국 동맹 모임') + `<p class="modal-caption">국내에서 여운형 주도로 비밀리에 결성된 조선 건국 동맹은 1년 정도 활동하며 10개의 도 조직 구성. 광복 직후 조선 건국 준비 위원회로 발전.</p>` },
+  'unity-map': { title: '광복 직전 국내외 독립운동 단체', html: IMG('assets/tb-unity-map.png','광복 직전 독립운동 단체') + `<p class="modal-caption">조선 건국 동맹(국내), 조선 독립 동맹·조선 의용군(옌안), 대한민국 임시 정부·한국광복군(충칭)의 상호 연대 모색. 1944년 김구가 조선 독립 동맹의 김두봉에게 서신을 보내 양자 간 교류 추진.</p>` },
+  cairo: { title: '카이로 회담 (1943. 11.)', html: IMG('assets/tb-cairo.png','카이로 회담') + `<p class="modal-caption">카이로 선언에서 “한국 인민의 노예 상태에 유의하여 적당한 시기에 한국이 자유롭게 되고 독립하게 될 것을 결의한다.”라고 명시, 한국의 독립 보장.</p>` },
+  yalta: { title: '얄타 회담 (1945. 2.)', html: IMG('assets/tb-yalta.png','얄타 회담') + `<p class="modal-caption">독일의 분할 점령, 소련의 대일전 참전을 비롯해 패전국과 해방국에서 자유 선거에 의한 정부 수립 등의 원칙 결정.</p>` },
+  potsdam: { title: '포츠담 회담 (1945. 7.)', html: IMG('assets/tb-potsdam.png','포츠담 회담') + `<p class="modal-caption">카이로 선언의 이행을 강조, 한국의 독립 재확인.</p>` }
+};
+
+const modal=document.getElementById('modal'), modalTitle=document.getElementById('modalTitle'), modalBody=document.getElementById('modalBody');
+// one sentence per line, each led by a symbol (a period followed by a digit, e.g. "1937. 6. 5.", is not a sentence end)
+function bulletize(el){
+  if(el.dataset.bulleted) return;
+  const parts=el.innerHTML.replace(/(?<!\d)\.(\s+)(?=\S)/g,'.\u0001').replace(/(?<=\d)\.(\s+)(?=[^\d\s])/g,'.\u0001').replace(/<br\s*\/?>/gi,'\u0001').split('\u0001').map(t=>t.trim()).filter(Boolean);
+  // 'a' = the line before leads to / causes the next one (drawn with an arrow); default = parallel
+  const key=el.textContent.trim();
+  const rule=FLOW.find(r=>key.startsWith(r[0]));
+  const links=rule?rule[1].split(','):[];
+  if(!links.includes('a')){
+    el.innerHTML=parts.map(t=>`<span class="ln">${t}</span>`).join('');
+  }else{
+    // lines joined by an arrow become separate bordered boxes; parallel lines share one box
+    const groups=[[parts[0]]];
+    parts.slice(1).forEach((t,i)=>{ if(links[i]==='a') groups.push([t]); else groups[groups.length-1].push(t); });
+    el.innerHTML=groups.map(g=>`<span class="box">${g.map(t=>`<span class="ln">${t}</span>`).join('')}</span>`).join('<span class="arr">↓</span>');
+  }
+  el.dataset.bulleted='1';
+}
+const FLOW=[
+  ['일제의 만주 장악과','a,p'] // 화살표는 2페이지(17-1)에만 사용
+];
+const BULLET_SEL='.point p, .tl-cap p, .commons, .modal-caption, .cat-body .desc, .tlv-text p';
+document.querySelectorAll(BULLET_SEL).forEach(bulletize);
+function openPopup(key){ const p=popups[key]; if(!p) return; modalTitle.textContent=p.title; modalBody.innerHTML=''; modal.classList.add('open'); requestAnimationFrame(()=>{ modalBody.innerHTML=(typeof p.html==='function'?p.html():p.html); modalBody.querySelectorAll('.modal-caption').forEach(bulletize); }); }
+function closePopup(){ modal.classList.remove('open'); modalBody.innerHTML=''; }
+document.addEventListener('click', e => { const t=e.target.closest('[data-popup]'); if(!t) return; if(document.body.classList.contains('teacher-mode')) return; openPopup(t.dataset.popup); });
+document.getElementById('modalClose').addEventListener('click', closePopup);
+modal.addEventListener('click', e=>{ if(e.target===modal) closePopup(); });
+
+const slides=[...document.querySelectorAll('.slide')];
+let currentIndex=0;
+const tocList=document.getElementById('tocList');
+tocList.innerHTML=slides.map((s,i)=>`<button type="button" data-index="${i}"><span>${String(i+1).padStart(2,'0')}</span>${s.dataset.title}</button>`).join('');
+function show(i){
+  currentIndex=Math.max(0,Math.min(slides.length-1,i));
+  slides.forEach((s,idx)=>{ s.hidden = idx!==currentIndex; });
+  document.getElementById('slideCounter').textContent=(currentIndex+1)+' / '+slides.length;
+  document.getElementById('prevBtn').disabled=currentIndex===0;
+  document.getElementById('nextBtn').disabled=currentIndex===slides.length-1;
+  document.getElementById('progressBar').style.width=((currentIndex+1)/slides.length*100)+'%';
+  tocList.querySelectorAll('button').forEach((b,n)=>b.classList.toggle('current',n===currentIndex));
+  window.scrollTo(0,0);
+  if(typeof setSel==='function') setSel(null);
+  fitSlide();
+}
+document.getElementById('prevBtn').addEventListener('click',()=>show(currentIndex-1));
+document.getElementById('nextBtn').addEventListener('click',()=>show(currentIndex+1));
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){ closePopup(); closeToc(); return; }
+  if(modal.classList.contains('open')) return;
+  if(document.activeElement&&document.activeElement.isContentEditable) return;
+  if(e.key==='ArrowRight'||e.key==='PageDown') show(currentIndex+1);
+  if(e.key==='ArrowLeft'||e.key==='PageUp') show(currentIndex-1);
+});
+const tocOverlay=document.getElementById('tocOverlay');
+function openToc(){ tocOverlay.classList.add('open'); } function closeToc(){ tocOverlay.classList.remove('open'); }
+document.getElementById('tocButton').addEventListener('click',openToc);
+document.getElementById('tocClose').addEventListener('click',closeToc);
+tocOverlay.addEventListener('click',e=>{ if(e.target===tocOverlay) closeToc(); });
+tocList.addEventListener('click',e=>{ const b=e.target.closest('button'); if(b){ show(Number(b.dataset.index)); closeToc(); } });
+let autoplayTimer=null, autoplaying=false; const playButton=document.getElementById('playButton');
+function stopAutoplay(){ autoplaying=false; clearInterval(autoplayTimer); playButton.textContent='▶'; }
+playButton.addEventListener('click',()=>{ if(autoplaying){ stopAutoplay(); return; } autoplaying=true; playButton.textContent='Ⅱ'; autoplayTimer=setInterval(()=>{ if(currentIndex>=slides.length-1){ stopAutoplay(); return; } show(currentIndex+1); },12000); });
+document.getElementById('fullButton').addEventListener('click',()=>{ if(document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen?.(); });
+// shrink the current slide (CSS zoom) until it fits the window height with no scrolling
+const BASE_W=1500;
+function layoutCats(scope){
+  scope.querySelectorAll('.cat').forEach(cat=>{
+    const box=cat.querySelector('.cat-rows'), label=cat.querySelector('.cat-label');
+    const rows=[...box.querySelectorAll('.cat-row')].filter(x=>x.style.display!=='none');
+    let v=box.querySelector('.cat-vline'); if(!v){ v=document.createElement('div'); v.className='cat-vline br-v'; box.appendChild(v); }
+    if(!rows.length){ v.style.display='none'; return; }
+    v.style.display='';
+    const ys=rows.map(x=>{ const n=x.querySelector('.cat-name'); return x.offsetTop+n.offsetTop+n.offsetHeight/2; });
+    const y1=Math.min(...ys), y2=Math.max(...ys);
+    v.style.top=y1+'px'; v.style.height=(v.dataset.uh?v.dataset.uh:(y2-y1+2))+'px';
+    label.style.marginTop=Math.max(0,(y1+y2)/2-label.offsetHeight/2)+'px';
+    const brV=box.querySelector('.br-v:not(.cat-vline)');
+    if(brV&&rows.length>1){
+      const z=parseFloat(scope.style.zoom)||1, bx=box.getBoundingClientRect();
+      let right=0;
+      rows.forEach(x=>x.querySelectorAll('.cat-body .ln').forEach(l=>{ const rg=document.createRange(); rg.selectNodeContents(l); right=Math.max(right,(rg.getBoundingClientRect().right-bx.left)/z); }));
+      const vx=Math.round(right+48), mid=(y1+y2)/2;
+      box.classList.add('has-br');
+      brV.style.left=vx+'px'; brV.style.top=y1+'px'; brV.style.height=(brV.dataset.uh?brV.dataset.uh:(y2-y1))+'px';
+      const brH=box.querySelector('.br-h'), brT=box.querySelector('.br-t');
+      brH.style.left=vx+'px'; brH.style.top=mid+'px'; brH.style.width=(brH.dataset.uw?brH.dataset.uw:56)+'px';
+      brT.style.left=(vx+66)+'px'; brT.style.top=(mid-brT.offsetHeight/2)+'px';
+    }
+  });
+}
+// horizontal extent of what is actually visible on the slide (text, pictures, cards), ignoring elements the teacher moved by hand
+function contentBounds(st){
+  const sr=st.getBoundingClientRect(); let l=Infinity, r=-Infinity;
+  const moved=el=>{ for(let n=el;n&&n!==st;n=n.parentElement){ if(n.style&&n.style.transform) return true; } return false; };
+  const add=q=>{ if(q.width<2||q.height<2) return; l=Math.min(l,q.left-sr.left); r=Math.max(r,q.right-sr.left); };
+  const w=document.createTreeWalker(st,NodeFilter.SHOW_TEXT);
+  while(w.nextNode()){
+    const t=w.currentNode; if(!t.textContent.trim()) continue;
+    const p=t.parentElement; if(!p||p.offsetParent===null||moved(p)) continue;
+    const rg=document.createRange(); rg.selectNodeContents(t); add(rg.getBoundingClientRect());
+  }
+  st.querySelectorAll('img,svg,.fig,.cmp,.tri-node,.tlv-card,.tlv-goal,.cat-label,.cat-name,.chip,.section-tag,.num,.net-node,.jp-card').forEach(e=>{ if(e.offsetParent!==null&&!moved(e)) add(e.getBoundingClientRect()); });
+  return l===Infinity?null:{l:l,r:r};
+}
+// natural height (css px) of a page laid out at the fixed width; hidden pages are measured off to the side without disturbing the current one
+function slideCssH(i){
+  const sl=slides[i], st=sl.querySelector('.stage');
+  if(i===currentIndex) return st.getBoundingClientRect().height;
+  const keep=sl.getAttribute('style');
+  sl.hidden=false; sl.style.position='absolute'; sl.style.visibility='hidden'; sl.style.left='0'; sl.style.right='0'; sl.style.top='0';
+  st.style.zoom=''; st.style.width=BASE_W+'px'; st.style.maxWidth='none'; layoutCats(st);
+  const h=st.getBoundingClientRect().height;
+  sl.hidden=true; if(keep===null) sl.removeAttribute('style'); else sl.setAttribute('style',keep);
+  return h;
+}
+function fitSlide(){
+  const st=slides[currentIndex].querySelector('.stage'); if(!st) return;
+  st.style.zoom=''; st.style.marginTop='';
+  if(innerWidth<980){ st.style.width=''; st.style.maxWidth=BASE_W+'px'; st.style.setProperty('--cx','0px'); layoutCats(st); return; }
+  // the slide is always laid out at the same width (BASE_W), windowed or fullscreen, so nothing moves between modes; only the zoom changes
+  st.style.width=BASE_W+'px'; st.style.maxWidth='none';
+  layoutCats(st);
+  st.style.setProperty('--cx','0px');
+  const top=st.getBoundingClientRect().top+scrollY, availH=innerHeight-top-8;
+  const tallest=Math.max(...slides.map((_,i)=>slideCssH(i)));
+  const z=Math.max(0.3,Math.min(1,innerWidth/BASE_W,availH/tallest));
+  st.style.zoom=z; layoutCats(st);
+  // push everything down partway (not all the way) toward the no-scroll line, so the tallest page still keeps some breathing room at the bottom
+  const slack=Math.max(0,availH-tallest*z);
+  st.style.marginTop=(slack/2)+'px';
+}
+// ---- teacher mode: drag / resize maps and photos (saved in this browser) ----
+let SERVER_STATE=null;
+if(location.protocol!=='file:'){ try{ const x=new XMLHttpRequest(); x.open('GET','/state',false); x.send(); if(x.status===200) SERVER_STATE=JSON.parse(x.responseText); }catch(e){} }
+function pushState(){
+  if(location.protocol==='file:') return Promise.resolve(false);
+  return fetch('/state',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({figs:figState,edit:editState,savedAt:new Date().toISOString()})}).then(r=>r.ok).catch(()=>false);
+}
+const FIG_KEY='kmla-v2-figs';
+const figs=[...document.querySelectorAll('.fig')];
+const figCount={};
+figs.forEach(f=>{ const sl=f.closest('.slide'), sid=sl&&sl.dataset.sid?sl.dataset.sid:'x'; figCount[sid]=figCount[sid]||0; f.dataset.fig=sid+'|'+(figCount[sid]++); });
+figs.forEach(f=>{ const h=document.createElement('span'); h.className='fig-handle'; f.appendChild(h); });
+const LEGACY_FIGS=['s1|0','s3|0','s4|0','s4|1','s5|0','s5|1'];
+let figState={}; if(SERVER_STATE&&SERVER_STATE.figs) figState=SERVER_STATE.figs; else { try{ figState=JSON.parse(localStorage.getItem(FIG_KEY)||'{}'); }catch(e){} }
+function applyFig(f){ const st=figState[f.dataset.fig]||{}; f.style.transform=(st.x||st.y)?'translate('+(st.x||0)+'px,'+(st.y||0)+'px)':''; f.style.width=st.w?st.w+'px':''; }
+Object.keys(figState).forEach(k=>{ if(/^\d+$/.test(k)&&LEGACY_FIGS[+k]){ figState[LEGACY_FIGS[+k]]=figState[k]; delete figState[k]; } });
+figs.forEach(applyFig);
+const zoomOf=f=>parseFloat(f.closest('.stage').style.zoom)||1;
+figs.forEach(f=>{
+  f.addEventListener('mousedown',e=>{
+    if(!document.body.classList.contains('teacher-mode')) return;
+    if(e.target.closest('[contenteditable="true"]')) return;
+    if(selSet.size>1&&selSet.has(f)&&!e.target.classList.contains('fig-handle')) return;
+    e.preventDefault();
+    const st=figState[f.dataset.fig]=figState[f.dataset.fig]||{}; const z=zoomOf(f);
+    const rr=f.getBoundingClientRect(); const resizing=e.target.classList.contains('fig-handle')||(e.clientX>rr.right-36&&e.clientY>rr.bottom-36);
+    const sx=e.clientX, sy=e.clientY, ox=st.x||0, oy=st.y||0, ow=parseFloat(getComputedStyle(f).width);
+    const r0=f.getBoundingClientRect(), cands=resizing?null:snapCands(f);
+    const move=ev=>{ let dx=(ev.clientX-sx), dy=(ev.clientY-sy);
+      if(resizing){ st.w=Math.max(120,Math.round(ow+dx/z)); }
+      else { const sn=snapDelta(r0,dx,dy,cands); showGuides(sn.vx,sn.hy); st.x=Math.round(ox+sn.dx/z); st.y=Math.round(oy+sn.dy/z); }
+      applyFig(f); };
+    const up=()=>{ document.removeEventListener('mousemove',move); document.removeEventListener('mouseup',up); showGuides(null,null); };
+    document.addEventListener('mousemove',move); document.addEventListener('mouseup',up);
+  });
+});
+document.getElementById('teacherToggle').addEventListener('click',e=>{ const on=document.body.classList.toggle('teacher-mode'); if(!on) setTimeout(fitSlide,0); if(!on) document.querySelectorAll('.editing').forEach(x=>finishEdit(x)); e.currentTarget.classList.toggle('active',on); });
+document.getElementById('figSave').addEventListener('click',e=>{
+  localStorage.setItem(FIG_KEY,JSON.stringify(figState)); localStorage.setItem(EDIT_KEY,JSON.stringify(editState));
+  const b=e.currentTarget; b.textContent='저장 중…';
+  pushState().then(ok=>{ b.textContent=location.protocol==='file:'?'브라우저에만 저장됨':(ok?'파일에 저장됨 ✓':'저장 실패(서버 확인)'); setTimeout(()=>{ b.textContent='저장'; },1800); });
+});
+document.getElementById('figReset').addEventListener('click',()=>{ if(!confirm('저장된 위치·크기·글 수정·삭제를 모두 되돌릴까요?')) return; localStorage.removeItem(FIG_KEY); localStorage.removeItem(EDIT_KEY); localStorage.removeItem('kmla-v3-edits'); localStorage.removeItem('kmla-v2-edits'); (location.protocol==='file:'?Promise.resolve():fetch('/state',{method:'POST',body:'{"reset":true}'}).catch(()=>0)).then(()=>location.reload()); });
+
+// ---- teacher mode: edit text, delete materials ----
+const EDIT_KEY='kmla-v4-edits';
+const EDIT_SEL='.heading,.lead,.point h3,.ln,.cat-label,.cat-name,.cmp h4,.cmp .who,.cmp li,.tl-cap b,.fig figcaption,.chip,.duo-item,.net-node,.net-pill,.sec h3,.tri-pill,.sec>p,.pillbtn,.dg-n,.dg-p,.dg-note,.dg-label,.cmp small,.tl-cap>span,.section-tag,.eyebrow,.tlv-head,.tlv-goal b,.tlv-goal span,.br-t';
+const DEL_ONLY='.point,.cat-row,.cmp,.tl,.commons,.fig,.net,.tri,.tlv-card,.tlv-goal,.tlv-row,.br-v,.br-h,.dg';
+let editState={edits:{},del:[]}; if(SERVER_STATE&&SERVER_STATE.edit) editState=SERVER_STATE.edit; else { try{ const o=JSON.parse(localStorage.getItem(EDIT_KEY)||'null'); if(o) editState=o; }catch(e){} }
+function stableKeys(selStr,attr,skip){
+  const sels=selStr.split(','), count={};
+  document.querySelectorAll(selStr).forEach(el=>{
+    if(skip&&skip(el)) return;
+    const sl=el.closest('.slide'), k=(sl&&sl.dataset.sid?sl.dataset.sid:'x')+'|'+sels.find(q=>el.matches(q));
+    count[k]=count[k]||0; el.dataset[attr]=k+'|'+(count[k]++);
+  });
+}
+stableKeys(EDIT_SEL+','+DEL_ONLY,'eid');
+const hashStr=t=>{ let h=5381; for(let i=0;i<t.length;i++) h=((h<<5)+h+t.charCodeAt(i))|0; return String(h); };
+editState.delSig=editState.delSig||{};
+document.querySelectorAll('[data-eid]').forEach(el=>{ el.dataset.orig=hashStr(el.textContent.trim()); });
+Object.keys(editState.edits).forEach(id=>{ const el=document.querySelector('[data-eid="'+id+'"]'), e=editState.edits[id]; if(el&&e&&typeof e==='object'&&e.o===el.dataset.orig) el.innerHTML=e.h; });
+editState.del.forEach(id=>{ const el=document.querySelector('[data-eid="'+id+'"]'); if(el&&editState.delSig[id]===el.dataset.orig) el.style.display='none'; });
+function syncAsides(){ document.querySelectorAll('.split').forEach(sp=>{ const a=sp.querySelector('.aside'); if(!a) return; const any=[...a.querySelectorAll('.fig')].some(x=>x.style.display!=='none'); a.style.display=any?'':'none'; sp.classList.toggle('no-aside',!any); }); }
+syncAsides();
+const isTeacher=()=>document.body.classList.contains('teacher-mode');
+let selEl=null; const selSet=new Set(); let suppressClick=false;
+function clearSelClasses(){ selSet.forEach(x=>x.classList.remove('sel')); selSet.clear(); }
+function setSel(el){ if(typeof clearArrowSel==='function') clearArrowSel(); clearSelClasses(); selEl=el||null; if(el){ selSet.add(el); el.classList.add('sel'); } updateWsel(); }
+function toggleSel(el){ if(selSet.has(el)){ selSet.delete(el); el.classList.remove('sel'); selEl=[...selSet].pop()||null; } else { selSet.add(el); el.classList.add('sel'); selEl=el; } updateWsel(); }
+document.addEventListener('dblclick',e=>{
+  if(!isTeacher()) return;
+  const el=e.target.closest(EDIT_SEL); if(!el||el.classList.contains('fig')) return;
+  el.contentEditable='true'; el.classList.add('editing'); el.focus();
+  const rg=document.createRange(); rg.selectNodeContents(el); const sl=getSelection(); sl.removeAllRanges(); sl.addRange(rg);
+});
+document.addEventListener('keydown',e=>{
+  const ed=document.activeElement;
+  if(ed&&ed.isContentEditable&&ed.dataset.eid!==undefined){
+    if(e.key===' '){ e.preventDefault(); document.execCommand('insertText',false,' '); }
+    if(e.key==='Escape'){ finishEdit(ed); return; }
+    if(e.key==='Enter'&&(ed.tagName==='BUTTON'||ed.matches('.heading,.point h3,.cmp h4,.ln,.cat-name,.chip'))){ e.preventDefault(); finishEdit(ed); }
+    e.stopPropagation(); return;
+  }
+  if(isTeacher()&&e.key==='Escape'&&selSet.size) setSel(null);
+  if(isTeacher()&&selSet.size&&(e.key==='Delete'||e.key==='Backspace')){ e.preventDefault(); delSel(); return; }
+  if(isTeacher()&&selSet.size&&e.key.indexOf('Arrow')===0){
+    e.preventDefault(); e.stopImmediatePropagation();
+    const st=e.shiftKey?10:1;
+    nudge(e.key==='ArrowLeft'?-st:e.key==='ArrowRight'?st:0, e.key==='ArrowUp'?-st:e.key==='ArrowDown'?st:0);
+  }
+},true);
+function saveEl(el){ const cp=el.cloneNode(true); cp.querySelectorAll('.w-handle,.fig-handle,.rs-handle').forEach(x=>x.remove()); editState.edits[el.dataset.eid]={o:el.dataset.orig,h:cp.innerHTML}; }
+function finishEdit(el){ el.contentEditable='false'; el.classList.remove('editing'); lastRange=null; saveEl(el); fitSlide(); updateModeLabel(); }
+document.addEventListener('mousedown',e=>{
+  const ed=document.querySelector('.editing'); if(!ed) return;
+  if(ed.contains(e.target)||e.target.closest('.fig-bar')) return;
+  finishEdit(ed);
+},true);
+document.querySelector('.fig-bar').addEventListener('mousedown',e=>{ if(e.target.tagName==='BUTTON') e.preventDefault(); });
+document.addEventListener('click',e=>{
+  if(suppressClick){ suppressClick=false; return; }
+  if(!isTeacher()||e.target.closest('.w-handle')||e.target.closest('.fig-bar')||e.target.closest('[contenteditable="true"]')||e.target.closest('.top')) return;
+  const el=e.target.closest('.num,.arr,.duo-arrow')||e.target.closest(EDIT_SEL)||e.target.closest(DEL_ONLY)||null;
+  if(e.shiftKey&&el){ toggleSel(el); return; }
+  setSel(el);
+});
+function delSel(){
+  if(!selSet.size) return;
+  selSet.forEach(x=>{ x.style.display='none'; editState.delSig[x.dataset.eid]=x.dataset.orig; if(!editState.del.includes(x.dataset.eid)) editState.del.push(x.dataset.eid); });
+  setSel(null); syncAsides(); fitSlide();
+}
+document.getElementById('figDelete').addEventListener('click',delSel);
+
+// width of a text block: select any text in it (or its row), then drag the gold bar on its right edge
+const RESIZE_SEL='.cat-body,.point,.lead,.commons,.tl-cap,.tlv-text';
+editState.widths=editState.widths||{};
+stableKeys(RESIZE_SEL,'wid');
+document.querySelectorAll(RESIZE_SEL).forEach(b=>{ const h=document.createElement('span'); h.className='w-handle'; b.appendChild(h); });
+Object.keys(editState.widths).forEach(id=>{ const b=document.querySelector('[data-wid="'+id+'"]'); if(b){ b.style.width=editState.widths[id]+'px'; b.style.maxWidth='none'; } });
+function updateWsel(){
+  if(typeof syncStyleUI==='function') syncStyleUI();
+  if(typeof updateModeLabel==='function') updateModeLabel();
+  document.querySelectorAll('.wsel').forEach(x=>x.classList.remove('wsel'));
+  if(selSet.size!==1||!selEl) return;
+  const blk=selEl.closest(RESIZE_SEL)||(selEl.matches('.cat-row')?selEl.querySelector('.cat-body'):null);
+  if(blk) blk.classList.add('wsel');
+}
+document.addEventListener('mousedown',e=>{
+  const h=e.target.closest('.w-handle'); if(!h||!isTeacher()) return;
+  e.preventDefault(); e.stopPropagation();
+  const blk=h.parentElement, z=zoomOf(blk), sx=e.clientX, sw=parseFloat(getComputedStyle(blk).width);
+  const mv=ev=>{ blk.style.maxWidth='none'; blk.style.width=Math.max(160,Math.round(sw+(ev.clientX-sx)/z))+'px'; layoutCats(blk.closest('.stage')); };
+  const up=()=>{ document.removeEventListener('mousemove',mv); document.removeEventListener('mouseup',up); editState.widths[blk.dataset.wid]=parseFloat(blk.style.width); fitSlide(); };
+  document.addEventListener('mousemove',mv); document.addEventListener('mouseup',up);
+},true);
+
+// category diagrams: turn the label→line and line→row connector stubs into real, editable elements
+document.querySelectorAll('.cat-label').forEach(lb=>{ if(!lb.querySelector('.cat-lbl-h')){ const h=document.createElement('i'); h.className='cat-lbl-h br-h'; lb.appendChild(h); } });
+document.querySelectorAll('.cat-name').forEach(nm=>{ if(!nm.querySelector('.cat-nm-h')){ const h=document.createElement('i'); h.className='cat-nm-h br-h'; nm.appendChild(h); } });
+document.querySelectorAll('.cat').forEach(cat=>{ const box=cat.querySelector('.cat-rows'); if(box&&!box.querySelector('.cat-vline')){ const v=document.createElement('div'); v.className='cat-vline br-v'; box.appendChild(v); } });
+
+// ---- teacher mode: move any text block / number / arrow / button, with alignment guides ----
+const MOVE_ALL=EDIT_SEL+','+DEL_ONLY+',.num,.arr,.duo-arrow,.eyebrow,.section-tag';
+editState.moves=editState.moves||{};
+stableKeys(MOVE_ALL,'mv',el=>el.classList.contains('fig'));
+editState.rot=editState.rot||{};
+function applyMove(el){
+  const m=editState.moves[el.dataset.mv], r=editState.rot[el.dataset.mv];
+  let t=m&&(m.x||m.y)?'translate('+m.x+'px,'+m.y+'px)':'';
+  if(r){ t+=(t?' ':'')+'rotate('+r+'deg)'; el.style.transformOrigin=el.classList.contains('tlv-v')?'top center':'left center'; }
+  el.style.transform=t;
+}
+Object.keys(editState.moves).forEach(id=>{ const el=document.querySelector('[data-mv="'+id+'"]'); if(el) applyMove(el); });
+
+// dotted bridge lines: movable (like any element) and resizable with the gold handle
+editState.sizes=editState.sizes||{};
+document.querySelectorAll('.br-v,.br-h').forEach(e=>{ const h=document.createElement('b'); h.className='br-handle'; e.appendChild(h); const z=editState.sizes[e.dataset.mv]; if(z){ if(z.h) e.dataset.uh=z.h; if(z.w) e.dataset.uw=z.w; } });
+// the label/row connector stubs have a static width (unlike the auto-laid-out category bridges), so apply a saved width once here
+document.querySelectorAll('.cat-lbl-h,.cat-nm-h').forEach(e=>{ if(e.dataset.uw) e.style.width=e.dataset.uw+'px'; });
+// rotate handle (timeline solid/dashed bars only)
+document.querySelectorAll('.tlv-v,.tlv-h').forEach(e=>{ const rh=document.createElement('b'); rh.className='rot-handle'; e.appendChild(rh); });
+document.addEventListener('mousedown',e=>{
+  const rh=e.target.closest('.rot-handle'); if(!rh||!isTeacher()) return;
+  e.preventDefault(); e.stopPropagation();
+  const el=rh.parentElement, vert=el.classList.contains('tlv-v');
+  const rc=el.getBoundingClientRect(), piv=vert?[rc.left+rc.width/2,rc.top]:[rc.left,rc.top+rc.height/2];
+  const r0=editState.rot[el.dataset.mv]||0, a0=Math.atan2(e.clientY-piv[1],e.clientX-piv[0])*180/Math.PI;
+  const mv=ev=>{
+    let a=Math.atan2(ev.clientY-piv[1],ev.clientX-piv[0])*180/Math.PI, deg=Math.round(a-a0+r0);
+    if(ev.shiftKey) deg=Math.round(deg/15)*15;
+    editState.rot[el.dataset.mv]=deg; applyMove(el);
+  };
+  const up=()=>{ document.removeEventListener('mousemove',mv); document.removeEventListener('mouseup',up); endDragClick(); };
+  document.addEventListener('mousemove',mv); document.addEventListener('mouseup',up);
+},true);
+document.addEventListener('mousedown',e=>{
+  const h=e.target.closest('.br-handle'); if(!h||!isTeacher()) return;
+  e.preventDefault(); e.stopPropagation();
+  const el=h.parentElement, vert=el.classList.contains('br-v'), z=zoomOf(el), sx=e.clientX, sy=e.clientY;
+  const start=parseFloat(vert?el.style.height:el.style.width)||20;
+  const mv=ev=>{
+    const v=Math.max(8,Math.round(start+(vert?(ev.clientY-sy):(ev.clientX-sx))/z));
+    if(vert){ el.style.height=v+'px'; el.dataset.uh=v; } else { el.style.width=v+'px'; el.dataset.uw=v; }
+  };
+  const up=()=>{ document.removeEventListener('mousemove',mv); document.removeEventListener('mouseup',up); editState.sizes[el.dataset.mv]=vert?{h:+el.dataset.uh}:{w:+el.dataset.uw}; endDragClick(); };
+  document.addEventListener('mousemove',mv); document.addEventListener('mouseup',up);
+},true);
+
+// text color / weight (saved per element)
+editState.styles=editState.styles||{};
+const styleKey=el=>el.dataset.eid!==undefined?'e'+el.dataset.eid:(el.dataset.mv!==undefined?'m'+el.dataset.mv:null);
+function elByKey(k){ return document.querySelector(k[0]==='e'?'[data-eid="'+k.slice(1)+'"]':'[data-mv="'+k.slice(1)+'"]'); }
+function applyStyle(el,st){ el.style.color=st&&st.color?st.color:''; el.style.fontWeight=st&&st.weight?st.weight:''; el.style.fontSize=st&&st.size?st.size+'px':''; }
+Object.keys(editState.styles).forEach(k=>{ const el=elByKey(k); if(el) applyStyle(el,editState.styles[k]); });
+function rgb2hex(c){ const m=c.match(/\d+/g); return m?'#'+m.slice(0,3).map(n=>(+n).toString(16).padStart(2,'0')).join(''):'#ffffff'; }
+function syncStyleUI(){
+  if(!selEl) return;
+  document.getElementById('txtColor').value=rgb2hex(getComputedStyle(selEl).color);
+  document.getElementById('txtSize').value=Math.round(parseFloat(getComputedStyle(selEl).fontSize));
+  const w=getComputedStyle(selEl).fontWeight; document.getElementById('txtWeight').value=['400','600','800'].includes(w)?w:'';
+}
+let lastRange=null, mdTime=0;
+document.addEventListener('mousedown',e=>{ if(e.target.closest&&e.target.closest('.editing')) mdTime=Date.now(); },true);
+document.addEventListener('selectionchange',()=>{
+  const sel=getSelection(); if(!sel.rangeCount) return;
+  const rg=sel.getRangeAt(0), n=rg.commonAncestorContainer, host=n.nodeType===1?n:n.parentElement;
+  const ed=host&&host.closest?host.closest('.editing'):null;
+  if(!ed) return;
+  if(rg.collapsed){ if(Date.now()-mdTime<400){ lastRange=null; updateModeLabel(); } return; }
+  const keep=lastRange&&lastRange.span&&lastRange.span.isConnected&&lastRange.span.contains(n)&&rg.toString()===lastRange.span.textContent;
+  lastRange={rg:rg.cloneRange(),el:ed,span:keep?lastRange.span:null};
+  updateModeLabel();
+});
+function updateModeLabel(){
+  const m=document.getElementById('txtMode'); if(!m) return;
+  m.textContent=partialAvail()?'▶ 선택한 글자에만 적용':(selSet.size?'▶ 선택한 요소 전체에 적용':'');
+}
+function partialAvail(){ return !!(lastRange&&lastRange.el.isConnected&&!lastRange.rg.collapsed); }
+function partialSize(){
+  const L=lastRange; if(L.span&&L.span.isConnected) return parseFloat(getComputedStyle(L.span).fontSize);
+  const n=L.rg.startContainer, e=n.nodeType===1?n:n.parentElement; return parseFloat(getComputedStyle(e).fontSize);
+}
+function applyPartial(cssProp,val){
+  const L=lastRange; let span=L.span&&L.span.isConnected?L.span:null;
+  if(!span){
+    span=document.createElement('span');
+    try{ L.rg.surroundContents(span); }catch(err){ const fr=L.rg.extractContents(); span.appendChild(fr); L.rg.insertNode(span); }
+  }
+  span.style[cssProp]=val;
+  span.querySelectorAll('span').forEach(x=>{ x.style[cssProp]=''; });
+  const nr=document.createRange(); nr.selectNodeContents(span); L.rg=nr; L.span=span;
+  saveEl(L.el); fitSlide();
+}
+function clearPartial(){
+  const L=lastRange; const seen=new Set();
+  L.el.querySelectorAll('span').forEach(sp=>{ if(L.rg.intersectsNode(sp)) seen.add(sp); });
+  let p=L.rg.commonAncestorContainer; p=p.nodeType===1?p:p.parentElement; while(p&&p!==L.el){ if(p.tagName==='SPAN') seen.add(p); p=p.parentElement; }
+  seen.forEach(sp=>{ sp.style.color=''; sp.style.fontSize=''; sp.style.fontWeight=''; });
+  saveEl(L.el); fitSlide();
+}
+const CSSP={color:'color',weight:'fontWeight',size:'fontSize'};
+function setStyle(prop,val){
+  if(partialAvail()){ applyPartial(CSSP[prop], prop==='size'&&val?val+'px':val); return; }
+  selSet.forEach(el=>{ const k=styleKey(el); if(!k) return; const st=editState.styles[k]=editState.styles[k]||{}; if(val) st[prop]=val; else delete st[prop]; applyStyle(el,st); });
+  fitSlide();
+}
+document.getElementById('txtColor').addEventListener('input',e=>setStyle('color',e.target.value));
+document.getElementById('txtWeight').addEventListener('change',e=>setStyle('weight',e.target.value));
+function bumpSize(delta){
+  if(partialAvail()){ applyPartial('fontSize', Math.max(8,Math.min(120,Math.round(partialSize()+delta)))+'px'); return; }
+  selSet.forEach(el=>{ const k=styleKey(el); if(!k) return; const cur=parseFloat(getComputedStyle(el).fontSize); const st=editState.styles[k]=editState.styles[k]||{}; st.size=Math.max(8,Math.min(120,Math.round(cur+delta))); applyStyle(el,st); });
+  syncStyleUI(); fitSlide();
+}
+document.getElementById('txtBigger').addEventListener('click',e=>bumpSize(e.shiftKey?4:1));
+document.getElementById('txtSmaller').addEventListener('click',e=>bumpSize(e.shiftKey?-4:-1));
+document.getElementById('txtSize').addEventListener('change',e=>{ const v=Math.max(8,Math.min(120,parseInt(e.target.value,10)||0)); if(v) setStyle('size',v); });
+document.getElementById('txtClear').addEventListener('click',()=>{ if(partialAvail()){ clearPartial(); return; } selSet.forEach(el=>{ const k=styleKey(el); if(k){ delete editState.styles[k]; applyStyle(el,null); } }); syncStyleUI(); });
+function snapCands(el){
+  const xs=[], ys=[];
+  const stg=el.closest('.stage'); if(!stg) return {xs,ys};
+  stg.querySelectorAll(MOVE_ALL).forEach(o=>{
+    if(o===el||o.contains(el)||el.contains(o)||o.style.display==='none'||!o.offsetParent) return;
+    const q=o.getBoundingClientRect(); if(q.width<2||q.height<2) return;
+    xs.push(q.left,q.left+q.width/2,q.right); ys.push(q.top,q.top+q.height/2,q.bottom);
+  });
+  return {xs,ys};
+}
+function snapDelta(r0,dx,dy,c){
+  const T=6, out={dx,dy,vx:null,hy:null};
+  let bx=T+1, by=T+1;
+  [r0.left+dx,r0.left+r0.width/2+dx,r0.right+dx].forEach(m=>c.xs.forEach(x=>{ const d=x-m; if(Math.abs(d)<bx){ bx=Math.abs(d); out.dx=dx+d; out.vx=x; } }));
+  [r0.top+dy,r0.top+r0.height/2+dy,r0.bottom+dy].forEach(m=>c.ys.forEach(y=>{ const d=y-m; if(Math.abs(d)<by){ by=Math.abs(d); out.dy=dy+d; out.hy=y; } }));
+  if(bx>T){ out.dx=dx; out.vx=null; } if(by>T){ out.dy=dy; out.hy=null; }
+  return out;
+}
+let gV=null, gH=null;
+function showGuides(vx,hy){
+  if(!gV){ gV=document.createElement('div'); gV.className='guide-v'; gH=document.createElement('div'); gH.className='guide-h'; document.body.appendChild(gV); document.body.appendChild(gH); }
+  gV.style.display=vx==null?'none':'block'; if(vx!=null) gV.style.left=vx+'px';
+  gH.style.display=hy==null?'none':'block'; if(hy!=null) gH.style.top=hy+'px';
+}
+function getPos(el){
+  if(el.classList.contains('fig')){ const q=figState[el.dataset.fig]||{}; return {x:q.x||0,y:q.y||0}; }
+  const m=editState.moves[el.dataset.mv]||{}; return {x:m.x||0,y:m.y||0};
+}
+function setPos(el,x,y){
+  x=Math.round(x); y=Math.round(y);
+  if(el.classList.contains('fig')){ const q=figState[el.dataset.fig]=figState[el.dataset.fig]||{}; q.x=x; q.y=y; applyFig(el); }
+  else { editState.moves[el.dataset.mv]={x:x,y:y}; applyMove(el); }
+}
+function topLevel(list){ return list.filter(m=>!list.some(o=>o!==m&&o.contains(m))); }
+function nudge(dx,dy){
+  topLevel([...selSet]).forEach(el=>{ const p=getPos(el); setPos(el,p.x+dx,p.y+dy); });
+  clearTimeout(nudge.t); nudge.t=setTimeout(fitSlide,150);
+}
+function snapCandsFor(members){
+  const xs=[], ys=[]; const stg=members[0].closest('.stage'); if(!stg) return {xs:xs,ys:ys};
+  stg.querySelectorAll(MOVE_ALL).forEach(o=>{
+    if(o.style.display==='none'||!o.offsetParent) return;
+    if(members.some(m=>o===m||o.contains(m)||m.contains(o))) return;
+    const q=o.getBoundingClientRect(); if(q.width<2||q.height<2) return;
+    xs.push(q.left,q.left+q.width/2,q.right); ys.push(q.top,q.top+q.height/2,q.bottom);
+  });
+  return {xs:xs,ys:ys};
+}
+function unionRect(rs){
+  const l=Math.min(...rs.map(q=>q.left)), t=Math.min(...rs.map(q=>q.top)), rt=Math.max(...rs.map(q=>q.right)), bt=Math.max(...rs.map(q=>q.bottom));
+  return {left:l,top:t,right:rt,bottom:bt,width:rt-l,height:bt-t};
+}
+function endDragClick(){ suppressClick=true; setTimeout(()=>{ suppressClick=false; },80); }
+function startBand(e){
+  const band=document.createElement('div'); band.className='rubber'; document.body.appendChild(band);
+  const sx=e.clientX, sy=e.clientY; let drawn=false;
+  const mv=ev=>{
+    const x=Math.min(sx,ev.clientX), y=Math.min(sy,ev.clientY), w=Math.abs(ev.clientX-sx), h=Math.abs(ev.clientY-sy);
+    if(w>4||h>4) drawn=true;
+    band.style.left=x+'px'; band.style.top=y+'px'; band.style.width=w+'px'; band.style.height=h+'px'; ev.preventDefault();
+  };
+  const up=ev=>{
+    document.removeEventListener('mousemove',mv); document.removeEventListener('mouseup',up); band.remove();
+    if(!drawn) return;
+    endDragClick();
+    const x1=Math.min(sx,ev.clientX), x2=Math.max(sx,ev.clientX), y1=Math.min(sy,ev.clientY), y2=Math.max(sy,ev.clientY);
+    const cand=[...slides[currentIndex].querySelectorAll(MOVE_ALL)].filter(o=>{
+      if(o.style.display==='none'||!o.offsetParent||o.matches('.fig figcaption')) return false;
+      const q=o.getBoundingClientRect(); if(q.width<2||q.height<2) return false;
+      return q.left<x2&&q.right>x1&&q.top<y2&&q.bottom>y1;
+    });
+    const leaves=cand.filter(o=>!cand.some(p=>p!==o&&o.contains(p)));
+    if(!e.shiftKey) clearSelClasses();
+    leaves.forEach(o=>{ selSet.add(o); o.classList.add('sel'); });
+    selEl=leaves[leaves.length-1]||selEl; updateWsel();
+  };
+  document.addEventListener('mousemove',mv); document.addEventListener('mouseup',up);
+}
+document.addEventListener('mousedown',e=>{
+  if(!isTeacher()||e.button!==0) return;
+  if(e.target.closest('.fig-bar,.top,.modal,.toc-overlay,.w-handle,.fig-handle,.br-handle,.rs-handle,[contenteditable="true"]')) return;
+  const inSel=selSet.size>1&&[...selSet].some(x=>x.contains(e.target));
+  const el=e.target.closest('.num,.arr,.duo-arrow,.eyebrow,.section-tag')||e.target.closest(EDIT_SEL)||e.target.closest(DEL_ONLY);
+  if(!inSel){
+    if(e.target.closest('.fig')) return;
+    if(!el){ startBand(e); return; }
+    if(el.dataset.mv===undefined) return;
+  }
+  const members=topLevel(inSel?[...selSet]:[el]);
+  if(inSel) e.preventDefault();
+  const z=zoomOf(members[0]), sx=e.clientX, sy=e.clientY;
+  const starts=members.map(m=>({m:m,p:getPos(m),q:m.getBoundingClientRect()}));
+  const u=unionRect(starts.map(t=>t.q)), cands=snapCandsFor(members);
+  let moved=false;
+  const mv=ev=>{
+    const dx=ev.clientX-sx, dy=ev.clientY-sy;
+    if(!moved){ if(Math.hypot(dx,dy)<4) return; moved=true; }
+    ev.preventDefault();
+    const sn=snapDelta(u,dx,dy,cands); showGuides(sn.vx,sn.hy);
+    starts.forEach(t=>setPos(t.m,t.p.x+sn.dx/z,t.p.y+sn.dy/z));
+  };
+  const up=()=>{ document.removeEventListener('mousemove',mv); document.removeEventListener('mouseup',up); showGuides(null,null); if(moved){ endDragClick(); fitSlide(); } };
+  document.addEventListener('mousemove',mv); document.addEventListener('mouseup',up);
+});
+window.addEventListener('resize',fitSlide);
+document.addEventListener('fullscreenchange',()=>setTimeout(fitSlide,50));
+window.addEventListener('load',fitSlide);
+document.querySelectorAll('.slide img').forEach(im=>{ if(!im.complete) im.addEventListener('load',fitSlide); });
+if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fitSlide);
+
+// ---- teacher mode: each arrow of the 임정·독립 동맹 page can be moved, lengthened/shortened and turned ----
+editState.arrows=editState.arrows||{};
+const SVGNS='http://www.w3.org/2000/svg';
+const arrowEls=[...document.querySelectorAll('.dg-lines line, .dg-lines > path, .tri-lines line, .tri-lines > path')];
+function parsePts(el){
+  if(el.tagName==='line') return [[+el.getAttribute('x1'),+el.getAttribute('y1')],[+el.getAttribute('x2'),+el.getAttribute('y2')]];
+  const t=el.getAttribute('d').match(/[MLHV]|-?\d+\.?\d*/g), pts=[]; let cx=0, cy=0, cmd='M', i=0;
+  while(i<t.length){
+    if(/[MLHV]/.test(t[i])) cmd=t[i++];
+    if(cmd==='M'||cmd==='L'){ cx=+t[i++]; cy=+t[i++]; } else if(cmd==='H'){ cx=+t[i++]; } else { cy=+t[i++]; }
+    pts.push([cx,cy]);
+  }
+  return pts;
+}
+function applyPts(el,pts){
+  el._pts=pts.map(p=>p.slice());
+  if(el.tagName==='line'){ [el,el._hit].forEach(n=>{ n.setAttribute('x1',pts[0][0]); n.setAttribute('y1',pts[0][1]); n.setAttribute('x2',pts[1][0]); n.setAttribute('y2',pts[1][1]); }); }
+  else { const d='M'+pts.map(p=>p[0]+','+p[1]).join(' L'); el.setAttribute('d',d); el._hit.setAttribute('d',d); }
+}
+const arrowCount={};
+arrowEls.forEach(el=>{
+  const sl=el.closest('.slide'), sid=sl&&sl.dataset.sid?sl.dataset.sid:'x';
+  arrowCount[sid]=arrowCount[sid]||0; el.dataset.aid=sid+'|arrow|'+(arrowCount[sid]++);
+  const hit=document.createElementNS(SVGNS,el.tagName==='line'?'line':'path');
+  hit.setAttribute('stroke','rgba(0,0,0,0.001)'); hit.setAttribute('stroke-width','18'); hit.setAttribute('fill','none'); hit.setAttribute('data-hit','1');
+  el.after(hit); el._hit=hit;
+  applyPts(el,parsePts(el));
+  const sv=editState.arrows[el.dataset.aid];
+  if(sv){ if(sv.pts&&sv.pts.length===el._pts.length) applyPts(el,sv.pts); if(sv.hidden){ el.style.display='none'; hit.style.display='none'; } }
+});
+let selArrow=null, arrowHandles=[];
+function saveArrow(el){ editState.arrows[el.dataset.aid]={pts:el._pts.map(p=>p.slice()),hidden:el.style.display==='none'}; }
+function clearArrowSel(){ arrowHandles.forEach(h=>h.remove()); arrowHandles=[]; if(selArrow) selArrow.classList.remove('arrow-sel'); selArrow=null; }
+function showArrowHandles(){
+  arrowHandles.forEach(h=>h.remove()); arrowHandles=[]; if(!selArrow) return;
+  const dg=selArrow.closest('.dg,.tri');
+  selArrow._pts.forEach((p,i)=>{ const h=document.createElement('span'); h.className='dg-h'; h.dataset.i=String(i); h.style.left=p[0]+'px'; h.style.top=p[1]+'px'; dg.appendChild(h); arrowHandles.push(h); });
+}
+function selectArrow(el){ setSel(null); selArrow=el; el.classList.add('arrow-sel'); showArrowHandles(); }
+const toLocal=(ev,dg)=>{ const q=dg.getBoundingClientRect(), vw=(dg.querySelector('svg').viewBox.baseVal.width)||1140, k=q.width/vw; return [(ev.clientX-q.left)/k,(ev.clientY-q.top)/k]; };
+document.addEventListener('mousedown',e=>{
+  if(!isTeacher()||e.button!==0||!e.target.closest) return;
+  const hd=e.target.closest('.dg-h'), hit=e.target.closest('[data-hit]');
+  if(!hd&&!hit) return;
+  e.preventDefault(); e.stopPropagation();
+  const dg=(hd||hit).closest('.dg,.tri');
+  if(hit){ const el=arrowEls.find(a=>a._hit===hit); if(el&&el!==selArrow) selectArrow(el); }
+  const el=selArrow; if(!el) return;
+  const start=toLocal(e,dg), orig=el._pts.map(p=>p.slice()), idx=hd?+hd.dataset.i:-1;
+  let moved=false;
+  const mv=ev=>{
+    const cur=toLocal(ev,dg), dx=cur[0]-start[0], dy=cur[1]-start[1];
+    if(!moved){ if(Math.hypot(dx,dy)<2) return; moved=true; }
+    let pts=orig.map(p=>p.slice());
+    if(idx>=0){
+      let nx=orig[idx][0]+dx, ny=orig[idx][1]+dy;
+      if(ev.shiftKey){ const ref=orig[idx===0?1:idx-1], len=Math.hypot(nx-ref[0],ny-ref[1]), a=Math.round(Math.atan2(ny-ref[1],nx-ref[0])/(Math.PI/12))*(Math.PI/12); nx=ref[0]+len*Math.cos(a); ny=ref[1]+len*Math.sin(a); }
+      pts[idx]=[Math.round(nx*10)/10,Math.round(ny*10)/10];
+    } else pts=pts.map(p=>[Math.round((p[0]+dx)*10)/10,Math.round((p[1]+dy)*10)/10]);
+    applyPts(el,pts); showArrowHandles();
+  };
+  const up=()=>{ document.removeEventListener('mousemove',mv); document.removeEventListener('mouseup',up); endDragClick(); if(moved) saveArrow(el); };
+  document.addEventListener('mousemove',mv); document.addEventListener('mouseup',up);
+},true);
+document.addEventListener('keydown',e=>{
+  if(!isTeacher()||!selArrow) return;
+  const ed=document.activeElement; if(ed&&ed.isContentEditable) return;
+  if(e.key==='Delete'||e.key==='Backspace'){ e.preventDefault(); e.stopImmediatePropagation(); selArrow.style.display='none'; selArrow._hit.style.display='none'; saveArrow(selArrow); clearArrowSel(); return; }
+  if(e.key.indexOf('Arrow')===0){
+    e.preventDefault(); e.stopImmediatePropagation();
+    const st=e.shiftKey?10:1, dx=e.key==='ArrowLeft'?-st:e.key==='ArrowRight'?st:0, dy=e.key==='ArrowUp'?-st:e.key==='ArrowDown'?st:0;
+    applyPts(selArrow,selArrow._pts.map(p=>[p[0]+dx,p[1]+dy])); showArrowHandles(); saveArrow(selArrow);
+  }
+},true);
+
+// ---- teacher mode: size of the diagram buttons (drag the gold square at the bottom-right of a selected button; Shift keeps the shape) ----
+const RS_SEL='.dg-n,.dg-p';
+// Alt + arrow keys also resize the selected button (Shift = 10px)
+window.addEventListener('keydown',e=>{
+  if(!isTeacher()||!e.altKey||e.key.indexOf('Arrow')!==0||!selEl||!selEl.matches||!selEl.matches(RS_SEL)) return;
+  const ed=document.activeElement; if(ed&&ed.isContentEditable) return;
+  e.preventDefault(); e.stopImmediatePropagation();
+  const st=e.shiftKey?10:1, cs=getComputedStyle(selEl);
+  let w=parseFloat(cs.width)+(e.key==='ArrowRight'?st:e.key==='ArrowLeft'?-st:0), h=parseFloat(cs.height)+(e.key==='ArrowDown'?st:e.key==='ArrowUp'?-st:0);
+  w=Math.max(40,Math.round(w)); h=Math.max(22,Math.round(h));
+  selEl.style.width=w+'px'; selEl.style.height=h+'px'; editState.sizes[selEl.dataset.mv]={w:w,h:h};
+},true);
+document.querySelectorAll(RS_SEL).forEach(n=>{ const h=document.createElement('span'); h.className='rs-handle'; n.appendChild(h); });
+editState.sizes=editState.sizes||{};
+function applyBoxSizes(){
+  Object.keys(editState.sizes).forEach(k=>{
+    const el=document.querySelector('[data-mv="'+k+'"]'), z=editState.sizes[k];
+    if(el&&el.matches(RS_SEL)&&z){ if(z.w) el.style.width=z.w+'px'; if(z.h) el.style.height=z.h+'px'; }
+  });
+}
+applyBoxSizes();
+document.addEventListener('mousedown',e=>{
+  if(!isTeacher()||e.button!==0||!e.target.closest) return;
+  const h=e.target.closest('.rs-handle'); if(!h) return;
+  e.preventDefault(); e.stopPropagation();
+  const el=h.parentElement, cs=getComputedStyle(el), w0=parseFloat(cs.width), h0=parseFloat(cs.height);
+  const k=el.getBoundingClientRect().width/w0||1, sx=e.clientX, sy=e.clientY;
+  const mv=ev=>{
+    let w=w0+(ev.clientX-sx)/k, hh=h0+(ev.clientY-sy)/k;
+    if(ev.shiftKey){ const q=Math.max(w/w0,hh/h0); w=w0*q; hh=h0*q; }
+    el.style.width=Math.max(40,Math.round(w))+'px'; el.style.height=Math.max(22,Math.round(hh))+'px';
+  };
+  const up=()=>{ document.removeEventListener('mousemove',mv); document.removeEventListener('mouseup',up); editState.sizes[el.dataset.mv]={w:parseFloat(el.style.width),h:parseFloat(el.style.height)}; endDragClick(); };
+  document.addEventListener('mousemove',mv); document.addEventListener('mouseup',up);
+},true);
+if(!SERVER_STATE&&(localStorage.getItem(EDIT_KEY)||localStorage.getItem(FIG_KEY))) pushState();
+show(0);
+</script>
+</body>
+</html>
