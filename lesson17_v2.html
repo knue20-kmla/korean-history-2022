@@ -57,6 +57,8 @@ body.nav-open .progress{left:var(--navw)}
 /* header: full-width bar fixed at the very top; the sidebar starts below it */
 header.top{position:fixed;left:0;right:0;top:0;height:var(--headh);background:#0d1a2e;border-bottom:1px solid var(--line);z-index:50}
 #stageRoot{margin-top:var(--headh)}
+/* the zoom pill (added by the web-deck-zoom tool) would sit on top of the teacher toolbar, so hide it while editing */
+body.teacher-mode #khZoom{display:none}
 .top{display:flex;align-items:center;gap:14px;padding:0 clamp(24px,calc(var(--vw) * 4.5),76px);flex-wrap:nowrap;height:100%}
 .top-right{margin-left:auto}
 .brand{display:flex;align-items:center;gap:14px;font-size:clamp(13px,calc(var(--vw) * 1.3),17px);font-weight:800;letter-spacing:-.03em}
@@ -1510,5 +1512,149 @@ document.addEventListener('mousedown',e=>{
 if(!SERVER_STATE&&(localStorage.getItem(EDIT_KEY)||localStorage.getItem(FIG_KEY))) pushState();
 show(0);
 </script>
+<!-- KH-ZOOM:BEGIN 한국사 수업 자료 확대 기능 (원본: D:\korean-history-app-src\tools\web-deck-zoom.html — tools\install-deck-zoom.ps1 로 넣고 갱신합니다. 이 구간을 손으로 고치지 마세요) -->
+<style id="khZoomCss">
+#khZoom{position:fixed;right:18px;bottom:22px;z-index:60;display:flex;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;background:rgba(13,26,46,.9);border:1px solid rgba(216,173,98,.45);box-shadow:0 8px 24px rgba(0,0,0,.35);opacity:.55;transition:opacity .15s;font-family:inherit}
+#khZoom:hover,#khZoom:focus-within{opacity:1}
+#khZoom button{min-width:32px;min-height:32px;padding:0 10px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.06);color:#fff;font:700 14px/1 inherit;cursor:pointer}
+#khZoom button:hover:not(:disabled){background:rgba(216,173,98,.28);border-color:rgba(216,173,98,.6)}
+#khZoom button:disabled{opacity:.4;cursor:default}
+#khZoom #khZoomVal{min-width:58px;font-size:12px;font-variant-numeric:tabular-nums}
+body.teacher-mode #khZoom{opacity:.3;pointer-events:none}
+@media print{#khZoom{display:none!important}}
+</style>
+<script id="khZoomJs">
+/* 확대 기능: 자료의 "화면 맞춤"(fitSlide)이 끝난 뒤 그 배율에 확대 배율을 한 번 더 곱하고, 눈에 보이는 내용(글자·그림·배경이 있는 상자)만
+   화면 위쪽부터 보이게 옮깁니다. 내용이 화면에 들어가면 스크롤바가 없고, 넘치는 방향에만 생깁니다.
+   - 기본 100% = 아무 변화 없음. 확대 배율은 이 브라우저에 기억됩니다(localStorage kh-web-zoom).
+   - 키보드 + - 0, Ctrl+휠, 오른쪽 아래 − 100% ＋ 메뉴.
+   - 교사 모드(편집 중)에서는 자동으로 꺼집니다(끌어서 옮기기·크기 조절 계산이 어긋나지 않게).
+   - 웹앱 화면 안(?embed=1)이나 인쇄 모드(?print=1)에서는 동작하지 않습니다(웹앱이 따로 확대를 제공). */
+try{
+(function(){
+  var q=new URLSearchParams(location.search);
+  if(q.get('embed')==='1'||q.get('print')==='1') return;
+  try{ if(window.parent!==window) return; }catch(e){ return; }
+  var root=document.getElementById('stageRoot');
+  if(!root||typeof slides==='undefined'||typeof fitSlide!=='function') return;
+
+  var LEVELS=[1,1.25,1.5,1.75,2,2.5,3], KEY='kh-web-zoom', M=14;
+  var K=(function(){ try{ var v=+localStorage.getItem(KEY); return LEVELS.indexOf(v)>=0?v:1; }catch(e){ return 1; } })();
+  var applying=false;
+
+  function active(){ for(var i=0;i<slides.length;i++){ if(!slides[i].hidden) return slides[i].querySelector('.stage'); } return null; }
+  function teacher(){ return document.body.classList.contains('teacher-mode'); }
+
+  // 눈에 보이는 것(글자·그림·배경/테두리/그림자가 있는 상자)이 차지하는 범위 (화면 좌표)
+  function ink(stg){
+    var L=1e9,T=1e9,R=-1e9,B=-1e9;
+    function add(r){ if(r.width<1&&r.height<1) return; L=Math.min(L,r.left);T=Math.min(T,r.top);R=Math.max(R,r.right);B=Math.max(B,r.bottom); }
+    var REPL={IMG:1,SVG:1,CANVAS:1,VIDEO:1,IFRAME:1,PICTURE:1,IMAGE:1};
+    function clear(s){ return s==='transparent'||/^rgba\(.*,\s*0\)$/.test(s); }
+    var rg=document.createRange(), w=document.createTreeWalker(stg,1|4), n=w.nextNode();
+    while(n){
+      if(n.nodeType===3){
+        if(n.nodeValue.trim()){ rg.selectNodeContents(n); [].slice.call(rg.getClientRects()).forEach(function(r){ if(r.width>=1&&r.height>=1) add(r); }); }
+      } else {
+        var cs=getComputedStyle(n);
+        if(cs.display!=='none'&&cs.visibility!=='hidden'&&cs.opacity!=='0'){
+          var has=REPL[n.tagName.toUpperCase()]||!clear(cs.backgroundColor)||(cs.backgroundImage&&cs.backgroundImage!=='none')||(cs.boxShadow&&cs.boxShadow!=='none')
+            ||['Top','Right','Bottom','Left'].some(function(s){ return parseFloat(cs['border'+s+'Width'])>0&&cs['border'+s+'Style']!=='none'&&!clear(cs['border'+s+'Color']); });
+          if(has) add(n.getBoundingClientRect());
+        }
+      }
+      n=w.nextNode();
+    }
+    return L>R?null:{l:L,t:T,r:R,b:B};
+  }
+
+  // 확대를 끄거나(100%·교사 모드) 되돌릴 때: 우리가 바꾼 것을 지우고 자료가 스스로 맞추게 합니다.
+  function release(){
+    var el=document.documentElement; el.style.overflowX=''; el.style.overflowY='';
+    var st=active();
+    if(st&&st.dataset.khz){
+      delete st.dataset.khz; delete st.dataset.khml; delete st.dataset.khmt; delete st.dataset.khbase;
+      st.style.marginLeft='';
+      try{ fitSlide(); }catch(e){}
+    }
+  }
+
+  function apply(){
+    if(applying) return;
+    var st=active(); if(!st) return;
+    if(K<=1||teacher()){ if(st.dataset.khz) release(); return; }
+    // 우리가 정해 둔 상태 그대로면 할 일 없음 (자료가 다시 맞추면 zoom 값이 달라지므로 그때만 다시 계산)
+    if(st.dataset.khz&&st.style.zoom===st.dataset.khz&&st.style.marginLeft===st.dataset.khml&&st.style.marginTop===st.dataset.khmt) return;
+    applying=true;
+    try{
+      var base=(st.dataset.khz&&st.style.zoom===st.dataset.khz)?parseFloat(st.dataset.khbase):(parseFloat(st.style.zoom)||1);
+      st.dataset.khbase=base;
+      var z=base*K;
+      st.style.zoom=z; try{ layoutCats(st); }catch(e){}
+      st.style.marginLeft='0px'; st.style.marginTop='0px';
+      window.scrollTo(0,0);
+      var b=ink(st), rr=root.getBoundingClientRect();
+      var vw=document.documentElement.clientWidth, vh=window.innerHeight;
+      var el=document.documentElement;
+      if(b){
+        var iw=b.r-b.l, availW=vw-rr.left;
+        var tl=(iw+2*M<=availW)?rr.left+(availW-iw)/2:rr.left+M;   // 가로: 들어가면 가운데, 넘치면 왼쪽부터
+        var tt=rr.top+M;                                           // 세로: 항상 맨 위(자료 상단 막대 바로 아래)부터
+        st.style.marginLeft=((tl-b.l)/z)+'px'; st.style.marginTop=((tt-b.t)/z)+'px';
+        var b2=ink(st);
+        el.style.overflowX=(b2&&b2.r+M<=vw)?'hidden':'';
+        el.style.overflowY=(b2&&b2.b+M<=vh)?'hidden':'';
+      }
+      st.dataset.khz=st.style.zoom; st.dataset.khml=st.style.marginLeft; st.dataset.khmt=st.style.marginTop;
+    }catch(e){ console.warn('kh zoom',e); }
+    applying=false;
+  }
+
+  // ---- 조작 메뉴 ----
+  var box=document.createElement('div'); box.id='khZoom'; box.setAttribute('role','group'); box.setAttribute('aria-label','확대 · 축소');
+  box.innerHTML='<button type="button" id="khZoomOut" aria-label="축소" title="축소 (-)">−</button><button type="button" id="khZoomVal" title="100%로 되돌리기 (0)">100%</button><button type="button" id="khZoomIn" aria-label="확대" title="확대 (+)">＋</button>';
+  document.body.appendChild(box);
+  var bOut=box.querySelector('#khZoomOut'), bVal=box.querySelector('#khZoomVal'), bIn=box.querySelector('#khZoomIn');
+  function ui(){
+    bVal.textContent=Math.round(K*100)+'%';
+    bOut.disabled=K<=LEVELS[0]; bIn.disabled=K>=LEVELS[LEVELS.length-1];
+    box.title=teacher()?'교사 모드(편집 중)에서는 확대를 쓸 수 없어요':'';
+  }
+  function setK(v){
+    K=v; try{ localStorage.setItem(KEY,String(K)); }catch(e){}
+    var st=active();
+    ui();
+    if(K<=1){ release(); }   // 100%: 우리가 바꾼 것(배율·여백·스크롤 잠금)을 모두 되돌림 (표시를 지우기 전에 호출해야 함)
+    else{
+      if(st&&st.dataset.khz){ st.style.zoom=st.dataset.khbase; delete st.dataset.khz; }   // 자료가 정한 배율에서 다시 계산
+      apply();
+    }
+    window.scrollTo(0,0);
+  }
+  function step(d){ var i=LEVELS.indexOf(K); setK(LEVELS[Math.min(LEVELS.length-1,Math.max(0,i+d))]); }
+  bOut.addEventListener('click',function(){ step(-1); });
+  bIn.addEventListener('click',function(){ step(1); });
+  bVal.addEventListener('click',function(){ setK(1); });
+  document.addEventListener('keydown',function(e){
+    if(e.altKey||e.ctrlKey||e.metaKey||teacher()) return;
+    var t=e.target; if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.tagName==='SELECT'||t.isContentEditable)) return;
+    if(e.key==='+'||e.key==='=') step(1); else if(e.key==='-'||e.key==='_') step(-1); else if(e.key==='0') setK(1);
+  });
+  document.addEventListener('wheel',function(e){
+    if(!(e.ctrlKey||e.metaKey)||teacher()) return;
+    e.preventDefault(); step(e.deltaY<0?1:-1);
+  },{passive:false});
+
+  // ---- 자료가 다시 맞출 때(슬라이드 이동·창 크기 변경·이미지 로드) 확대를 다시 적용 ----
+  new MutationObserver(function(){ apply(); }).observe(root,{subtree:true,attributes:true,attributeFilter:['style','hidden']});
+  new MutationObserver(function(){ ui(); apply(); }).observe(document.body,{attributes:true,attributeFilter:['class']});
+  window.addEventListener('resize',function(){ setTimeout(apply,0); });
+  document.addEventListener('load',function(){ setTimeout(apply,30); },true);
+  ui();
+  if(K>1) setTimeout(apply,300);
+})();
+}catch(e){ console.warn('kh zoom init',e); }
+</script>
+<!-- KH-ZOOM:END -->
 </body>
 </html>
