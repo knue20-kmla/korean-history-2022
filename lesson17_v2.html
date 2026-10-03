@@ -15,8 +15,50 @@ button,a{font:inherit}button{cursor:pointer}
 button:disabled{opacity:.3;cursor:default}
 .top,.stage{position:relative;z-index:1}
 
-/* header (same structure as the original) */
-.top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:22px clamp(24px,calc(var(--vw) * 4.5),76px) 0;flex-wrap:wrap}
+/* left sidebar: full textbook table of contents (only built lessons are clickable) */
+:root{--navw:300px;--headh:72px}
+#navToggle{flex:0 0 auto;width:36px;border-radius:10px;font-size:15px}
+#courseNav{position:fixed;left:calc(var(--navw) * -1);top:var(--headh);bottom:0;width:var(--navw);background:#0b1626;border-right:1px solid var(--line);z-index:45;overflow-y:auto;transition:left .22s;font-size:13px}
+body.nav-open #courseNav{left:0}
+#courseNav .nav-head{padding:14px 16px 12px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#0b1626;z-index:2}
+.nav-head-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.nav-head-row h2{margin:0}
+#navClose{flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.05);color:#cfd9e4;cursor:pointer;font-size:12px}
+#navClose:hover{background:rgba(216,173,98,.22);border-color:rgba(216,173,98,.5);color:#fff}
+.nav-tabs{display:flex;gap:8px}
+.nav-tab{flex:1;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#cfd9e4;border-radius:10px;padding:9px 4px;font-size:12.5px;font-weight:700;cursor:pointer}
+.nav-tab.active{background:rgba(216,173,98,.2);border-color:var(--gold);color:#fff}
+.nav-body{padding:10px 6px 28px}
+.nav-roman-head{width:100%;display:flex;align-items:center;gap:8px;text-align:left;background:none;border:0;color:#f3ddad;font-weight:800;font-size:12.5px;padding:10px 8px;cursor:pointer;border-radius:8px}
+.nav-roman-head:hover{background:rgba(255,255,255,.05)}
+.nav-roman-head .chev{display:inline-block;transition:transform .15s;font-size:10px;color:var(--dim)}
+.nav-roman.open .nav-roman-head .chev{transform:rotate(90deg)}
+.nav-units{display:none;padding-left:2px}
+.nav-roman.open .nav-units{display:block}
+.nav-unit{margin:1px 0}
+.nav-unit-head{width:100%;display:flex;align-items:center;gap:8px;padding:7px 8px;font-weight:800;font-size:12.5px;color:#9fb0c6;background:none;border:0;text-align:left;cursor:pointer;border-radius:7px}
+.nav-unit-head:hover{background:rgba(255,255,255,.05)}
+.nav-unit-head b{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.08);color:#9fb0c6;font-size:10.5px;flex:0 0 auto}
+.nav-unit-head .chev{margin-left:auto;font-size:9px;color:var(--dim);transition:transform .15s}
+.nav-unit.open .nav-unit-head .chev{transform:rotate(90deg)}
+.nav-unit.built .nav-unit-head{color:#fff}
+.nav-unit.built .nav-unit-head b{background:var(--gold);color:var(--navy)}
+.nav-unit-body{display:none;padding-bottom:4px}
+.nav-unit.open .nav-unit-body{display:block}
+.nav-topic{display:block;width:100%;text-align:left;border:0;background:none;color:#5b6678;font-size:12px;line-height:1.55;padding:4px 8px 4px 34px;border-radius:7px;cursor:default}
+.nav-unit.built .nav-topic{color:#ccd6e3;cursor:pointer}
+.nav-unit.built .nav-topic:hover{background:rgba(216,173,98,.14);color:#fff}
+.nav-topic.current{background:rgba(216,173,98,.24);color:#fff;font-weight:700}
+#stageRoot,.progress{transition:margin-left .22s,left .22s}
+body.nav-open #stageRoot{margin-left:var(--navw)}
+body.nav-open .progress{left:var(--navw)}
+@media (max-width:1180px){ body.nav-open #stageRoot{margin-left:0} body.nav-open .progress{left:0} #courseNav{box-shadow:0 0 40px rgba(0,0,0,.5)} }
+
+/* header: full-width bar fixed at the very top; the sidebar starts below it */
+header.top{position:fixed;left:0;right:0;top:0;height:var(--headh);background:#0d1a2e;border-bottom:1px solid var(--line);z-index:50}
+#stageRoot{margin-top:var(--headh)}
+.top{display:flex;align-items:center;gap:14px;padding:0 clamp(24px,calc(var(--vw) * 4.5),76px);flex-wrap:nowrap;height:100%}
+.top-right{margin-left:auto}
 .brand{display:flex;align-items:center;gap:14px;font-size:clamp(13px,calc(var(--vw) * 1.3),17px);font-weight:800;letter-spacing:-.03em}
 .brand .logo{width:40px;height:40px;border-radius:50%;background:#fff;object-fit:contain}
 .brand .names{display:flex;align-items:center;gap:10px}
@@ -372,7 +414,19 @@ body.teacher-mode .dg-n.sel>.rs-handle,body.teacher-mode .dg-p.sel>.rs-handle{di
 </head>
 <body>
 
+<aside id="courseNav">
+  <div class="nav-head">
+    <div class="nav-head-row"><h2>민사고 한국사 수업 DB</h2><button id="navClose" type="button" aria-label="목차를 옆으로 밀어서 숨기기" title="옆으로 밀어서 숨기기">«</button></div>
+    <div class="nav-tabs">
+      <button type="button" class="nav-tab" data-book="한국사1">한국사1</button>
+      <button type="button" class="nav-tab" data-book="한국사2">한국사2</button>
+    </div>
+  </div>
+  <div class="nav-body" id="navBody"></div>
+</aside>
+
 <header class="top">
+  <button class="icon-btn" id="navToggle" type="button" aria-label="전체 단원 목차 열기/닫기">☰</button>
   <div class="brand">
     <img class="logo" src="https://i.imgur.com/Mo4ogKc.png" alt="민족사관고등학교 로고">
     <div class="names"><span>민족사관고등학교</span><span class="div"></span><span class="subject">한국사</span></div>
@@ -382,6 +436,7 @@ body.teacher-mode .dg-n.sel>.rs-handle,body.teacher-mode .dg-p.sel>.rs-handle{di
     <span class="slide-counter" id="slideCounter">1 / 1</span>
     <button class="icon-btn" id="nextBtn" type="button" aria-label="다음">›</button>
     <button class="text-btn" id="teacherToggle" type="button">교사 모드</button>
+    <button class="text-btn" id="bakeBtn" type="button" title="지금 저장된 수정 내용을 lesson17_v2.html 파일 자체에 반영 — 그러면 다른 컴퓨터나 GitHub에서도 이 파일 하나만으로 똑같이 보입니다">반영하기</button>
     <button class="text-btn" id="tocButton" type="button">전체 목차</button>
     <button class="icon-btn" id="playButton" type="button" title="자동 재생">▶</button>
     <button class="icon-btn" id="fullButton" type="button" title="전체 보기">⛶</button>
@@ -646,7 +701,7 @@ body.teacher-mode .dg-n.sel>.rs-handle,body.teacher-mode .dg-p.sel>.rs-handle{di
           <img src="assets/tb-potsdam-photo.png" alt="포츠담 회담">
         </div>
         <div class="tlv-rail"><div class="tlv-v br-v"></div><div class="tlv-h br-h"></div><i></i></div>
-        <div class="tlv-text"><p>미국·영국·중국 대표 참석. 일본에 무조건 항복 요구, 카이로 선언의 한국 독립 재확인(포츠담 선언).</p></div>
+        <div class="tlv-text"><p>미국·영국·소련 대표 참석. 일본에 무조건 항복 요구, 카이로 선언의 한국 독립 재확인(포츠담 선언).</p></div>
       </div>
       <div class="tlv-row last">
         <div class="tlv-goal"><b>1945. 8. 15.</b><span>일본의 무조건 항복 · 광복</span></div>
@@ -775,6 +830,7 @@ function show(i){
   window.scrollTo(0,0);
   if(typeof setSel==='function') setSel(null);
   fitSlide();
+  if(typeof renderNav==='function') renderNav();
 }
 document.getElementById('prevBtn').addEventListener('click',()=>show(currentIndex-1));
 document.getElementById('nextBtn').addEventListener('click',()=>show(currentIndex+1));
@@ -790,6 +846,99 @@ function openToc(){ tocOverlay.classList.add('open'); } function closeToc(){ toc
 document.getElementById('tocButton').addEventListener('click',openToc);
 document.getElementById('tocClose').addEventListener('click',closeToc);
 tocOverlay.addEventListener('click',e=>{ if(e.target===tocOverlay) closeToc(); });
+
+// ---- left sidebar: full 교과서 목차 (한국사1/한국사2), only built lessons (지금은 5단원) are clickable ----
+// [대단원 번호, 대단원명, 시작 쪽수, [소단원/주제 제목들], 'BUILT'?]
+const TOC_DATA={
+  '한국사1':[
+    ['I','근대 이전 한국사의 이해',[
+      [1,'고대 국가의 성장',8,['만주와 한반도 일대에 고대국가가 성립하다','삼국이 중앙 집권적 고대 국가로 발전하다','통일 신라와 발해가 발전하다']],
+      [2,'고려의 통치 체제와 정치 변동',18,['고려가 후삼국을 통일하고 통치 체제를 정비하다','문벌 사회가 무너지고 무신 정권이 성립하다','원 간섭기 새로운 정치 세력이 성장하다']],
+      [3,'조선 사회의 성립과 발전',28,['조선이 유교 이념에 따라 통치 체제를 정비하다','사림이 성장하여 붕당 정치를 운영하다','왜란과 호란이 일어나다']],
+      [4,'조선 후기의 새로운 흐름',36,['양 난 이후 정치 운영이 변하다','탕평 정치와 세도 정치가 행해지다','흥선 대원군이 통치 체제를 다시 정비하다']]
+    ]],
+    ['II','근대 이전 한국사의 탐구',[
+      [1,'국제 관계와 대외 교류',48,['고대 국가들이 국제 관계를 형성하다','고려가 다원적 국제 질서를 형성하다','조선이 사대교린 정책을 취하다']],
+      [2,'수취 체제와 경제생활',58,['고려의 경제생활은 어떠하였을까?','고려가 토지 제도와 수취 제도를 운영하다','조선의 수취 제도가 변화하다']],
+      [3,'신분제와 사회 구조',66,['고대 사회에서 신분제가 형성되다','고려의 사회 모습은 어떠하였을까?','조선의 양반 중심 질서가 양난 이후 변하다']],
+      [4,'사상과 문화',74,['고대 국가에서 다양한 사상과 문화가 발달하다','고려 시대에 종교와 학문이 발달하다','조선 시대에 새로운 문화 경향이 나타나다']],
+      [5,'근대 이전 한국사 주제 탐구',86,['한국사 주제탐구의 방법','한국사 주제탐구하기']]
+    ]],
+    ['III','근대 국가 수립의 노력',[
+      [1,'국제 질서의 변동과 개항',96,['조선이 서구의 침략에 맞서다','강화도 조약으로 조선이 개항하다']],
+      [2,'근대 국가 수립을 위한 노력',106,['개화 정책을 추진하다','갑신정변이 일어나고 열강의 대립이 커지다','동학 농민 운동이 일어나다','갑오개혁을 추진하다','독립 협회를 설립하고 대한 제국을 수립하다']],
+      [3,'사회·경제 변동과 문화 변동',126,['열강의 경제 침탈이 가속화되다','상공업 진흥과 경제 주권 수호 운동에 임하다','서구 문물의 도입으로 사회·문화가 변하다','국민 의식과 민권 의식이 확산되다']],
+      [4,'국권 침탈과 국권 수호 운동',142,['일본이 국권을 강제로 병합하다','항일 의병활동과 의열 투쟁을 전개하다','애국 계몽 운동이 일어나다']]
+    ]]
+  ],
+  '한국사2':[
+    ['I','일제 식민 통치와 민족 운동',[
+      [1,'제국주의 질서와 일제의 식민 통치 정책',8,['일제가 무단 통치를 실시하다','기만적인 \'문화 정치\'를 실시하다','일제가 민족말살 통치를 실시하다']],
+      [2,'경제 구조의 변화와 경제생활',18,['일제가 토지조사 사업을 실시하다','일제가 산미증식 계획을 추진하다','일제가 한국에서 전쟁 물자를 수탈하다','국외로 이주한 동포들은 어떻게 살았을까?']],
+      [3,'민족 운동의 전개와 분화',28,['3·1 운동을 전개하다','대한민국 임시정부를 수립하다','국외에서 무장 독립 투쟁을 전개하다','국내에서 실력 양성 운동을 펼치다','민족 유일당 운동을 전개하다']],
+      [4,'사회·문화의 변화와 대중운동',48,['도시와 농촌이 변화하다','다양한 사회 운동이 일어나다','민족문화 수호운동을 전개하다','대중문화가 유행하고 문예 활동을 전개하다']],
+      [5,'독립 국가 건설 노력',62,['만주에서 항일 연합 전선을 만들어 투쟁하다','중국 관내에서 독립운동을 전개하다','건국을 준비하다'],'BUILT']
+    ]],
+    ['II','대한민국의 발전',[
+      [1,'냉전 체제와 대한민국 정부 수립',76,['8·15 광복과 냉전의 시대를 맞이하다','통일 정부를 수립하려고 노력하다','대한민국 정부를 수립하다','친일파 청산과 농지 개혁을 추진하다']],
+      [2,'6·25 전쟁과 남북 분단의 고착화',88,['북한이 전쟁을 일으키다','분단이 고착화되고 독재 체제가 강화되다','전후 복구 사업을 전개하다']],
+      [3,'민주화를 위한 노력',96,['4·19 혁명이 일어나다','군사 정변으로 새로운 정부가 수립되다','유신 체제가 성립하다','5·18 민주화 운동이 일어나다','6월 민주 항쟁이 일어나다']],
+      [4,'산업화의 성과와 사회·환경 문제',110,['산업화로 경제가 성장하다','산업화로 사회·환경 문제가 나타나다']],
+      [5,'문화 변동과 일상생활',118,['산업화로 일상생활이 변화하다','언론과 대중문화가 성장하다']]
+    ]],
+    ['III','오늘날의 대한민국',[
+      [1,'6월 민주 항쟁 이후 민주화 과정',128,['민주화가 진전되다','시민 사회가 성장하다']],
+      [2,'외환 위기의 극복과 사회·문화 변동',134,['세계화에 따라 한국 경제가 변화하다','우리 사회가 변화하다']],
+      [3,'한반도 분단 극복과 동아시아의 평화를 위한 노력',142,['북한 사회가 변화하다','분단을 극복하기 위해 노력하다','동아시아 갈등을 해결하려고 노력하다']]
+    ]]
+  ]
+};
+const BUILT_SIDS={'한국사2|I|5':['s1','s3','s5']}; // 주제17→17-1, 주제18→18-1, 주제19→19-1 (각 소단원의 첫 페이지로 이동)
+const NAV_BOOK_KEY='kmla-nav-book', NAV_SEC_KEY='kmla-nav-sections', NAV_UNIT_KEY='kmla-nav-units', NAV_OPEN_KEY='kmla-nav-open';
+let navBook=localStorage.getItem(NAV_BOOK_KEY)||'한국사2';
+let navOpenRomans; try{ const sv=JSON.parse(localStorage.getItem(NAV_SEC_KEY)); navOpenRomans=new Set(Array.isArray(sv)?sv:[navBook+'|I']); }catch(e){ navOpenRomans=new Set([navBook+'|I']); }
+let navOpenUnits; try{ const sv=JSON.parse(localStorage.getItem(NAV_UNIT_KEY)); navOpenUnits=new Set(Array.isArray(sv)?sv:['한국사2|I|5']); }catch(e){ navOpenUnits=new Set(['한국사2|I|5']); }
+const navBody=document.getElementById('navBody');
+function navSidIndex(sid){ return slides.findIndex(s=>s.dataset.sid===sid); }
+function navOffset(){ return (document.body.classList.contains('nav-open')&&innerWidth>=1180)?300:0; }
+function renderNav(){
+  document.querySelectorAll('.nav-tab').forEach(b=>b.classList.toggle('active',b.dataset.book===navBook));
+  navBody.innerHTML=TOC_DATA[navBook].map(([roman,title,units])=>{
+    const rkey=navBook+'|'+roman, ropen=navOpenRomans.has(rkey);
+    let topicNo=0;
+    const unitsHtml=units.map(([no,name,page,topics,built])=>{
+      const ukey=navBook+'|'+roman+'|'+no, uopen=navOpenUnits.has(ukey);
+      const sids=built?BUILT_SIDS[ukey]:null;
+      const topicsHtml=topics.map((t,ti)=>{
+        topicNo++;
+        const sid=sids&&sids[ti];
+        const idx=sid!=null?navSidIndex(sid):-1;
+        const cur=idx>=0&&idx===currentIndex;
+        return `<button type="button" class="nav-topic${cur?' current':''}"${idx>=0?` data-idx="${idx}"`:''}>주제${String(topicNo).padStart(2,'0')} ${t}</button>`;
+      }).join('');
+      return `<div class="nav-unit${built?' built':''}${uopen?' open':''}" data-ukey="${ukey}"><button type="button" class="nav-unit-head"><b>${no}</b><span>${name}</span><i class="chev">▸</i></button><div class="nav-unit-body">${topicsHtml}</div></div>`;
+    }).join('');
+    return `<div class="nav-roman${ropen?' open':''}" data-roman="${roman}"><button type="button" class="nav-roman-head"><span class="chev">▸</span>${roman}. ${title}</button><div class="nav-units">${unitsHtml}</div></div>`;
+  }).join('');
+}
+navBody.addEventListener('click',e=>{
+  const uhead=e.target.closest('.nav-unit-head');
+  if(uhead){ const u=uhead.closest('.nav-unit'), ukey=u.dataset.ukey; if(navOpenUnits.has(ukey)) navOpenUnits.delete(ukey); else navOpenUnits.add(ukey); localStorage.setItem(NAV_UNIT_KEY,JSON.stringify([...navOpenUnits])); renderNav(); return; }
+  const head=e.target.closest('.nav-roman-head');
+  if(head){ const sec=head.closest('.nav-roman'), key=navBook+'|'+sec.dataset.roman; if(navOpenRomans.has(key)) navOpenRomans.delete(key); else navOpenRomans.add(key); localStorage.setItem(NAV_SEC_KEY,JSON.stringify([...navOpenRomans])); renderNav(); return; }
+  const topic=e.target.closest('.nav-topic[data-idx]');
+  if(topic){ show(+topic.dataset.idx); if(innerWidth<1180) document.body.classList.remove('nav-open'); }
+});
+document.querySelectorAll('.nav-tab').forEach(b=>b.addEventListener('click',()=>{
+  navBook=b.dataset.book; localStorage.setItem(NAV_BOOK_KEY,navBook);
+  if(![...navOpenRomans].some(k=>k.startsWith(navBook+'|'))) navOpenRomans.add(navBook+'|I');
+  renderNav();
+}));
+function setNavOpen(on){ document.body.classList.toggle('nav-open',on); localStorage.setItem(NAV_OPEN_KEY,on?'1':'0'); fitSlide(); }
+document.getElementById('navToggle').addEventListener('click',()=>setNavOpen(!document.body.classList.contains('nav-open')));
+document.getElementById('navClose').addEventListener('click',()=>setNavOpen(false));
+if(localStorage.getItem(NAV_OPEN_KEY)!=='0'&&innerWidth>=1280) document.body.classList.add('nav-open');
+renderNav();
 tocList.addEventListener('click',e=>{ const b=e.target.closest('button'); if(b){ show(Number(b.dataset.index)); closeToc(); } });
 let autoplayTimer=null, autoplaying=false; const playButton=document.getElementById('playButton');
 function stopAutoplay(){ autoplaying=false; clearInterval(autoplayTimer); playButton.textContent='▶'; }
@@ -850,25 +999,36 @@ function slideCssH(i){
 function fitSlide(){
   const st=slides[currentIndex].querySelector('.stage'); if(!st) return;
   st.style.zoom=''; st.style.marginTop='';
-  if(innerWidth<980){ st.style.width=''; st.style.maxWidth=BASE_W+'px'; st.style.setProperty('--cx','0px'); layoutCats(st); return; }
+  const availW=innerWidth-navOffset();
+  if(availW<980){ st.style.width=''; st.style.maxWidth=BASE_W+'px'; st.style.setProperty('--cx','0px'); layoutCats(st); return; }
   // the slide is always laid out at the same width (BASE_W), windowed or fullscreen, so nothing moves between modes; only the zoom changes
   st.style.width=BASE_W+'px'; st.style.maxWidth='none';
   layoutCats(st);
   st.style.setProperty('--cx','0px');
   const top=st.getBoundingClientRect().top+scrollY, availH=innerHeight-top-8;
   const tallest=Math.max(...slides.map((_,i)=>slideCssH(i)));
-  const z=Math.max(0.3,Math.min(1,innerWidth/BASE_W,availH/tallest));
+  const z=Math.max(0.3,Math.min(1,availW/BASE_W,availH/tallest));
   st.style.zoom=z; layoutCats(st);
   // push everything down partway (not all the way) toward the no-scroll line, so the tallest page still keeps some breathing room at the bottom
   const slack=Math.max(0,availH-tallest*z);
   st.style.marginTop=(slack/2)+'px';
 }
 // ---- teacher mode: drag / resize maps and photos (saved in this browser) ----
+// a frozen copy of saved-layout.json as of the last "구워넣기" — lets this exact file show the
+// same edits on any computer or host (file://, another PC, GitHub Pages) with no server needed.
+// a live local server's own /state always takes priority over this when one is running.
+const BAKED_STATE = {"figs":{"s1|0":{"x":-140,"y":-26},"s3|0":{"x":-398,"y":-101,"w":393},"s4|0":{},"s4|1":{"x":-288,"y":301,"w":337},"s5|0":{"x":-448,"y":0,"w":420},"s5|1":{"w":230,"x":-99,"y":-186},"s2|0":{"x":-300,"y":139,"w":274},"s2|1":{"x":-13,"y":-144,"w":285}},"edit":{"edits":{"s7|.ln|1":{"o":"1720385362","h":"<span style=\"color: rgb(255, 255, 255); font-weight: 800;\">한국의 독립 문제 최초 논의</span>, ‘<span style=\"color: rgb(223, 187, 109); font-weight: 600;\">적당한 시기에 한국을 자유롭고 독립하게</span>’ 할 것 명시(카이로 선언)."},"s7|.ln|5":{"o":"1312579294","h":"일본에 무조건 항복 요구, <span style=\"color: rgb(255, 255, 255); font-weight: 800;\">카이로 선언의 한국 독립 재확인</span>(포츠담 선언)."},"s7|.ln|7":{"o":"1284999959","h":"일본의 무조건 항복으로 제2차 세계 대전 종결"},"s6|.ln|1":{"o":"-904127168","h":"'재미 한족 연합 위원회'(1941)는 임시 정부 지원과 한인 국방 경위대 조직, 이승만 중심의 외교 위원회는 미국에 임시 정부 승인 요청(수용되지 않음)."},"s3|.ln|2":{"o":"1887699111","h":"중국 신문의 아쉬움 섞인 보도에 반발한 일본인이 중국인을 습격하자, 일제가 이를 빌미로 상하이 침략(상하이 사변, 1932)"},"s3|.ln|0":{"o":"1611540541","h":"일본 도쿄에서 일왕이 탄 마차에 수류탄 투척"},"s3|.ln|1":{"o":"-359871750","h":"일왕 처단에는 실패했으나 일제에 큰 충격"},"s3|.ln|4":{"o":"-432406732","h":"일본군 장교와 여러 고위 관리 처단"},"s3|.ln|3":{"o":"-123374252","h":"상하이 훙커우 공원에서 열린 일왕 생일 및 상하이 사변 승전 기념식에 폭탄 투척"},"s3|.ln|5":{"o":"1144684426","h":"중국인의 반한 감정 크게 완화"},"s3|.ln|6":{"o":"1649000267","h":"<span style=\"font-weight: 800; color: rgb(255, 255, 255);\">중국 국민당 정부의 대한민국 임시 정부 본격 지원</span>"},"s3|.lead|0":{"o":"638747167","h":"<span style=\"color: rgb(238, 213, 160);\">국민 대표회의 결렬</span> 이후 임시 정부의 활동 위축. <em>만보산 사건, 만주사변(1931)</em>으로 <span style=\"color: rgb(255, 0, 0);\">중국인의 반한 감정</span>이 커져 독립운동 곤란&nbsp;<div>김구가 임시 정부에 활기를 불어넣고자 <em>한인 애국단 조직(1931)</em>.</div>"},"s4|.ln|5":{"o":"-1409067270","h":"다수 대원은 적극적인 항일 투쟁을 위해 화북으로 이동하여 ‘<span style=\"color: rgb(255, 255, 255); font-weight: 800;\">조선 의용대 화북 지대</span>’ 결성(1941)."},"s4|.duo-item|1":{"o":"-1807586814","h":"임정 고수 김구 :&nbsp;<small>‘<span style=\"font-weight: 800; color: rgb(77, 163, 255); font-size: 18px;\">한국 국민당</span>’(1935)</small> 결성"},"s4|.duo-item|0":{"o":"-1208258642","h":"난징에서 <span style=\"font-weight: 800; font-size: 18px; color: rgb(241, 96, 59);\">민족 혁명당</span> <small>(의열단 + 조선 혁명당 + 한국 독립당 등)</small> 결성"},"s4|.ln|0":{"o":"-575333500","h":"김원봉의 의열단 계열이 당을 주도하자 <span style=\"color: rgb(209, 169, 98);\">조소앙·지청천 등 민족주의 계열 이탈.</span>"},"s4|.lead|0":{"o":"1354624917","h":"만주 사변(1931) 이후 일제의 탄압으로 만주의 독립운동 단체 대부분 중국 관내 이동. 노선의 차이를 넘어 <em>여러 독립운동 단체의 통합</em>&nbsp;시도"},"s5|.ln|6":{"o":"860464894","h":"<span style=\"font-weight: 600; color: rgb(242, 219, 169);\">좌우익 통일 전선의 성격 강화(독립 운동의 대표성 강화)</span>"},"s5|.lead|0":{"o":"551715275","h":"윤봉길 의거 이후 일제의 탄압 심화로 임시 정부가 상하이를 떠나 <em>항저우 → 창사 → 광저우 → 충칭 이동</em>.&nbsp;<div>'정당·정부·군대'('한국독립당·임시 정부·한국 광복군') 체제 정비.</div>"},"s5|.ln|4":{"o":"1870802632","h":"<span style=\"font-weight: 600; color: rgb(216, 173, 98);\">정당(한국 독립당)·정부(임시 정부)·군대(한국광복군) 체제 정비.</span>"},"s5b|.dg-n|15":{"o":"1167158516","h":"조선 의용군 결성(1942, 옌안)"},"s3|.point h3|0":{"o":"1714771662","h":"결과 — 한·중 항일 연대의 계기"}},"del":["s4|.fig|0","s6|.chip|0","s6|.lead|0","s3|.fig|0","s5|.fig|1"],"delSig":{"s4|.fig|0":"19585276","s6|.chip|0":"467020340","s6|.lead|0":"-851575098","s3|.fig|0":"1560237688","s5|.fig|1":"-319141789"},"widths":{"s4|.cat-body|0":244,"s4|.point|1":924,"s6|.commons|0":1002,"s1|.point|0":844},"moves":{"s6|.tri|0":{"x":-175,"y":52},"s6|.commons|0":{"x":-176,"y":48},"s6|.sec h3|0":{"x":0,"y":3},"s6|.sec>p|0":{"x":-3,"y":7},"s4|.ln|2":{"x":8,"y":-29},"s4|.cat-row|1":{"x":-8,"y":41},"s4|.ln|1":{"x":0,"y":11},"s5b|.dg-p|4":{"x":-14,"y":-17},"s5b|.dg-p|0":{"x":-9,"y":-37},"s5b|.dg|0":{"x":-95,"y":4},"s5b|.dg-p|3":{"x":-300,"y":-41},"s5b|.dg-p|2":{"x":80,"y":-37},"s5b|.dg-p|1":{"x":-48,"y":-27},"s5b|.dg-n|1":{"x":-119,"y":0},"s5b|.dg-n|0":{"x":-128,"y":5},"s5b|.dg-n|11":{"x":36,"y":5},"s5b|.dg-n|13":{"x":35,"y":6},"s5b|.dg-n|15":{"x":37,"y":12},"s5b|.dg-n|14":{"x":0,"y":1},"s5b|.dg-n|8":{"x":27,"y":5},"s5b|.dg-n|9":{"x":22,"y":4},"s5b|.dg-n|10":{"x":23,"y":-1},"s5b|.dg-p|6":{"x":-108,"y":-1},"s5b|.dg-p|5":{"x":-68,"y":7},"s5b|.dg-note|0":{"x":25,"y":-17},"s6|.tri-pill|1":{"x":-3,"y":-48},"s6|.tri-pill|0":{"x":-149,"y":-48},"s5|.point|1":{"x":0,"y":12},"s5|.point|2":{"x":0,"y":34},"s4|.point|2":{"x":0,"y":54},"s4|.point|1":{"x":0,"y":24},"s4|.num|1":{"x":0,"y":30},"s4|.br-v|0":{"x":-174,"y":13},"s4|.br-h|1":{"x":-173,"y":2},"s4|.br-t|0":{"x":-172,"y":2},"s4|.cat-label|0":{"x":0,"y":2},"s4|.cat-name|0":{"x":0,"y":2},"s4|.cat-name|1":{"x":8,"y":-38},"s4|.br-v|1":{"x":0,"y":2},"s4|.num|2":{"x":0,"y":5},"s4|.point h3|1":{"x":0,"y":5},"s4|.ln|3":{"x":0,"y":5},"s4|.ln|4":{"x":0,"y":5},"s4|.ln|5":{"x":0,"y":5},"s4|.ln|6":{"x":0,"y":5},"s4|.chip|0":{"x":0,"y":5},"s4|.chip|1":{"x":0,"y":5},"s4|.chip|2":{"x":0,"y":5},"s5|.num|2":{"x":0,"y":-35},"s5|.point h3|2":{"x":0,"y":-35},"s5|.ln|7":{"x":0,"y":-35},"s5|.ln|8":{"x":0,"y":-35},"s5|.ln|9":{"x":0,"y":-35},"s5|.chip|3":{"x":0,"y":-35},"s5|.num|1":{"x":0,"y":-26},"s5|.point h3|1":{"x":0,"y":-25},"s5|.ln|5":{"x":0,"y":-25},"s5|.ln|6":{"x":0,"y":-25},"s5|.chip|2":{"x":0,"y":-25},"s5|.num|0":{"x":0,"y":-19},"s5|.point h3|0":{"x":0,"y":-19},"s5|.ln|0":{"x":0,"y":-19},"s5|.ln|1":{"x":0,"y":-19},"s5|.ln|2":{"x":0,"y":-19},"s5|.ln|3":{"x":0,"y":-19},"s5|.ln|4":{"x":0,"y":-19},"s5|.chip|0":{"x":0,"y":-19},"s5|.chip|1":{"x":0,"y":-19},"s1|.arr|0":{"x":-123,"y":0},"s3|.num|0":{"x":0,"y":-9},"s3|.point h3|0":{"x":0,"y":-9},"s3|.ln|5":{"x":0,"y":-9},"s3|.ln|6":{"x":0,"y":-9},"s3|.cat-label|0":{"x":0,"y":27},"s3|.cat-name|0":{"x":0,"y":27},"s3|.ln|0":{"x":0,"y":27},"s3|.ln|1":{"x":0,"y":27},"s3|.ln|2":{"x":0,"y":27},"s3|.chip|0":{"x":0,"y":27},"s3|.cat-name|1":{"x":0,"y":27},"s3|.ln|3":{"x":0,"y":27},"s3|.ln|4":{"x":0,"y":27},"s3|.chip|1":{"x":0,"y":27},"s3|.chip|2":{"x":0,"y":27},"s3|.point|0":{"x":0,"y":27},"s3|.br-v|0":{"x":0,"y":26},"s7|.tlv-goal b|0":{"x":0,"y":-5},"s7|.tlv-goal span|0":{"x":0,"y":-10}},"sizes":{"s4|.br-v|0":{"h":35},"s5b|.dg-n|11":{"w":261,"h":33},"s5b|.dg-n|13":{"w":257,"h":32},"s5b|.dg-n|15":{"w":251,"h":27},"s5b|.dg-n|10":{"w":253,"h":25},"s5b|.dg-n|9":{"w":253,"h":29},"s5b|.dg-n|8":{"w":246,"h":28},"s5b|.dg-n|0":{"w":253,"h":35},"s5b|.dg-n|1":{"w":311,"h":40}},"styles":{},"arrows":{"s5b|arrow|5":{"pts":[[478.5,219.9],[240,328]],"hidden":false},"s5b|arrow|6":{"pts":[[482.6,220],[706.6,323.3]],"hidden":false},"s5b|arrow|4":{"pts":[[125.4,200.4],[125.4,324.4]],"hidden":false},"s5b|arrow|1":{"pts":[[405.4,26.7],[406.6,148.6]],"hidden":false},"s5b|arrow|0":{"pts":[[619.3,82],[564.2,83.2]],"hidden":false},"s5b|arrow|15":{"pts":[[860,710],[860,726]],"hidden":false},"s5b|arrow|17":{"pts":[[716.4,456.1],[602.2,454.9],[602.2,674.9],[296.2,674.9]],"hidden":false},"s6|arrow|1":{"pts":[[827,260],[673,125]],"hidden":false},"s6|arrow|0":{"pts":[[337,122],[138,255]],"hidden":false}},"rot":{}},"savedAt":"2026-10-01T01:36:12.527Z"};
 let SERVER_STATE=null;
 if(location.protocol!=='file:'){ try{ const x=new XMLHttpRequest(); x.open('GET','/state',false); x.send(); if(x.status===200) SERVER_STATE=JSON.parse(x.responseText); }catch(e){} }
+if(!SERVER_STATE) SERVER_STATE=BAKED_STATE;
 function pushState(){
   if(location.protocol==='file:') return Promise.resolve(false);
   return fetch('/state',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({figs:figState,edit:editState,savedAt:new Date().toISOString()})}).then(r=>r.ok).catch(()=>false);
+}
+// "반영하기": bake the current edit state into lesson17_v2.html itself (needs the local server; only it can write files)
+function pushBake(){
+  if(location.protocol==='file:') return Promise.resolve(false);
+  return fetch('/bake',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({figs:figState,edit:editState,savedAt:new Date().toISOString()})}).then(r=>r.ok).catch(()=>false);
 }
 const FIG_KEY='kmla-v2-figs';
 const figs=[...document.querySelectorAll('.fig')];
@@ -900,6 +1060,12 @@ figs.forEach(f=>{
   });
 });
 document.getElementById('teacherToggle').addEventListener('click',e=>{ const on=document.body.classList.toggle('teacher-mode'); if(!on) setTimeout(fitSlide,0); if(!on) document.querySelectorAll('.editing').forEach(x=>finishEdit(x)); e.currentTarget.classList.toggle('active',on); });
+document.getElementById('bakeBtn').addEventListener('click',e=>{
+  if(location.protocol==='file:'){ alert('반영하기는 로컬 서버(start.bat)로 열었을 때만 쓸 수 있어요. 지금은 파일을 직접 연 상태입니다.'); return; }
+  if(!confirm('지금 저장된 수정 내용을 lesson17_v2.html 파일에 반영할까요?\n이렇게 하면 이 파일 하나만으로 다른 컴퓨터나 GitHub에서도 지금 모습 그대로 보입니다.\n(바로 전 상태는 lesson17_v2.prev.html로 남습니다)')) return;
+  const b=e.currentTarget; b.textContent='반영 중…';
+  pushBake().then(ok=>{ b.textContent=ok?'반영됨 ✓':'반영 실패(서버 확인)'; setTimeout(()=>{ b.textContent='반영하기'; },1800); });
+});
 document.getElementById('figSave').addEventListener('click',e=>{
   localStorage.setItem(FIG_KEY,JSON.stringify(figState)); localStorage.setItem(EDIT_KEY,JSON.stringify(editState));
   const b=e.currentTarget; b.textContent='저장 중…';

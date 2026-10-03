@@ -108,9 +108,37 @@ function handleState(req, res) {
   res.writeHead(405); res.end();
 }
 
+// "반영하기": bakes the current edit state straight into lesson17_v2.html (as the BAKED_STATE
+// constant near the top of its <script>), so that single file shows the same result anywhere —
+// file://, another computer, GitHub Pages — with no server or saved-layout.json needed.
+const DECK_FILE = path.join(ROOT, 'lesson17_v2.html');
+const BAKE_RE = /const BAKED_STATE = .*?;(\r?\n)/;
+function handleBake(req, res) {
+  const json = { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' };
+  if (req.method !== 'POST') { res.writeHead(405); res.end(); return; }
+  const chunks = []; let total = 0;
+  req.on('data', c => { total += c.length; if (total > 5 * 1024 * 1024) { res.writeHead(413); res.end(); req.destroy(); return; } chunks.push(c); });
+  req.on('end', () => {
+    let body;
+    try { body = JSON.parse(Buffer.concat(chunks).toString('utf8')); } catch (e) { res.writeHead(400, json); res.end('{"error":"bad json"}'); return; }
+    fs.readFile(DECK_FILE, 'utf8', (err, html) => {
+      if (err) { res.writeHead(500, json); res.end(JSON.stringify({ error: String(err) })); return; }
+      if (!BAKE_RE.test(html)) { res.writeHead(500, json); res.end('{"error":"BAKED_STATE marker not found in lesson17_v2.html"}'); return; }
+      const next = html.replace(BAKE_RE, (m, nl) => 'const BAKED_STATE = ' + JSON.stringify(body) + ';' + nl);
+      fs.copyFile(DECK_FILE, path.join(ROOT, 'lesson17_v2.prev.html'), () => {
+        fs.writeFile(DECK_FILE, next, err2 => {
+          if (err2) { res.writeHead(500, json); res.end(JSON.stringify({ error: String(err2) })); return; }
+          res.writeHead(200, json); res.end('{"ok":true}');
+        });
+      });
+    });
+  });
+}
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   if (url.pathname === '/state') { handleState(req, res); return; }
+  if (url.pathname === '/bake') { handleBake(req, res); return; }
   if (req.method === 'POST' && url.pathname === '/upload') {
     handleUpload(req, res, url);
     return;
