@@ -46,13 +46,28 @@ body.nav-open #courseNav{left:0}
 .nav-unit-body{display:none;padding-bottom:4px}
 .nav-unit.open .nav-unit-body{display:block}
 .nav-topic{display:block;width:100%;text-align:left;border:0;background:none;color:#5b6678;font-size:12px;line-height:1.55;padding:4px 8px 4px 34px;border-radius:7px;cursor:default}
-.nav-unit.built .nav-topic{color:#ccd6e3;cursor:pointer}
-.nav-unit.built .nav-topic:hover{background:rgba(216,173,98,.14);color:#fff}
+.nav-topic.live{color:#ccd6e3;cursor:pointer}
+.nav-topic.live:hover{background:rgba(216,173,98,.14);color:#fff}
+.nav-unit.here .nav-unit-head{background:rgba(216,173,98,.12)}
 .nav-topic.current{background:rgba(216,173,98,.24);color:#fff;font-weight:700}
 #stageRoot,.progress{transition:margin-left .22s,left .22s}
 body.nav-open #stageRoot{margin-left:var(--navw)}
 body.nav-open .progress{left:var(--navw)}
 @media (max-width:1180px){ body.nav-open #stageRoot{margin-left:0} body.nav-open .progress{left:0} #courseNav{box-shadow:0 0 40px rgba(0,0,0,.5)} }
+
+/* 2-1 냉전 체제와 대한민국 정부 수립 pages */
+.dg-n.r{border-color:rgba(255,143,122,.7);background:linear-gradient(145deg,rgba(255,143,122,.26),rgba(255,143,122,.08))}
+.dg-n.r.strong{background:linear-gradient(145deg,rgba(255,143,122,.46),rgba(255,143,122,.16));border-color:#ff8f7a;box-shadow:0 8px 22px rgba(3,11,23,.35)}
+.dg-n.b.strong{background:linear-gradient(145deg,rgba(127,178,255,.46),rgba(127,178,255,.16));border-color:#7fb2ff;box-shadow:0 8px 22px rgba(3,11,23,.35)}
+.dg-n.t.strong{background:linear-gradient(145deg,rgba(115,184,174,.46),rgba(115,184,174,.16));border-color:#73b8ae}
+.dg-group.b{border-color:rgba(127,178,255,.6);background:rgba(127,178,255,.06)}
+.dg-group.r{border-color:rgba(255,143,122,.6);background:rgba(255,143,122,.06)}
+.dg-group.t{border-color:rgba(115,184,174,.6);background:rgba(115,184,174,.06)}
+.dg-p.b{border-color:rgba(127,178,255,.75);color:#bcd6ff}
+.dg-sep{color:var(--dim);font-weight:400}
+.dg-n{word-break:keep-all}
+.cat-body .desc em,.point p em{font-style:normal;font-weight:800;color:#f3ddad}
+.point.soon{opacity:.45}
 
 /* header: full-width bar fixed at the very top; the sidebar starts below it */
 header.top{position:fixed;left:0;right:0;top:0;height:var(--headh);background:#0d1a2e;border-bottom:1px solid var(--line);z-index:50}
@@ -63,9 +78,23 @@ body.teacher-mode #khZoom{display:none}
 .top-right{margin-left:auto}
 .brand{display:flex;align-items:center;gap:14px;font-size:clamp(13px,calc(var(--vw) * 1.3),17px);font-weight:800;letter-spacing:-.03em}
 .brand .logo{width:40px;height:40px;border-radius:50%;background:#fff;object-fit:contain}
+/* animated school crest (kmla-logo-intro.svg): cropped to the emblem disc so no white margin shows */
+.logo-anim{--ls:50px;width:var(--ls);height:var(--ls);border-radius:50%;overflow:hidden;flex:none;position:relative;background:transparent}
+.logo-anim img{position:absolute;width:calc(var(--ls) * 1208 / 1060);max-width:none;left:calc(var(--ls) * -0.0541);top:calc(var(--ls) * -0.054);display:block}
 .brand .names{display:flex;align-items:center;gap:10px}
 .brand .div{width:1px;height:16px;background:rgba(255,255,255,.25)}
 .brand .subject{color:var(--gold)}
+/* header text follows the crest animation (same 9s cycle): unfolds left→right, 한국사 fades in and glows like the candle, a shine passes, then it fades and restarts */
+.brand .names{animation:nmFade 9s linear infinite}
+.brand .nm{display:inline-block;color:transparent;-webkit-background-clip:text;background-clip:text;background-size:300% 100%;background-position:100% 0}
+.brand .nm-school{background-image:linear-gradient(100deg,#fff 0 42%,#ffe3a6 50%,#fff 58% 100%);animation:nmWipe 9s infinite,nmShine 9s infinite}
+.brand .nm-sub{background-image:linear-gradient(100deg,var(--gold) 0 42%,#fff4d2 50%,var(--gold) 58% 100%);animation:nmCore 9s infinite,nmShine 9s infinite}
+.brand .div{animation:nmCore 9s infinite}
+@keyframes nmFade{0%{opacity:0}2%{opacity:1}90%{opacity:1}96%{opacity:0}100%{opacity:0}}
+@keyframes nmWipe{0%,2.2%{clip-path:inset(0 100% 0 0);animation-timing-function:cubic-bezier(.65,0,.3,1)}20%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes nmCore{0%,12.2%{opacity:0;transform:scale(.88);filter:blur(4px);animation-timing-function:cubic-bezier(.2,.8,.2,1)}23.3%,24.4%{opacity:1;transform:scale(1);filter:blur(0) drop-shadow(0 0 0 rgba(255,200,96,0))}29%{filter:blur(0) drop-shadow(0 0 9px rgba(255,200,96,.85))}37.8%{filter:blur(0) drop-shadow(0 0 5px rgba(255,200,96,.45))}45%{filter:drop-shadow(0 0 7px rgba(255,200,96,.65))}55%{filter:drop-shadow(0 0 4px rgba(255,200,96,.4))}65%{filter:drop-shadow(0 0 7px rgba(255,200,96,.65))}75%{filter:drop-shadow(0 0 4px rgba(255,200,96,.4))}85%,100%{opacity:1;transform:scale(1);filter:drop-shadow(0 0 6px rgba(255,200,96,.55))}}
+@keyframes nmShine{0%,35.6%{background-position:100% 0}50.6%,68.9%{background-position:0% 0}68.91%{background-position:100% 0}83.9%,100%{background-position:0% 0}}
+@media (prefers-reduced-motion:reduce){.brand .names,.brand .nm,.brand .div{animation:none}.brand .nm-school{color:#fff;background:none}.brand .nm-sub{color:var(--gold);background:none}}
 .top-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .icon-btn,.text-btn{border:1px solid var(--line);background:rgba(255,255,255,.05);color:#fff;border-radius:999px;min-height:36px;padding:0 15px;transition:.2s}
 .icon-btn:hover,.text-btn:hover{background:rgba(216,173,98,.22);border-color:rgba(216,173,98,.5)}
@@ -430,8 +459,8 @@ body.teacher-mode .dg-n.sel>.rs-handle,body.teacher-mode .dg-p.sel>.rs-handle{di
 <header class="top">
   <button class="icon-btn" id="navToggle" type="button" aria-label="전체 단원 목차 열기/닫기">☰</button>
   <div class="brand">
-    <img class="logo" src="https://i.imgur.com/Mo4ogKc.png" alt="민족사관고등학교 로고">
-    <div class="names"><span>민족사관고등학교</span><span class="div"></span><span class="subject">한국사</span></div>
+    <div class="logo-anim" role="img" aria-label="민족사관고등학교 로고"><img src="assets/kmla-logo-intro.svg" alt=""></div>
+    <div class="names"><span class="nm nm-school">민족사관고등학교</span><span class="div"></span><span class="nm nm-sub subject">한국사</span></div>
   </div>
   <div class="top-right">
     <button class="icon-btn" id="prevBtn" type="button" aria-label="이전">‹</button>
@@ -714,6 +743,338 @@ body.teacher-mode .dg-n.sel>.rs-handle,body.teacher-mode .dg-p.sel>.rs-handle{di
   </div>
 </section>
 
+<section class="slide unit" hidden data-sid="s8" data-title="2-1 냉전 체제와 대한민국 정부 수립">
+  <div class="stage">
+    <p class="eyebrow">2-1</p>
+    <h2 class="heading">냉전 체제와 대한민국 정부 수립</h2>
+    <p class="lead">제2차 세계 대전 이후 <em>미국과 소련을 중심으로 냉전 체제가 형성</em>되는 가운데, 광복을 맞은 한반도는 38도선을 경계로 분할 점령되어 <em>건국 준비와 좌우 대립</em> 전개.</p>
+    <ol class="points">
+      <li class="point"><span class="num">01</span><div><h3>8·15 광복과 냉전의 시대를 맞이하다</h3><p>냉전 체제의 형성, 8·15 광복과 한반도 분할 점령, 조선 건국 준비 위원회 결성, 미소 군정의 실시, 모스크바 3국 외상 회의와 좌우 대립</p></div></li>
+      <li class="point"><span class="num">02</span><div><h3>통일 정부를 수립하려고 노력하다</h3><p>미소 공동 위원회 개최, 좌우 합작 운동 전개, 한반도 문제 유엔 상정, 남북 협상, 단독 정부 수립을 둘러싼 갈등</p></div></li>
+      <li class="point"><span class="num">03</span><div><h3>대한민국 정부를 수립하다</h3><p>5·10 총선거, 대한민국 수립 선포, 북한 정권 수립 준비와 북한 정부의 수립</p></div></li>
+      <li class="point"><span class="num">04</span><div><h3>친일파 청산과 농지 개혁을 추진하다</h3><p>친일파 청산을 위한 노력, 농지 개혁, 농지 개혁의 성과와 한계</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s9" data-title="01-1 냉전 체제의 형성 ① 국제 연합 창설">
+  <div class="stage">
+    <p class="eyebrow">01</p>
+    <h2 class="heading">8·15 광복과 냉전의 시대를 맞이하다</h2>
+    <div class="section-tag"><b>1</b> 냉전 체제의 형성</div>
+    <p class="lead">제2차 세계 대전이 끝난 뒤 <em>전범 처리와 전쟁 방지 노력</em>이 이어지며 국제 연합 창설.</p>
+    <div class="split"><div class="cat-wrap">
+      <div class="cat">
+        <div class="cat-label"><b>제2차 세계 대전<br>전후 처리</b></div>
+        <div class="cat-rows">
+          <div class="cat-row">
+            <button class="cat-name" type="button" data-popup="tokyo-trial">전범 처리</button>
+            <div class="cat-body">
+              <p class="desc">뉘른베르크 전범 재판, 도쿄 전범 재판(극동 국제 전범 재판).</p>
+              <div class="chips"><button class="chip" type="button" data-popup="tokyo-trial">극동 국제 군사 재판</button></div>
+            </div>
+          </div>
+          <div class="cat-row">
+            <div class="cat-name">전쟁 방지 노력</div>
+            <div class="cat-body">
+              <p class="desc">대서양 헌장(1941)에서 국제 평화 기구 설립 구상. 샌프란시스코 회의에서 국제 연합 헌장 제정.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ol class="points">
+        <li class="point"><span class="num">→</span><div>
+          <h3>국제 연합 창설(1945)</h3>
+          <p>총회 및 여러 이사회, 산하 기구 설치. 안전 보장 이사회 5개 상임 이사국의 거부권 행사. 국제 분쟁 해결을 위한 무력 사용 가능(유엔군).</p>
+          <div class="chips"><button class="chip" type="button" data-popup="un-charter">국제 연합 헌장</button></div>
+        </div></li>
+      </ol></div>
+      <aside class="aside">
+        <div class="fig sm" role="button" tabindex="0" data-popup="un-charter"><img src="assets/c21-un-charter.png" alt="국제 연합(UN) 헌장"><figcaption><b>국제 연합(UN) 헌장</b></figcaption></div>
+        <div class="fig sm" role="button" tabindex="0" data-popup="tokyo-trial"><img src="assets/c21-tokyo-photo.png" alt="극동 국제 군사 재판"><figcaption><b>극동 국제 군사 재판</b></figcaption></div>
+      </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s10" data-title="01-1 냉전 체제의 형성 ② 냉전의 시작과 심화">
+  <div class="stage">
+    <p class="eyebrow">01</p>
+    <h2 class="heading">8·15 광복과 냉전의 시대를 맞이하다</h2>
+    <div class="section-tag"><b>1</b> 냉전 체제의 형성</div>
+    <p class="lead"><em>미국 중심의 자본주의 진영과 소련 중심의 사회주의 진영</em>의 대립으로 냉전 체제 형성.</p>
+    <div class="dg" style="width:1140px;height:618px;"><div class="dg-group b" style="left:0px;top:140px;width:540px;height:270px"></div><div class="dg-group r" style="left:600px;top:140px;width:540px;height:270px"></div><svg class="dg-lines" viewBox="0 0 1140 618" width="1140" height="618" aria-hidden="true"><defs><marker id="d10-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker><marker id="d10-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker><marker id="d10-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="d10-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker></defs><line x1="190" y1="22" x2="230" y2="22" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d10-g)"/><line x1="570" y1="44" x2="570" y2="70" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d10-g)"/><line x1="270" y1="110" x2="270" y2="127" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#d10-n)"/><line x1="870" y1="110" x2="870" y2="127" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#d10-n)"/><line x1="270" y1="230" x2="270" y2="262" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d10-b)"/><line x1="870" y1="230" x2="870" y2="262" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d10-r)"/><line x1="870" y1="308" x2="870" y2="340" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d10-r)"/><line x1="548" y1="260" x2="592" y2="260" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#d10-n)" marker-start="url(#d10-n)"/><line x1="270" y1="410" x2="480" y2="456" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#d10-n)"/><line x1="870" y1="410" x2="660" y2="456" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#d10-n)"/><line x1="548" y1="535" x2="592" y2="535" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d10-g)" marker-start="url(#d10-g)"/><line x1="570" y1="482" x2="570" y2="527" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d10-g)"/></svg><div class="dg-n t" style="left:0px;top:0px;width:190px;height:44px">냉전 체제 형성</div><div class="dg-n g strong" style="left:230px;top:0px;width:680px;height:44px">미국 중심의 자본주의 진영 vs 소련 중심의 사회주의 진영</div><div class="dg-n n" style="left:230px;top:70px;width:680px;height:40px">동유럽 지역에서 소련의 지원을 받는 사회주의 정권 수립</div><span class="dg-p b" style="left:270px;top:140px">미국 : 공산주의 팽창 저지</span><span class="dg-p r" style="left:870px;top:140px">소련</span><div class="dg-n b" style="left:30px;top:184px;width:480px;height:46px">트루먼 독트린(1947)</div><div class="dg-n b" style="left:30px;top:262px;width:480px;height:46px">유럽 부흥 계획(마셜 플랜, 1947)</div><div class="dg-n r" style="left:630px;top:184px;width:480px;height:46px">코민포름(1947, 공산당 정보국)</div><div class="dg-n r" style="left:630px;top:262px;width:480px;height:46px">소련의 베를린 봉쇄 정책(1948)</div><div class="dg-n r" style="left:630px;top:340px;width:480px;height:46px">COMECON(1949, 공산권 경제 상호 원조 회의)</div><div class="dg-n g strong" style="left:470px;top:438px;width:200px;height:44px">냉전 심화</div><div class="dg-n b" style="left:0px;top:512px;width:540px;height:46px">미국 : 북대서양 조약 기구(NATO, 1949)</div><div class="dg-n r" style="left:600px;top:512px;width:540px;height:46px">소련 : 바르샤바 조약 기구(WTO, 1955)</div><div class="dg-note" style="left:0px;top:590px;width:1140px">자료 : <span class="lnk" data-popup="truman">트루먼 대통령의 의회 연설(1947)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="cartoon-sam">냉전 체제의 형성 만평</span><span class="dg-sep"> · </span><span class="lnk" data-popup="cartoon-ice">냉전 풍자 만평(1947)</span></div></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s11" data-title="01-1 냉전 체제의 형성 ③ 동아시아의 열전">
+  <div class="stage">
+    <p class="eyebrow">01</p>
+    <h2 class="heading">8·15 광복과 냉전의 시대를 맞이하다</h2>
+    <div class="section-tag"><b>1</b> 냉전 체제의 형성</div>
+    <p class="lead">유럽에서 냉전 체제가 심화되자 동아시아에서는 군사적 충돌인 <em>‘열전’</em> 발생.</p>
+    <div class="split"><div class="cat-wrap">
+      <div class="cat">
+        <div class="cat-label"><b>동아시아에서<br>‘열전’</b></div>
+        <div class="cat-rows">
+          <div class="cat-row">
+            <div class="cat-name">중국</div>
+            <div class="cat-body"><p class="desc">국공 내전(4년) 발생 → 중화 인민 공화국 탄생, 중화민국의 타이완 이동.</p></div>
+          </div>
+          <div class="cat-row">
+            <div class="cat-name">베트남</div>
+            <div class="cat-body"><p class="desc">1차 인도차이나 전쟁(1948) → 남, 북 베트남 분단.</p></div>
+          </div>
+          <div class="cat-row">
+            <div class="cat-name">한국</div>
+            <div class="cat-body"><p class="desc"><em>6·25 전쟁(한국 전쟁, 1950)</em>.</p></div>
+          </div>
+        </div>
+      </div>
+      <ol class="points">
+        <li class="point"><span class="num">→</span><div>
+          <h3>동아시아의 공산주의 팽창 저지 필요</h3>
+          <p>일본의 반공 거점 기지화. 샌프란시스코 강화 조약(1951) : 연합군의 일본 점령 종료와 일본의 국제 사회 복귀. 6·25 전쟁의 <em>전쟁 특수</em>로 일본의 경제적 성장.</p>
+          <div class="chips"><button class="chip" type="button" data-popup="eastasia-map">동아시아의 냉전 지도</button><button class="chip" type="button" data-popup="coldwar-map">냉전 체제의 전개 지도</button></div>
+        </div></li>
+      </ol></div>
+      <aside class="aside">
+        <div class="fig" role="button" tabindex="0" data-popup="sanfrancisco"><img src="assets/c21-sanfrancisco.png" alt="샌프란시스코 강화 조약 서명"><figcaption><b>샌프란시스코 강화 조약 서명</b></figcaption></div>
+        <div class="fig" role="button" tabindex="0" data-popup="eastasia-map"><img src="assets/c21-eastasia-map.png" alt="동아시아의 냉전"><figcaption><b>동아시아의 냉전(1946~1950)</b></figcaption></div>
+      </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s12" data-title="01-2 8·15 광복과 한반도 분할 점령 ① 광복의 역사적 의미">
+  <div class="stage">
+    <p class="eyebrow">01</p>
+    <h2 class="heading">8·15 광복과 냉전의 시대를 맞이하다</h2>
+    <div class="section-tag"><b>2</b> 8·15 광복과 한반도 분할 점령</div>
+    <p class="lead"><em>(1) 광복의 역사적 의미</em> — 일본의 항복으로 맞이한 광복은 우리 민족 독립 운동의 결실이자 연합군 승리의 결과.</p>
+    <div class="split"><div><div class="dg" style="width:860px;height:330px;margin-left:0"><svg class="dg-lines" viewBox="0 0 860 330" width="860" height="330" aria-hidden="true"><defs><marker id="d12-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker><marker id="d12-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker><marker id="d12-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker></defs><line x1="150" y1="144" x2="220" y2="108" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#d12-n)"/><line x1="150" y1="144" x2="220" y2="194" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#d12-n)"/><line x1="400" y1="84" x2="400" y2="44" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d12-g)"/><line x1="400" y1="218" x2="400" y2="262" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d12-r)"/><line x1="580" y1="108" x2="690" y2="140" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d12-g)"/><line x1="580" y1="194" x2="690" y2="148" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d12-g)"/></svg><div class="dg-n g" style="left:190px;top:0px;width:400px;height:44px">카이로, 얄타, 포츠담 회담에서 독립 약속</div><div class="dg-n n" style="left:0px;top:120px;width:150px;height:48px">일본의 항복</div><div class="dg-n g" style="left:220px;top:84px;width:360px;height:48px">우리 민족의 독립 운동의 결실</div><div class="dg-n t" style="left:220px;top:170px;width:360px;height:48px">연합군 승리의 결과</div><div class="dg-n r" style="left:190px;top:262px;width:400px;height:44px">미국, 소련 등 연합국의 한국 문제 결정</div><div class="dg-n g strong" style="left:690px;top:120px;width:150px;height:48px">광복</div></div></div>
+      <aside class="aside">
+        <div class="fig" role="button" tabindex="0" data-popup="liberation-joy"><img src="assets/c21-liberation-joy.png" alt="광복의 기쁨"><figcaption><b>광복의 기쁨</b></figcaption></div>
+      </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s13" data-title="01-2 8·15 광복과 한반도 분할 점령 ② 38도선 획정과 분할 점령">
+  <div class="stage">
+    <p class="eyebrow">01</p>
+    <h2 class="heading">8·15 광복과 냉전의 시대를 맞이하다</h2>
+    <div class="section-tag"><b>2</b> 8·15 광복과 한반도 분할 점령</div>
+    <p class="lead"><em>(2) 38도선 획정과 분할 점령</em> — 미소의 군사적 편의에 따라 한반도 분할 결정.</p>
+    <div class="split"><div><div class="dg" style="width:880px;height:450px;margin-left:0"><svg class="dg-lines" viewBox="0 0 880 450" width="880" height="450" aria-hidden="true"><defs><marker id="d13-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker><marker id="d13-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker><marker id="d13-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker></defs><line x1="300" y1="48" x2="300" y2="84" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d13-g)"/><line x1="300" y1="132" x2="300" y2="168" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d13-r)"/><line x1="600" y1="192" x2="650" y2="192" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d13-b)"/><path d="M710,206 V276 H600" fill="none" stroke="#ff8f7a" stroke-width="2.6" stroke-linejoin="round" marker-end="url(#d13-r)"/><line x1="300" y1="300" x2="300" y2="336" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d13-g)"/></svg><div class="dg-n g" style="left:0px;top:0px;width:600px;height:48px">얄타 회담(1945. 2.) : 소련의 태평양 전쟁 참전 약속(3개월 이내)</div><div class="dg-n r" style="left:0px;top:84px;width:600px;height:48px">소련군의 대일 선전 포고(1945. 8. 9.)</div><div class="dg-note" style="left:630px;top:90px;width:240px">만주와 한반도 북부에서 일본군 무장 해체 후 빠른 진격</div><div class="dg-n b" style="left:0px;top:168px;width:600px;height:48px">미국의 38도선 경계 분할 점령 제안</div><span class="dg-p r" style="left:710px;top:192px">소련의 수락</span><div class="dg-n g strong" style="left:0px;top:252px;width:600px;height:48px">미소의 군사적 편의에 따른 한반도 분할 결정</div><div class="dg-n n" style="left:0px;top:336px;width:600px;height:48px">미소의 남북한 분할 점령 및 통치</div><div class="dg-note" style="left:0px;top:410px;width:880px">자료 : <span class="lnk" data-popup="rusk">미국과 소련의 38도선 분할 점령(사료)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="welcome">미·소 양군을 환영하는 한국인</span><span class="dg-sep"> · </span><span class="lnk" data-popup="line38-village">38도선이 그어진 마을</span><span class="dg-sep"> · </span><span class="lnk" data-popup="line38-crossing">38도선을 넘는 주민들</span><span class="dg-sep"> · </span><span class="lnk" data-popup="line38-story">38도선, 민족의 분단선이 되기까지</span></div></div></div>
+      <aside class="aside">
+        <div class="fig sm" role="button" tabindex="0" data-popup="rusk"><img src="assets/c21-rusk.png" alt="미국과 소련의 38도선 분할 점령"><figcaption><b>사료 읽기 — 미국과 소련의 38도선 분할 점령</b></figcaption></div>
+        <div class="fig sm" role="button" tabindex="0" data-popup="line38-crossing"><img src="assets/c21-line38-crossing.png" alt="38도선을 넘는 주민들"><figcaption><b>38도선을 넘는 주민들(1947)</b></figcaption></div>
+      </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s14" data-title="01-3 조선 건국 준비 위원회 결성">
+  <div class="stage">
+    <p class="eyebrow">01</p>
+    <h2 class="heading">8·15 광복과 냉전의 시대를 맞이하다</h2>
+    <div class="section-tag"><b>3</b> 조선 건국 준비 위원회 결성</div>
+    <p class="lead">조선 건국 동맹에 안재홍 등 우익이 합류하여 <em>조선 건국 준비 위원회(건준)</em> 결성.</p>
+    <div class="dg" style="width:1140px;height:610px;"><div class="dg-group g" style="left:0px;top:0px;width:790px;height:560px"></div><div class="dg-group b" style="left:820px;top:0px;width:320px;height:560px"></div><svg class="dg-lines" viewBox="0 0 1140 610" width="1140" height="610" aria-hidden="true"><defs><marker id="d14-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker><marker id="d14-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker><marker id="d14-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="d14-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker></defs><line x1="220" y1="53" x2="260" y2="53" stroke="#a9b4c1" stroke-width="2.6"/><line x1="410" y1="53" x2="450" y2="53" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#d14-n)"/><line x1="605" y1="76" x2="605" y2="108" stroke="#d8ad62" stroke-width="2.6"/><path d="M500,130 H165 V190" fill="none" stroke="#d8ad62" stroke-width="2.6" stroke-linejoin="round" marker-end="url(#d14-g)"/><line x1="165" y1="240" x2="165" y2="292" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d14-b)"/><line x1="165" y1="336" x2="165" y2="372" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d14-r)"/><line x1="185" y1="416" x2="185" y2="456" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d14-b)"/><line x1="980" y1="102" x2="980" y2="160" stroke="#7fb2ff" stroke-width="2.6"/><line x1="980" y1="214" x2="980" y2="272" stroke="#7fb2ff" stroke-width="2.6"/><line x1="980" y1="326" x2="980" y2="388" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d14-b)"/><line x1="762" y1="480" x2="852" y2="196" stroke="#ff8f7a" stroke-width="2.6" stroke-dasharray="7 6" marker-end="url(#d14-r)"/></svg><span class="dg-p g" style="left:60px;top:0px">좌익 + 중도파</span><span class="dg-p b" style="left:880px;top:0px">우익 계열</span><div class="dg-n t" style="left:30px;top:30px;width:190px;height:46px">조선 건국 동맹</div><div class="dg-n n" style="left:260px;top:30px;width:150px;height:46px">일본의 항복</div><div class="dg-n n" style="left:450px;top:30px;width:310px;height:46px">총독부로부터 행정권과 치안권 인수</div><div class="dg-n g" style="left:500px;top:108px;width:240px;height:44px">안재홍 등 우익 합류</div><div class="dg-n b strong" style="left:30px;top:190px;width:270px;height:50px">조선 건국 준비 위원회</div><div class="dg-n n" style="left:340px;top:176px;width:420px;height:36px">좌우 연합체적 성격</div><div class="dg-n n" style="left:340px;top:220px;width:420px;height:36px">각 지방에 지부(145) 설치, 치안대 조직 → 사회 질서 유지</div><div class="dg-n r" style="left:60px;top:292px;width:210px;height:44px">조선 공산당 합류</div><div class="dg-n n" style="left:340px;top:292px;width:420px;height:44px">좌익 세력이 건준 장악(건준의 좌경화)</div><div class="dg-n b" style="left:60px;top:372px;width:270px;height:44px">안재홍 등 우익 세력 이탈</div><div class="dg-n n" style="left:360px;top:372px;width:400px;height:44px">→ 안재홍 조선 국민당(1945. 9.) 창당</div><div class="dg-n g strong" style="left:30px;top:456px;width:310px;height:48px">조선 인민 공화국(1945. 9.) 수립</div><div class="dg-n n" style="left:370px;top:456px;width:390px;height:48px">→ 미군 상륙 대비 정치적 대표성 확보 목적</div><div class="dg-n n" style="left:850px;top:48px;width:260px;height:54px">미군정에 협조적</div><div class="dg-n n" style="left:850px;top:160px;width:260px;height:54px">건준과 인공에 비판적</div><div class="dg-n n" style="left:850px;top:272px;width:260px;height:54px">임정 봉대론 주장</div><div class="dg-n b strong" style="left:850px;top:388px;width:260px;height:50px">한민당(1945. 9.)</div><div class="dg-note" style="left:0px;top:586px;width:1140px">자료 : <span class="lnk" data-popup="geonjun-org">건준의 조직과 활동</span><span class="dg-sep"> · </span><span class="lnk" data-popup="geonjun-decl">건준 선언(1945)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="geonjun-leaders">여운형과 안재홍</span></div></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s15" data-title="01-4 미소 군정의 실시">
+  <div class="stage">
+    <p class="eyebrow">01</p>
+    <h2 class="heading">8·15 광복과 냉전의 시대를 맞이하다</h2>
+    <div class="section-tag"><b>4</b> 미소 군정의 실시</div>
+    <p class="lead"><em>소련은 간접 통치, 미국은 직접 통치</em> 방식으로 남북한에서 군정 실시.</p>
+    <div class="dg" style="width:1140px;height:580px;"><div class="dg-group r" style="left:0px;top:0px;width:1140px;height:232px"></div><div class="dg-group b" style="left:0px;top:262px;width:1140px;height:262px"></div><svg class="dg-lines" viewBox="0 0 1140 580" width="1140" height="580" aria-hidden="true"><defs><marker id="d15-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker><marker id="d15-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="d15-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker></defs><line x1="580" y1="106" x2="640" y2="106" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d15-r)"/><line x1="860" y1="106" x2="910" y2="106" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d15-r)"/><line x1="1015" y1="146" x2="1015" y2="168" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d15-r)"/><line x1="200" y1="366" x2="250" y2="325" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d15-b)"/><line x1="200" y1="366" x2="250" y2="393" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d15-b)"/><line x1="200" y1="106" x2="250" y2="106" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d15-r)"/><line x1="415" y1="420" x2="415" y2="437" stroke="#a9b4c1" stroke-width="2.6"/><line x1="415" y1="463" x2="415" y2="476" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#d15-n)"/><line x1="580" y1="494" x2="640" y2="494" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d15-b)"/><line x1="860" y1="494" x2="910" y2="494" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d15-b)"/></svg><span class="dg-p r" style="left:70px;top:0px">북한 · 소련군</span><span class="dg-p b" style="left:70px;top:262px">남한 · 미군</span><div class="dg-n r strong" style="left:20px;top:78px;width:180px;height:56px">소련의 북한 통치</div><span class="dg-p r" style="left:110px;top:160px">간접 통치 방식</span><div class="dg-n n" style="left:250px;top:66px;width:330px;height:80px">민중의 지지를 위해 지방 인민 위원회에 통치권 이양</div><div class="dg-n r" style="left:640px;top:66px;width:220px;height:80px">사회주의 세력의 정권 장악 지원</div><div class="dg-n r" style="left:910px;top:66px;width:210px;height:80px">북조선 임시 인민위원회 수립(1946. 2.)</div><div class="dg-n g" style="left:910px;top:168px;width:210px;height:54px">토지 개혁, 친일 청산 등 북한 지방 개혁 주도</div><div class="dg-n b strong" style="left:20px;top:338px;width:180px;height:56px">미국의 남한 통치</div><span class="dg-p b" style="left:110px;top:420px">직접 통치 방식</span><div class="dg-n n" style="left:250px;top:298px;width:330px;height:54px">조선 인민 공화국, 인민위원회, 임시정부 불인정</div><div class="dg-n n" style="left:250px;top:366px;width:330px;height:54px">기존 총독부의 통치 체제와 방식 활용</div><span class="dg-p n" style="left:415px;top:450px">현상 유지 목적</span><div class="dg-n b" style="left:250px;top:476px;width:330px;height:36px">우익 인사(한민당)와 친일 세력 등용</div><div class="dg-n b" style="left:640px;top:466px;width:220px;height:56px">미군정의 직접 통치 지속</div><div class="dg-n g" style="left:910px;top:466px;width:210px;height:56px">토지 개혁, 친일 청산 등 지연</div><div class="dg-note" style="left:0px;top:548px;width:1140px">자료 : <span class="lnk" data-popup="benninghoff">재한국 정치 고문 베닝호프의 서한(1945. 9. 15.)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="usamgj-policy">미군정청의 기본 정책</span><span class="dg-sep"> · </span><span class="lnk" data-popup="flag-change">일장기에서 성조기로</span></div></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s16" data-title="01-5 모스크바 3국 외상 회의와 신탁 통치">
+  <div class="stage">
+    <p class="eyebrow">01</p>
+    <h2 class="heading">8·15 광복과 냉전의 시대를 맞이하다</h2>
+    <div class="section-tag"><b>5</b> 모스크바 3국 외상 회의와 좌우 대립</div>
+    <p class="lead">모스크바 3국 외상 회의(1945. 12.)에서 미·영·소 3국 외상이 참여하여 <em>한반도 문제</em> 논의.</p>
+    <div class="split"><ol class="points">
+      <li class="point"><span class="num">1</span><div>
+        <h3>한반도에 임시 민주 정부 수립</h3>
+        <p>민주적 정당·사회단체와 협의하여 조선 임시 정부 수립.</p>
+      </div></li>
+      <li class="point"><span class="num">2</span><div>
+        <h3>미소 공동 위원회 설치</h3>
+        <p>임시 민주 정부 수립을 지원할 미소 공동 위원회 설치.</p>
+      </div></li>
+      <li class="point"><span class="num">3</span><div>
+        <h3>최대 5년간 신탁(후견) 통치 실시</h3>
+        <p>미·영·중·소 4대국에 의한 신탁 통치 실시(최장 5년). 이후 독립 국가 수립.</p>
+        <div class="chips"><button class="chip" type="button" data-popup="moscow-decision">결정서(자료 1)</button><button class="chip" type="button" data-popup="moscow-report">동아일보 보도(자료 2)</button><button class="chip" type="button" data-popup="trusteeship-flow">한국 문제 해결 방안</button></div>
+      </div></li>
+    </ol><aside class="aside">
+      <div class="fig sm" role="button" tabindex="0" data-popup="moscow-newspaper"><img src="assets/c21-moscow-news.png" alt="모스크바 3국 외상 회의 결과를 보도한 신문 기사"><figcaption><b>모스크바 3국 외상 회의 결과를 보도한 신문 기사</b></figcaption></div>
+      <div class="fig sm" role="button" tabindex="0" data-popup="trusteeship-flow"><img src="assets/c21-trusteeship-flow.png" alt="모스크바 3국 외상 회의 결정에 따른 한국 문제 해결 방안"><figcaption><b>한국 문제 해결 방안</b></figcaption></div>
+    </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s17" data-title="01-5 모스크바 3국 외상 회의와 좌우 대립">
+  <div class="stage">
+    <p class="eyebrow">01</p>
+    <h2 class="heading">8·15 광복과 냉전의 시대를 맞이하다</h2>
+    <div class="section-tag"><b>5</b> 모스크바 3국 외상 회의와 좌우 대립</div>
+    <p class="lead">모스크바 3국 외상 회의 결정을 둘러싸고 <em>좌우 대립 격화</em>.</p>
+    <div class="dg" style="width:1140px;height:636px;"><div class="dg-group b" style="left:0px;top:66px;width:500px;height:246px"></div><div class="dg-group r" style="left:640px;top:66px;width:500px;height:246px"></div><div class="dg-group g" style="left:300px;top:374px;width:540px;height:122px"></div><svg class="dg-lines" viewBox="0 0 1140 636" width="1140" height="636" aria-hidden="true"><defs><marker id="d17-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker><marker id="d17-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="d17-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker><marker id="d17-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker></defs><line x1="470" y1="40" x2="250" y2="66" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#d17-n)"/><line x1="670" y1="40" x2="890" y2="66" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#d17-n)"/><line x1="250" y1="132" x2="250" y2="154" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d17-b)"/><line x1="250" y1="188" x2="250" y2="210" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d17-b)"/><line x1="250" y1="244" x2="250" y2="266" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#d17-b)"/><line x1="890" y1="132" x2="890" y2="154" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d17-r)"/><line x1="890" y1="188" x2="890" y2="210" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d17-r)"/><line x1="508" y1="190" x2="632" y2="190" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#d17-r)" marker-start="url(#d17-r)"/><line x1="570" y1="496" x2="570" y2="522" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d17-g)"/><line x1="840" y1="538" x2="900" y2="527" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d17-g)"/><line x1="840" y1="550" x2="900" y2="573" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#d17-g)"/></svg><div class="dg-n r strong" style="left:420px;top:0px;width:300px;height:40px">모스크바 3국 외상 회의 결정</div><span class="dg-p b" style="left:70px;top:66px">우익 계열</span><span class="dg-p r" style="left:710px;top:66px">좌익 계열</span><div class="dg-n n" style="left:40px;top:98px;width:420px;height:34px">반탁 운동 전개</div><div class="dg-n n" style="left:40px;top:154px;width:420px;height:34px">반소반공, 즉시 독립 주장</div><div class="dg-n b" style="left:40px;top:210px;width:420px;height:34px">비상 국민 회의 (김구, 이승만 등)</div><div class="dg-n b" style="left:40px;top:266px;width:420px;height:34px">민주의원 (미군정 자문 기관)</div><div class="dg-n n" style="left:680px;top:98px;width:420px;height:34px">반탁 운동 전개</div><div class="dg-n n" style="left:680px;top:154px;width:420px;height:34px">3상 회의의 총체적 지지 주장</div><div class="dg-n r" style="left:680px;top:210px;width:420px;height:34px">민주주의 민족 전선 (조선 공산당 중심)</div><span class="dg-p g" style="left:250px;top:336px">신탁 통치에 초점</span><span class="dg-p g" style="left:890px;top:336px">민주적 임시정부 수립에 초점</span><span class="dg-p r" style="left:570px;top:222px">좌우 대립 격화</span><span class="dg-p g" style="left:570px;top:374px">중도 계열</span><div class="dg-n n" style="left:340px;top:400px;width:460px;height:36px">신탁 통치 반대</div><div class="dg-n n" style="left:340px;top:444px;width:460px;height:40px">임시 민주 정부 수립 위해 미소 공동 위원회 협조</div><div class="dg-n g strong" style="left:300px;top:522px;width:540px;height:44px">미군정의 반탁 운동 지지</div><div class="dg-n g" style="left:900px;top:508px;width:240px;height:38px">우익의 정치적 주도권 장악</div><div class="dg-n g" style="left:900px;top:554px;width:240px;height:38px">친일파의 애국 세력 부활</div><div class="dg-note" style="left:0px;top:606px;width:1140px">자료 : <span class="lnk" data-popup="antitrust">신탁 통치 반대 운동(자료 ①·②)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="pro-moscow">모스크바 3국 외상 회의 결정 지지(자료 ③·④)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="lr-cartoon">좌우익의 대립 만화</span></div></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s18" data-title="02-1 미소 공동 위원회 개최">
+  <div class="stage">
+    <p class="eyebrow">02</p>
+    <h2 class="heading">통일 정부를 수립하려고 노력하다</h2>
+    <div class="section-tag"><b>1</b> 미소 공동 위원회 개최</div>
+    <p class="lead">모스크바 3국 외상 회의 결정에 따라 <em>제1차 미소 공동 위원회(1946. 3.)</em> 개최, 임시 정부 수립을 위한 협의 대상을 두고 갈등.</p>
+    <div class="split"><div><div class="dg" style="width:880px;height:552px;margin-left:0"><svg class="dg-lines" viewBox="0 0 880 552" width="880" height="552" aria-hidden="true"><defs><marker id="e18-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker><marker id="e18-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="e18-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker><marker id="e18-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker></defs><line x1="165" y1="44" x2="165" y2="80" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e18-g)"/><line x1="330" y1="102" x2="380" y2="102" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e18-b)"/><line x1="630" y1="124" x2="630" y2="160" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e18-n)"/><line x1="630" y1="250" x2="630" y2="290" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e18-n)"/><line x1="630" y1="330" x2="630" y2="362" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e18-n)"/><line x1="630" y1="418" x2="630" y2="450" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e18-r)"/></svg><div class="dg-n g" style="left:0px;top:0px;width:330px;height:44px">모스크바 3국 외상 회의</div><div class="dg-n b strong" style="left:0px;top:80px;width:330px;height:44px">제1차 미소 공동 위원회(1946. 3.)</div><div class="dg-n n" style="left:380px;top:80px;width:500px;height:44px">임시 민주 정부 수립 협의를 위한 정당·사회 단체 범위를 두고 갈등</div><div class="dg-n b" style="left:380px;top:160px;width:500px;height:40px">미국 : 모든 정당, 사회 단체 참여 대상</div><div class="dg-n r" style="left:380px;top:210px;width:500px;height:40px">소련 : 반탁 운동 정당, 사회 단체 반대</div><div class="dg-n n" style="left:380px;top:290px;width:500px;height:40px">회담 결렬 후 무기한 휴회(1946. 5.)</div><div class="dg-n r strong" style="left:380px;top:362px;width:500px;height:56px">이승만의 ‘정읍 발언’(1946. 6. 3.) : 미소 공위 재개 가능성 × → 남한만의 단독 정부 수립 필요 주장</div><div class="dg-n t" style="left:380px;top:450px;width:500px;height:44px">중도파 중심 좌우 합작 운동 전개</div><div class="dg-note" style="left:0px;top:520px;width:880px">자료 : <span class="lnk" data-popup="z2-jeongeup-news">정읍 발언을 보도한 신문 기사</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-jeongeup-source">사료 — 이승만의 정읍 발언</span></div></div></div>
+      <aside class="aside">
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-miso-delegates"><img src="assets/c22-miso-delegates.png" alt="미소 공동 위원회 미국·소련 대표"><figcaption><b>미소 공동 위원회의 미국·소련 대표</b></figcaption></div>
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-jeongeup-news"><img src="assets/c22-jeongeup-news.png" alt="정읍 발언을 보도한 신문 기사"><figcaption><b>정읍 발언을 보도한 신문 기사</b></figcaption></div>
+      </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s19" data-title="02-2 좌우 합작 운동 전개">
+  <div class="stage">
+    <p class="eyebrow">02</p>
+    <h2 class="heading">통일 정부를 수립하려고 노력하다</h2>
+    <div class="section-tag"><b>2</b> 좌우 합작 운동 전개</div>
+    <p class="lead">제1차 미소 공동 위원회 결렬과 이승만의 정읍 발언 이후 <em>중도파 중심의 좌우 합작 운동</em> 전개.</p>
+    <div class="split"><div><div class="dg" style="width:880px;height:610px;margin-left:0"><svg class="dg-lines" viewBox="0 0 880 610" width="880" height="610" aria-hidden="true"><defs><marker id="e19-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker><marker id="e19-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker><marker id="e19-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="e19-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker></defs><line x1="300" y1="22" x2="340" y2="22" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e19-g)"/><line x1="150" y1="44" x2="150" y2="76" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e19-g)"/><path d="M320,96 V368" fill="none" stroke="#a9b4c1" stroke-width="2.6" stroke-linejoin="round"/><line x1="300" y1="98" x2="320" y2="98" stroke="#7fb2ff" stroke-width="2.6"/><line x1="320" y1="96" x2="340" y2="96" stroke="#a9b4c1" stroke-width="2.6"/><line x1="320" y1="144" x2="340" y2="144" stroke="#a9b4c1" stroke-width="2.6"/><line x1="320" y1="192" x2="340" y2="192" stroke="#a9b4c1" stroke-width="2.6"/><line x1="320" y1="248" x2="340" y2="248" stroke="#a9b4c1" stroke-width="2.6"/><line x1="320" y1="312" x2="340" y2="312" stroke="#a9b4c1" stroke-width="2.6"/><line x1="320" y1="368" x2="340" y2="368" stroke="#a9b4c1" stroke-width="2.6"/><line x1="300" y1="370" x2="320" y2="370" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e19-r)"/><line x1="150" y1="392" x2="150" y2="430" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e19-r)"/><line x1="150" y1="452" x2="340" y2="452" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e19-r)"/><line x1="300" y1="528" x2="340" y2="528" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e19-n)"/></svg><div class="dg-n g" style="left:0px;top:0px;width:300px;height:44px">좌우 합작 운동 전개</div><div class="dg-n n" style="left:340px;top:0px;width:540px;height:44px">여운형, 김규식 등 중도파 중심 → 좌우 합작 위원회 조직(1946. 7.)</div><div class="dg-n b strong" style="left:0px;top:76px;width:300px;height:44px">좌우 합작 7원칙 발표(1946. 10.)</div><div class="dg-n n" style="left:340px;top:76px;width:540px;height:40px">미군정의 중도파 지원 : 남조선 과도 입법 의원 설치(1946. 12.)</div><div class="dg-n n" style="left:340px;top:124px;width:540px;height:40px">김구, 이승만, 조선 공산당 불참과 비협조</div><div class="dg-n b" style="left:340px;top:172px;width:540px;height:40px">김구 : 찬성</div><div class="dg-n r" style="left:340px;top:220px;width:540px;height:56px">이승만, 한민당 등 우익 : 반대 → 신탁 통치 반대, 정부 수립 후 친일파 청산, 무상 몰수·무상 분배 반대 등 주장</div><div class="dg-n r" style="left:340px;top:284px;width:540px;height:56px">조선 공산당 : 반대 → 무상 몰수·무상 분배 토지 개혁, 친일파 청산, 인민 위원회 정권 이양 등 주장</div><div class="dg-n n" style="left:340px;top:348px;width:540px;height:40px">미군정의 지원 철회, 여운형 암살(1947. 7.)</div><div class="dg-n r strong" style="left:0px;top:348px;width:300px;height:44px">좌우 합작 운동 실패</div><div class="dg-n t" style="left:340px;top:430px;width:540px;height:44px">김규식이 중도파 연합 ‘민족 자주 연맹’ 결성(1947. 12.)</div><div class="dg-n n" style="left:0px;top:500px;width:300px;height:56px">이 시기 좌익 : 조선 정판사 사건 이후 불법화</div><div class="dg-n r" style="left:340px;top:500px;width:540px;height:56px">미군정에 대한 투쟁 본격화 : 9월 총파업, 대구 항쟁(10·1 사건) → ‘남로당’(조선 공산당+조선 신민당+조선 인민당) 결성</div><div class="dg-note" style="left:0px;top:580px;width:880px">자료 : <span class="lnk" data-popup="z2-lr-7principles">좌우 합작 7원칙(1946. 10.)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-lr-cartoon">좌우 합작 만평(『제3특보』, 1946. 10. 28.)</span></div></div></div>
+      <aside class="aside">
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-lr-cartoon"><img src="assets/c22-lr-cartoon.png" alt="좌우 합작 만평"><figcaption><b>좌우 합작 만평(1946. 10. 28.)</b></figcaption></div>
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-lr-7principles"><img src="assets/c22-lr-7principles.png" alt="좌우 합작 7원칙"><figcaption><b>좌우 합작 7원칙(1946. 10.)</b></figcaption></div>
+      </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s20" data-title="02-3 한반도 문제 유엔 상정">
+  <div class="stage">
+    <p class="eyebrow">02</p>
+    <h2 class="heading">통일 정부를 수립하려고 노력하다</h2>
+    <div class="section-tag"><b>3</b> 한반도 문제 유엔 상정</div>
+    <p class="lead">제2차 미소 공동 위원회 결렬 후 미국이 <em>한반도 문제를 유엔에 이관</em>, 유엔 소총회에서 선거 가능한 지역의 총선거 결정.</p>
+    <div class="dg" style="width:1140px;height:470px;"><svg class="dg-lines" viewBox="0 0 1140 470" width="1140" height="470" aria-hidden="true"><defs><marker id="e20-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker><marker id="e20-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker><marker id="e20-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="e20-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker></defs><line x1="270" y1="44" x2="270" y2="76" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e20-r)"/><line x1="270" y1="132" x2="130" y2="164" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e20-n)"/><line x1="270" y1="132" x2="410" y2="164" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e20-n)"/><line x1="130" y1="234" x2="200" y2="266" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e20-n)"/><line x1="410" y1="234" x2="340" y2="266" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e20-n)"/><line x1="270" y1="310" x2="270" y2="342" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e20-b)"/><path d="M540,370 H570 V22 H600" fill="none" stroke="#d8ad62" stroke-width="2.6" stroke-linejoin="round" marker-end="url(#e20-g)"/><line x1="870" y1="44" x2="870" y2="76" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e20-g)"/><line x1="870" y1="132" x2="870" y2="164" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e20-r)"/><line x1="730" y1="208" x2="730" y2="246" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e20-n)"/><line x1="1010" y1="208" x2="1010" y2="246" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e20-n)"/><line x1="730" y1="316" x2="730" y2="350" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e20-n)"/></svg><div class="dg-n r" style="left:0px;top:0px;width:540px;height:44px">제2차 미소 공동 위원회 결렬(1947. 5.)</div><div class="dg-n n" style="left:0px;top:76px;width:540px;height:56px">미국 : 한국 정부 수립 문제 미·영·소·중 4개국 협의 요구 → 소련 거부</div><div class="dg-n b" style="left:0px;top:164px;width:260px;height:70px">미국 : 한국 정부 수립 유엔에서 해결 주장</div><div class="dg-n r" style="left:280px;top:164px;width:260px;height:70px">소련 : 미소 군대 철수 후 한국 스스로 정부 수립 주장</div><div class="dg-n b strong" style="left:0px;top:266px;width:540px;height:44px">미국 : 한반도 문제 유엔 이관(1947. 11.)</div><div class="dg-n g" style="left:0px;top:342px;width:540px;height:56px">유엔 총회(소련 불참)에서 인구 비례에 따른 남북한 총선거 → 정부 수립 결의</div><div class="dg-n g" style="left:600px;top:0px;width:540px;height:44px">유엔 한국 임시 위원단 파견</div><div class="dg-n r" style="left:600px;top:76px;width:540px;height:56px">소련과 북한의 임시 위원단 입국 거부 → 남북한 동시 총선거 불가능</div><div class="dg-n g strong" style="left:600px;top:164px;width:540px;height:44px">유엔 소총회 → 선거 가능한 지역에서 총선거 실시 결정</div><div class="dg-n n" style="left:600px;top:246px;width:260px;height:70px">대부분 정치 지도자(좌익, 중도파, 임정 우익) : 반대</div><div class="dg-n b" style="left:880px;top:246px;width:260px;height:70px">이승만과 한민당 : 찬성</div><div class="dg-n t" style="left:600px;top:350px;width:260px;height:44px">남북 협상 추진</div><div class="dg-note" style="left:0px;top:430px;width:1140px">자료 : <span class="lnk" data-popup="z2-unga-resolution">유엔 총회 결의문(1947. 11.)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-unscob-poster">유엔 한국 임시 위원단 환영 포스터</span></div></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s21" data-title="02-4 남북 협상">
+  <div class="stage">
+    <p class="eyebrow">02</p>
+    <h2 class="heading">통일 정부를 수립하려고 노력하다</h2>
+    <div class="section-tag"><b>4</b> 남북 협상</div>
+    <p class="lead">김구와 김규식이 <em>남북 협상(1948. 4.)</em>을 추진했으나 통일 정부 수립은 실패.</p>
+    <div class="dg" style="width:1140px;height:590px;"><svg class="dg-lines" viewBox="0 0 1140 590" width="1140" height="590" aria-hidden="true"><defs><marker id="e21-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="e21-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker><marker id="e21-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker><marker id="e21-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker></defs><line x1="300" y1="22" x2="340" y2="22" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e21-b)"/><path d="M320,90 V140" fill="none" stroke="#7fb2ff" stroke-width="2.6" stroke-linejoin="round"/><line x1="320" y1="90" x2="340" y2="90" stroke="#7fb2ff" stroke-width="2.6"/><line x1="320" y1="140" x2="340" y2="140" stroke="#7fb2ff" stroke-width="2.6"/><line x1="150" y1="44" x2="150" y2="210" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e21-b)"/><path d="M320,216 V304" fill="none" stroke="#d8ad62" stroke-width="2.6" stroke-linejoin="round"/><line x1="300" y1="232" x2="320" y2="232" stroke="#d8ad62" stroke-width="2.6"/><line x1="320" y1="216" x2="340" y2="216" stroke="#d8ad62" stroke-width="2.6"/><line x1="320" y1="260" x2="340" y2="260" stroke="#d8ad62" stroke-width="2.6"/><line x1="320" y1="304" x2="340" y2="304" stroke="#d8ad62" stroke-width="2.6"/><line x1="150" y1="254" x2="150" y2="372" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e21-g)"/><path d="M320,378 V422" fill="none" stroke="#ff8f7a" stroke-width="2.6" stroke-linejoin="round"/><line x1="300" y1="394" x2="320" y2="394" stroke="#ff8f7a" stroke-width="2.6"/><line x1="320" y1="378" x2="340" y2="378" stroke="#ff8f7a" stroke-width="2.6"/><line x1="320" y1="422" x2="340" y2="422" stroke="#ff8f7a" stroke-width="2.6"/><line x1="150" y1="416" x2="150" y2="480" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e21-r)"/><line x1="300" y1="502" x2="340" y2="502" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e21-n)"/></svg><div class="dg-n b strong" style="left:0px;top:0px;width:300px;height:44px">남북 협상(4. 19.~23.) 추진</div><div class="dg-n n" style="left:340px;top:0px;width:800px;height:44px">김구(임정 계열), 김규식(민족 자주 연맹) → 김일성 등에게 남북 정치 지도자 회담 제의</div><div class="dg-n n" style="left:340px;top:70px;width:800px;height:40px">전 조선 제 정당·사회 단체 대표자 연석 회의(남북 연석 회의, 1948. 4.)</div><div class="dg-n n" style="left:340px;top:120px;width:800px;height:40px">남북 지도자 회의(김일성, 김두봉, 김구, 김규식, 1948. 4.)</div><div class="dg-n g strong" style="left:0px;top:210px;width:300px;height:44px">공동 성명 채택</div><div class="dg-n g" style="left:340px;top:198px;width:800px;height:36px">남한 단독 선거 반대</div><div class="dg-n g" style="left:340px;top:242px;width:800px;height:36px">미·소 양군의 철수</div><div class="dg-n g" style="left:340px;top:286px;width:800px;height:36px">전국 총선거에 의한 통일 정부 수립</div><div class="dg-n r" style="left:0px;top:372px;width:300px;height:44px">남북 단독 정부 수립 움직임</div><div class="dg-n b" style="left:340px;top:360px;width:800px;height:36px">미국, 단정 세력 : 남한 단독 총선거 지속</div><div class="dg-n r" style="left:340px;top:404px;width:800px;height:36px">소련, 북한 : 최고 인민 대표 회의 선거, 인민군 창설</div><div class="dg-n n" style="left:0px;top:480px;width:300px;height:44px">성과 × → 통일 정부 수립 실패</div><div class="dg-n t" style="left:340px;top:480px;width:800px;height:44px">단독 정부 수립 반대 운동 전개</div><div class="dg-note" style="left:0px;top:560px;width:1140px">자료 : <span class="lnk" data-popup="z2-kim-appeal">김구의 3천만 동포에게 눈물로 고함(1948. 2.)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-kimgyusik">김규식의 발언</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-leaders-quotes">정치 지도자들의 주장(김구·이승만·여운형·박헌영)</span></div></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s22" data-title="02-5 단독 정부 수립을 둘러싼 갈등">
+  <div class="stage">
+    <p class="eyebrow">02</p>
+    <h2 class="heading">통일 정부를 수립하려고 노력하다</h2>
+    <div class="section-tag"><b>5</b> 단독 정부 수립을 둘러싼 갈등</div>
+    <p class="lead">5·10 총선거를 둘러싼 갈등 속에서 <em>제주 4·3 사건과 여수·순천 10·19 사건</em> 발생.</p>
+    <div class="dg" style="width:1140px;height:630px;"><svg class="dg-lines" viewBox="0 0 1140 630" width="1140" height="630" aria-hidden="true"><defs><marker id="e22-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="e22-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker><marker id="e22-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker></defs><path d="M220,20 V76" fill="none" stroke="#7fb2ff" stroke-width="2.6" stroke-linejoin="round"/><line x1="200" y1="22" x2="220" y2="22" stroke="#7fb2ff" stroke-width="2.6"/><line x1="220" y1="20" x2="240" y2="20" stroke="#7fb2ff" stroke-width="2.6"/><line x1="220" y1="76" x2="240" y2="76" stroke="#7fb2ff" stroke-width="2.6"/><line x1="450" y1="100" x2="450" y2="134" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e22-r)"/><path d="M240,236 V334" fill="none" stroke="#ff8f7a" stroke-width="2.6" stroke-linejoin="round"/><line x1="220" y1="258" x2="240" y2="258" stroke="#ff8f7a" stroke-width="2.6"/><line x1="240" y1="236" x2="260" y2="236" stroke="#ff8f7a" stroke-width="2.6"/><line x1="240" y1="286" x2="260" y2="286" stroke="#ff8f7a" stroke-width="2.6"/><line x1="240" y1="334" x2="260" y2="334" stroke="#ff8f7a" stroke-width="2.6"/><line x1="110" y1="280" x2="110" y2="400" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e22-r)"/><line x1="300" y1="422" x2="340" y2="422" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e22-r)"/><line x1="820" y1="422" x2="880" y2="422" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e22-r)"/><line x1="580" y1="444" x2="580" y2="470" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e22-n)"/><line x1="820" y1="492" x2="880" y2="504" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e22-n)"/><line x1="1010" y1="482" x2="1010" y2="452" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e22-r)"/></svg><div class="dg-n b strong" style="left:0px;top:0px;width:200px;height:44px">5·10 총선거</div><div class="dg-n n" style="left:240px;top:0px;width:420px;height:40px">이승만, 한민당 : 총선거 준비</div><div class="dg-n r" style="left:240px;top:52px;width:900px;height:48px">좌익 계열 : 남로당 중심 단독 선거 반대 투쟁 → 2월 총파업(2·7 투쟁), 동맹 휴학, 무장 투쟁</div><div class="dg-n r strong" style="left:240px;top:134px;width:420px;height:44px">4·3 사건, 여순 사건(10·19) 발생</div><div class="dg-n r" style="left:0px;top:236px;width:220px;height:44px">제주 4·3 사건(1948)</div><div class="dg-n n" style="left:260px;top:214px;width:880px;height:44px">1947년 3·1 기념식 경찰 발포 : 제주 도민 6명 사망 → 제주 도민들의 항의 시위 → 강경 진압</div><div class="dg-n n" style="left:260px;top:266px;width:880px;height:40px">1948년 4월 3일 무장봉기 : 남로당 + 제주 도민</div><div class="dg-n n" style="left:260px;top:314px;width:880px;height:40px">경찰, 서북 청년단 강경 진압</div><div class="dg-n r" style="left:0px;top:400px;width:300px;height:44px">제주도 5·10 총선거 실시 ×</div><div class="dg-n n" style="left:340px;top:400px;width:480px;height:44px">정부 수립 이후에도 저항 지속</div><div class="dg-n r strong" style="left:880px;top:392px;width:260px;height:60px">2~3만여 명의 제주 도민(당시 28만) 희생</div><div class="dg-n n" style="left:340px;top:470px;width:480px;height:44px">여수 주둔 14연대 제주도 파견</div><div class="dg-n r" style="left:880px;top:482px;width:260px;height:44px">여수·순천 사건(10·19 사건)</div><div class="dg-note" style="left:0px;top:540px;width:1140px">자료 : <span class="lnk" data-popup="z2-orari">오라리 방화 사건 항공 사진</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-jeju-refuge">토벌대를 피해 중산간 지대에 피신한 제주 도민들</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-jeju-interrogation">심문을 받기 위해 대기 중인 제주 도민(1948. 11.)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-jeju-apology">제주 4·3 사건에 대한 정부의 공식 사과</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-jeju-infographic">어둠에서 빛으로 제주 4·3</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-yeosu-people">반란 폭도와 양민으로 나뉜 여수의 주민들</span></div><div class="dg-note" style="left:0px;top:604px;width:1140px">영상 : <span class="lnk" data-popup="z2-v-jeju1">제주 4·3 사건 ①</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-v-jeju2">4·3 초토화 작전에 사라진 마을 ②</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-v-jeju3">3·10 총파업, 제주 4·3길을 걷다 ③</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-v-yeosu1">여순 사건 진압군 증언 ①</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-v-yeosu2">여순 사건 72년 만의 사과 ②</span></div></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s23" data-title="03-1 5·10 총선거">
+  <div class="stage">
+    <p class="eyebrow">03</p>
+    <h2 class="heading">대한민국 정부를 수립하다</h2>
+    <div class="section-tag"><b>1</b> 5·10 총선거</div>
+    <p class="lead">유엔 임시 위원단 감독하에 남한만 <em>5·10 총선거</em>를 실시하여 제헌 국회 구성, 헌법 공포.</p>
+    <div class="split"><div><div class="dg" style="width:880px;height:514px;margin-left:0"><svg class="dg-lines" viewBox="0 0 880 514" width="880" height="514" aria-hidden="true"><defs><marker id="e23-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="e23-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker></defs><path d="M240,20 V170" fill="none" stroke="#7fb2ff" stroke-width="2.6" stroke-linejoin="round"/><line x1="220" y1="22" x2="240" y2="22" stroke="#7fb2ff" stroke-width="2.6"/><line x1="240" y1="20" x2="260" y2="20" stroke="#7fb2ff" stroke-width="2.6"/><line x1="240" y1="70" x2="260" y2="70" stroke="#7fb2ff" stroke-width="2.6"/><line x1="240" y1="120" x2="260" y2="120" stroke="#7fb2ff" stroke-width="2.6"/><line x1="240" y1="170" x2="260" y2="170" stroke="#7fb2ff" stroke-width="2.6"/><line x1="110" y1="44" x2="110" y2="236" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e23-b)"/><path d="M200,280 V310 H420 V330" fill="none" stroke="#d8ad62" stroke-width="2.6" stroke-linejoin="round"/><path d="M420,330 V426" fill="none" stroke="#d8ad62" stroke-width="2.6" stroke-linejoin="round"/><line x1="420" y1="330" x2="440" y2="330" stroke="#d8ad62" stroke-width="2.6"/><line x1="420" y1="378" x2="440" y2="378" stroke="#d8ad62" stroke-width="2.6"/><line x1="420" y1="426" x2="440" y2="426" stroke="#d8ad62" stroke-width="2.6"/><line x1="420" y1="378" x2="340" y2="378" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e23-g)"/></svg><div class="dg-n b strong" style="left:0px;top:0px;width:220px;height:44px">5·10 총선거</div><div class="dg-n n" style="left:260px;top:0px;width:620px;height:40px">유엔 임시 위원단 감독하에 남한만 단독 선거 실시</div><div class="dg-n n" style="left:260px;top:50px;width:620px;height:40px">보통·평등·비밀·직접 선거</div><div class="dg-n r" style="left:260px;top:100px;width:620px;height:40px">남북 협상파 선거 참여 ×</div><div class="dg-n n" style="left:260px;top:150px;width:620px;height:40px">198명(198/200) 선출 : 제주도 2석 미선출</div><div class="dg-n g strong" style="left:0px;top:236px;width:400px;height:44px">제헌 국회 구성 : 국호 ‘대한민국’, 헌법 공포</div><div class="dg-n n" style="left:440px;top:310px;width:440px;height:40px">대한민국 임시 정부 법통 계승</div><div class="dg-n n" style="left:440px;top:358px;width:440px;height:40px">민주 공화국 명시</div><div class="dg-n n" style="left:440px;top:406px;width:440px;height:40px">대통령 중심제 채택 – 국회에서 선출(간선제)</div><div class="dg-n g strong" style="left:0px;top:356px;width:340px;height:44px">대한민국 정부 수립(1948. 8. 15.)</div><div class="dg-note" style="left:0px;top:484px;width:880px">자료 : <span class="lnk" data-popup="z2-charter-imjeong">대한민국 임시 헌장(1919. 4. 11.)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-charter-jeheon">제헌 헌법(1948. 7. 17.)</span></div></div></div>
+      <aside class="aside">
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-jeheon-seats"><img src="assets/c22-jeheon-seats.png" alt="제헌 국회 소속 정당별 국회 의석수"><figcaption><b>제헌 국회 소속 정당별 국회 의석수</b></figcaption></div>
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-president-vote"><img src="assets/c22-president-vote.png" alt="대통령 선거 득표"><figcaption><b>초대 대통령 선거 득표(국회 간선)</b></figcaption></div>
+      </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s24" data-title="03-2 대한민국 수립 선포">
+  <div class="stage">
+    <p class="eyebrow">03</p>
+    <h2 class="heading">대한민국 정부를 수립하다</h2>
+    <div class="section-tag"><b>2</b> 대한민국 수립 선포</div>
+    <p class="lead"><em>대한민국 정부 수립을 공포(1948. 8. 15.)</em>하여 미군정이 끝나고, 유엔이 한반도 유일의 합법 정부로 승인.</p>
+    <div class="split"><div><div class="dg" style="width:880px;height:216px;margin-left:0"><svg class="dg-lines" viewBox="0 0 880 216" width="880" height="216" aria-hidden="true"><defs><marker id="e24-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker></defs><path d="M380,20 V120" fill="none" stroke="#d8ad62" stroke-width="2.6" stroke-linejoin="round"/><line x1="360" y1="22" x2="380" y2="22" stroke="#d8ad62" stroke-width="2.6"/><line x1="380" y1="20" x2="400" y2="20" stroke="#d8ad62" stroke-width="2.6"/><line x1="380" y1="70" x2="400" y2="70" stroke="#d8ad62" stroke-width="2.6"/><line x1="380" y1="120" x2="400" y2="120" stroke="#d8ad62" stroke-width="2.6"/></svg><div class="dg-n g strong" style="left:0px;top:0px;width:360px;height:44px">대한민국 정부 수립 공포(1948. 8. 15.)</div><div class="dg-n n" style="left:400px;top:0px;width:480px;height:40px">미군정 종료</div><div class="dg-n n" style="left:400px;top:50px;width:480px;height:40px">조선 공산당 출신 + 한국 독립당 출신 포함</div><div class="dg-n t" style="left:400px;top:100px;width:480px;height:40px">유엔으로부터 합법 정부 승인(1948. 12.)</div><div class="dg-note" style="left:0px;top:186px;width:880px">자료 : <span class="lnk" data-popup="z2-unga195">유엔 총회의 대한민국 정부 승인(결의 제195(Ⅲ)호)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-syngman-oath">취임 선서 중인 이승만</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-gwanbo">『대한민국 관보』 1호</span></div></div></div>
+      <aside class="aside">
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-syngman-oath"><img src="assets/c22-syngman-oath.png" alt="취임 선서 중인 이승만"><figcaption><b>취임 선서 중인 이승만</b></figcaption></div>
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-gwanbo"><img src="assets/c22-gwanbo.png" alt="대한민국 관보 1호"><figcaption><b>『대한민국 관보』 1호(1948. 9. 1.)</b></figcaption></div>
+      </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s25" data-title="03-3 북한 정권 수립 준비">
+  <div class="stage">
+    <p class="eyebrow">03</p>
+    <h2 class="heading">대한민국 정부를 수립하다</h2>
+    <div class="section-tag"><b>3</b> 북한 정권 수립 준비</div>
+    <p class="lead">해방 직후 건국 준비 위원회와 인민 위원회가 조직되고, <em>소련의 후원으로 김일성 세력</em>이 권력 장악.</p>
+    <div class="split"><div><div class="dg" style="width:880px;height:620px;margin-left:0"><svg class="dg-lines" viewBox="0 0 880 620" width="880" height="620" aria-hidden="true"><defs><marker id="e25-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker><marker id="e25-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker><marker id="e25-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="e25-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker><marker id="e25-t" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#73b8ae"/></marker></defs><line x1="170" y1="22" x2="210" y2="22" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e25-g)"/><line x1="170" y1="112" x2="210" y2="112" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e25-r)"/><line x1="85" y1="44" x2="85" y2="90" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e25-g)"/><line x1="300" y1="202" x2="340" y2="202" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e25-r)"/><line x1="85" y1="134" x2="85" y2="180" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e25-r)"/><line x1="170" y1="292" x2="210" y2="292" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e25-b)"/><line x1="85" y1="224" x2="85" y2="270" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e25-n)"/><line x1="360" y1="382" x2="400" y2="382" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e25-g)"/><line x1="85" y1="314" x2="85" y2="360" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e25-n)"/><line x1="180" y1="404" x2="180" y2="450" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e25-g)"/><line x1="640" y1="404" x2="640" y2="450" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e25-g)"/><line x1="330" y1="520" x2="200" y2="490" stroke="#73b8ae" stroke-width="2.6" marker-end="url(#e25-t)"/><line x1="550" y1="520" x2="680" y2="490" stroke="#73b8ae" stroke-width="2.6" marker-end="url(#e25-t)"/></svg><div class="dg-n g" style="left:0px;top:0px;width:170px;height:44px">해방 직후</div><div class="dg-n n" style="left:210px;top:0px;width:670px;height:44px">북한 각 지역에서 건국 준비 위원회 결성 : 평남 건국 준비 위원회(조만식 등 기독교 우익 계열 중심)</div><div class="dg-n r" style="left:0px;top:90px;width:170px;height:44px">소련군 진주</div><div class="dg-n n" style="left:210px;top:90px;width:670px;height:44px">인민 위원회 조직 : 좌익 + 조만식 등 기독교 우익 → 좌우 연합</div><div class="dg-n r" style="left:0px;top:180px;width:300px;height:44px">조선 공산당 북조선 분국</div><div class="dg-n n" style="left:340px;top:180px;width:540px;height:44px">김일성 세력 등장 공식화</div><div class="dg-n b" style="left:0px;top:270px;width:170px;height:44px">모스크바 3상 회의</div><div class="dg-n n" style="left:210px;top:270px;width:670px;height:44px">조만식 등 우익 신탁 통치 반대 → 우익 탄압 시작 → 우익 월남</div><div class="dg-n g strong" style="left:0px;top:360px;width:360px;height:44px">북조선 임시 인민 위원회(1946. 2.) 조직</div><div class="dg-n n" style="left:400px;top:360px;width:480px;height:44px">중앙 권력 기구 역할 → 김일성 등 좌익 권력 장악</div><div class="dg-n r" style="left:0px;top:450px;width:420px;height:40px">친일파 청산, 주요 생산 시설 국유화</div><div class="dg-n r" style="left:460px;top:450px;width:420px;height:40px">토지 개혁(무상 몰수, 무상 분배 → 소작·매매·저당 ×)</div><div class="dg-n t" style="left:240px;top:520px;width:400px;height:44px">소련의 적극적 후원</div><div class="dg-note" style="left:0px;top:590px;width:880px">자료 : <span class="lnk" data-popup="z2-nk-forces-map">북한 정권 수립의 주도 세력은 누구였을까?</span></div></div></div>
+      <aside class="aside">
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-nk-forces-map"><img src="assets/c22-nk-forces-map.png" alt="북한 정권 수립의 주도 세력"><figcaption><b>북한 정권 수립의 주도 세력은 누구였을까?</b></figcaption></div>
+      </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s26" data-title="03-4 북한 정부의 수립">
+  <div class="stage">
+    <p class="eyebrow">03</p>
+    <h2 class="heading">대한민국 정부를 수립하다</h2>
+    <div class="section-tag"><b>4</b> 북한 정부의 수립</div>
+    <p class="lead">북한은 단독 정부 수립을 준비하여 <em>조선 민주주의 인민 공화국(1948. 9. 9.)</em>을 선포.</p>
+    <div class="split"><div><div class="dg" style="width:880px;height:530px;margin-left:0"><svg class="dg-lines" viewBox="0 0 880 530" width="880" height="530" aria-hidden="true"><defs><marker id="e26-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="e26-n" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#a9b4c1"/></marker></defs><path d="M400,20 V70" fill="none" stroke="#7fb2ff" stroke-width="2.6" stroke-linejoin="round"/><line x1="380" y1="22" x2="400" y2="22" stroke="#7fb2ff" stroke-width="2.6"/><line x1="400" y1="20" x2="420" y2="20" stroke="#7fb2ff" stroke-width="2.6"/><line x1="400" y1="70" x2="420" y2="70" stroke="#7fb2ff" stroke-width="2.6"/><line x1="400" y1="70" x2="400" y2="130" stroke="#7fb2ff" stroke-width="2.6"/><line x1="400" y1="130" x2="420" y2="130" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e26-b)"/><line x1="140" y1="44" x2="140" y2="170" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e26-b)"/><line x1="140" y1="210" x2="140" y2="224" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e26-n)"/><line x1="190" y1="264" x2="190" y2="298" stroke="#a9b4c1" stroke-width="2.6" marker-end="url(#e26-n)"/><path d="M400,318 V368" fill="none" stroke="#7fb2ff" stroke-width="2.6" stroke-linejoin="round"/><line x1="380" y1="320" x2="400" y2="320" stroke="#7fb2ff" stroke-width="2.6"/><line x1="400" y1="318" x2="420" y2="318" stroke="#7fb2ff" stroke-width="2.6"/><line x1="400" y1="368" x2="420" y2="368" stroke="#7fb2ff" stroke-width="2.6"/><line x1="190" y1="342" x2="190" y2="424" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e26-b)"/></svg><div class="dg-n b strong" style="left:0px;top:0px;width:380px;height:44px">북조선 인민 위원회(1947. 2.) 조직</div><div class="dg-n n" style="left:420px;top:0px;width:460px;height:40px">임시 헌법 초안 작성(1947. 12.)</div><div class="dg-n n" style="left:420px;top:50px;width:460px;height:40px">조선 인민군 창설(1948. 2.)</div><div class="dg-n g" style="left:420px;top:110px;width:460px;height:40px">→ 단독 정부 수립 준비</div><div class="dg-n n" style="left:0px;top:170px;width:280px;height:40px">남북 협상(표면상)</div><div class="dg-n n" style="left:0px;top:224px;width:380px;height:40px">남한 단독 정부 수립(1948. 8. 15.)</div><div class="dg-n b strong" style="left:0px;top:298px;width:380px;height:44px">최고 인민 회의 선거(1948. 8. 25.)</div><div class="dg-n n" style="left:420px;top:298px;width:460px;height:40px">헌법 제정</div><div class="dg-n n" style="left:420px;top:348px;width:460px;height:40px">김일성 수상 선출, 내각 구성</div><div class="dg-n r strong" style="left:0px;top:424px;width:460px;height:44px">조선 민주주의 인민 공화국 선포(1948. 9. 9.)</div><div class="dg-note" style="left:0px;top:500px;width:880px">자료 : <span class="lnk" data-popup="z2-nk-constitution">사료 — 북한 정권 수립 당시의 조선 민주주의 인민 공화국 헌법</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-nk-cabinet">북한 초대 내각(1948)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-nk-flag">태극기에서 인공기로</span></div></div></div>
+      <aside class="aside">
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-nk-flag"><img src="assets/c22-nk-flag.png" alt="태극기에서 인공기로"><figcaption><b>태극기에서 인공기로</b></figcaption></div>
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-nk-cabinet"><img src="assets/c22-nk-cabinet.png" alt="북한 초대 내각"><figcaption><b>북한 초대 내각(1948)</b></figcaption></div>
+      </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s27" data-title="04-1 친일파 청산을 위한 노력">
+  <div class="stage">
+    <p class="eyebrow">04</p>
+    <h2 class="heading">친일파 청산과 농지 개혁을 추진하다</h2>
+    <div class="section-tag"><b>1</b> 친일파 청산을 위한 노력</div>
+    <p class="lead">제헌 국회가 <em>반민족 행위 처벌법</em>을 제정하여 친일파 청산을 시도했으나 반민특위 해산으로 실패.</p>
+    <div class="split"><div><div class="dg" style="width:880px;height:520px;margin-left:0"><svg class="dg-lines" viewBox="0 0 880 520" width="880" height="520" aria-hidden="true"><defs><marker id="e27-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker></defs><line x1="330" y1="22" x2="370" y2="22" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e27-b)"/><path d="M165,44 V100 H340" fill="none" stroke="#7fb2ff" stroke-width="2.6" stroke-linejoin="round"/><path d="M340,100 V274" fill="none" stroke="#7fb2ff" stroke-width="2.6" stroke-linejoin="round"/><line x1="340" y1="100" x2="370" y2="100" stroke="#7fb2ff" stroke-width="2.6"/><line x1="340" y1="160" x2="370" y2="160" stroke="#7fb2ff" stroke-width="2.6"/><line x1="340" y1="218" x2="370" y2="218" stroke="#7fb2ff" stroke-width="2.6"/><line x1="340" y1="274" x2="370" y2="274" stroke="#7fb2ff" stroke-width="2.6"/></svg><div class="dg-n b strong" style="left:0px;top:0px;width:330px;height:44px">반민족 행위 처벌법(1948. 9.)</div><div class="dg-n n" style="left:370px;top:0px;width:510px;height:44px">제헌 국회에서 특별법 제정</div><div class="dg-n g" style="left:370px;top:76px;width:510px;height:48px">반민족 행위 특별 조사 위원회(반민특위) 구성 : 반민족 행위자(7천여 명) 조사 + 사법 처리</div><div class="dg-n r" style="left:370px;top:136px;width:510px;height:48px">이승만 정권의 반공 중시 : 반민특위 활동 방해 → 국회 프락치 사건, 반민특위 사무실 습격 등</div><div class="dg-n r" style="left:370px;top:196px;width:510px;height:44px">반민법 개정 : 반민법 시효 단축(1949년 8월까지)</div><div class="dg-n r strong" style="left:370px;top:252px;width:510px;height:44px">반민특위 해산 → 친일 청산 ×</div><div class="dg-n n" style="left:0px;top:340px;width:880px;height:56px">반민특위의 실적 : 취급 688건 · 기소 221건 · 재판 종결 41건(사형 1건 – 김덕기(일제 시대 고등 경찰), 징역 9건, 집행 유예 5건, 공민권 정지 18건, 무죄 6건, 형 면제 2건)</div><div class="dg-note" style="left:0px;top:420px;width:880px">자료 : <span class="lnk" data-popup="z2-banmin-poster">반민족 행위 특별 조사 위원회 포고</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-banmin-news">반민특위를 보도한 신문 기사(1949. 4. 4.)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-banmin-record">반민특위의 실적</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-banmin-law">반민족 행위 처벌법에 규정된 반민족 행위자</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-syngman-statement">이승만 담화문(1949. 2. 18.)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-syngman-talk">이승만 대통령 반민특위 관련 담화</span></div><div class="dg-note" style="left:0px;top:488px;width:880px">자료 : <span class="lnk" data-popup="z2-france-purge">프랑스의 과거사 청산</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-banmin-investigator">반민특위 조사관의 회고</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-repent-1">최남선</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-repent-2">최린</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-repent-3">이광수</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-v-banmin">반민특위, 이승만 정부에 의해 무력화되다(영상)</span></div></div></div>
+      <aside class="aside">
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-banmin-poster"><img src="assets/c22-banmin-poster.png" alt="반민족 행위 특별 조사 위원회 포고"><figcaption><b>반민족 행위 특별 조사 위원회 포고</b></figcaption></div>
+        <div class="fig sm" role="button" tabindex="0" data-popup="z2-banmin-news"><img src="assets/c22-banmin-news.png" alt="반민특위를 보도한 신문 기사"><figcaption><b>반민특위를 보도한 신문 기사(1949. 4. 4.)</b></figcaption></div>
+      </aside></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s28" data-title="04-2 농지 개혁">
+  <div class="stage">
+    <p class="eyebrow">04</p>
+    <h2 class="heading">친일파 청산과 농지 개혁을 추진하다</h2>
+    <div class="section-tag"><b>2</b> 농지 개혁</div>
+    <p class="lead">해방 이후 농지 개혁은 시대적 과제, 정부 수립 후 <em>농지 개혁법(1949. 6.)</em> 제정.</p>
+    <div class="dg" style="width:1140px;height:470px;"><svg class="dg-lines" viewBox="0 0 1140 470" width="1140" height="470" aria-hidden="true"><defs><marker id="e28-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="e28-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker><marker id="e28-g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d8ad62"/></marker></defs><path d="M320,20 V170" fill="none" stroke="#7fb2ff" stroke-width="2.6" stroke-linejoin="round"/><line x1="300" y1="22" x2="320" y2="22" stroke="#7fb2ff" stroke-width="2.6"/><line x1="320" y1="20" x2="340" y2="20" stroke="#7fb2ff" stroke-width="2.6"/><line x1="320" y1="70" x2="340" y2="70" stroke="#7fb2ff" stroke-width="2.6"/><line x1="320" y1="120" x2="340" y2="120" stroke="#7fb2ff" stroke-width="2.6"/><line x1="320" y1="170" x2="340" y2="170" stroke="#7fb2ff" stroke-width="2.6"/><line x1="470" y1="190" x2="470" y2="226" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e28-b)"/><line x1="470" y1="270" x2="470" y2="300" stroke="#ff8f7a" stroke-width="2.6" marker-end="url(#e28-r)"/><line x1="720" y1="372" x2="780" y2="372" stroke="#d8ad62" stroke-width="2.6" marker-end="url(#e28-g)"/></svg><div class="dg-n b strong" style="left:0px;top:0px;width:300px;height:44px">농지 개혁법(1949. 6.) 제정</div><div class="dg-n n" style="left:340px;top:0px;width:800px;height:40px">해방 이후 대부분 농민 소작농(50%), 자소작농(35%) → 농지 개혁은 시대적 과제</div><div class="dg-n n" style="left:340px;top:50px;width:800px;height:40px">해방 이후 농민들 소작료 인하 투쟁 : 소작료 3·7제 주장 → 미군정의 소작료 3·1제 시행(1945. 10.)</div><div class="dg-n n" style="left:340px;top:100px;width:800px;height:40px">북한의 농지 개혁(1946. 3., 무상 몰수·무상 분배) → 미군정의 귀속 농지 분배(1948. 3., 농지의 13.4%)</div><div class="dg-n b" style="left:340px;top:150px;width:800px;height:40px">정부 수립 후 농지 개혁법 제정 : 3정보 초과 토지 유상 매수, 유상 분배</div><div class="dg-n r" style="left:340px;top:226px;width:260px;height:44px">재정 부담으로 지연</div><div class="dg-n g" style="left:340px;top:300px;width:380px;height:40px">지주 : 평년작의 150% 지가 증권 지급</div><div class="dg-n g" style="left:340px;top:350px;width:380px;height:40px">농민 : 25%씩 5년간 납입(평년작의 125%)</div><div class="dg-n r strong" style="left:780px;top:350px;width:360px;height:44px">농지 개혁법 개정(1950. 3.) : 150%로 증액</div><div class="dg-note" style="left:0px;top:440px;width:1140px">자료 : <span class="lnk" data-popup="z2-farmer-classes">농민의 계층별 구성(1945)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-land-law-1949">농지 개혁법(요약, 1949)</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-land-bond">지가 증권</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-land-law-1950">농지 개혁법(1950, 개정)과 자작지·소작지 면적 변화</span><span class="dg-sep"> · </span><span class="lnk" data-popup="z2-v-land">조봉암의 농지개혁이 반대에 부딪히다(영상)</span></div></div>
+  </div>
+</section>
+
+<section class="slide" hidden data-sid="s29" data-title="04-3 농지 개혁의 성과와 한계">
+  <div class="stage">
+    <p class="eyebrow">04</p>
+    <h2 class="heading">친일파 청산과 농지 개혁을 추진하다</h2>
+    <div class="section-tag"><b>2</b> 농지 개혁</div>
+    <p class="lead">농지 개혁으로 <em>지주-소작제가 무너지고 자작농 체제</em>가 성립했으나 한계도 뚜렷.</p>
+    <div class="dg" style="width:1140px;height:350px;"><svg class="dg-lines" viewBox="0 0 1140 350" width="1140" height="350" aria-hidden="true"><defs><marker id="e29-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7fb2ff"/></marker><marker id="e29-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#ff8f7a"/></marker></defs><line x1="300" y1="22" x2="340" y2="22" stroke="#7fb2ff" stroke-width="2.6" marker-end="url(#e29-b)"/><path d="M150,44 V118 H340" fill="none" stroke="#7fb2ff" stroke-width="2.6" stroke-linejoin="round" marker-end="url(#e29-b)"/><path d="M480,96 V304" fill="none" stroke="#ff8f7a" stroke-width="2.6" stroke-linejoin="round"/><line x1="460" y1="118" x2="480" y2="118" stroke="#ff8f7a" stroke-width="2.6"/><line x1="480" y1="96" x2="500" y2="96" stroke="#ff8f7a" stroke-width="2.6"/><line x1="480" y1="146" x2="500" y2="146" stroke="#ff8f7a" stroke-width="2.6"/><line x1="480" y1="196" x2="500" y2="196" stroke="#ff8f7a" stroke-width="2.6"/><line x1="480" y1="246" x2="500" y2="246" stroke="#ff8f7a" stroke-width="2.6"/><line x1="480" y1="304" x2="500" y2="304" stroke="#ff8f7a" stroke-width="2.6"/></svg><div class="dg-n b strong" style="left:0px;top:0px;width:300px;height:44px">농지 개혁의 성과 및 한계</div><div class="dg-n t" style="left:340px;top:0px;width:800px;height:56px">성과 : 전통적인 지주-소작제 붕괴 → 자작농 체제 성립과 토지 불균형으로 인한 사회 갈등 소멸</div><div class="dg-n r strong" style="left:340px;top:96px;width:120px;height:44px">한계</div><div class="dg-n r" style="left:500px;top:76px;width:640px;height:40px">농지가 아닌 토지 분배 대상 제외(임야 등)</div><div class="dg-n r" style="left:500px;top:126px;width:640px;height:40px">친일 행위자 토지 몰수 ×</div><div class="dg-n r" style="left:500px;top:176px;width:640px;height:40px">시행 지연 → 상당수 지주들의 토지 판매</div><div class="dg-n r" style="left:500px;top:226px;width:640px;height:40px">농민의 유상 분배금 부담 → 토지 판매 후 재소작인화</div><div class="dg-n r" style="left:500px;top:276px;width:640px;height:56px">전쟁으로 인한 인플레이션으로 지가 증권 가치 폭락 → 중소 지주의 산업 자본화 실패</div></div>
+  </div>
+</section>
+
 </main>
 
 <div class="fig-bar"><span>빈 곳을 끌어 여러 개 선택(Shift+클릭으로 추가) → 끌거나 방향키(Shift는 10칸)로 함께 이동 / 분홍 점선 = 정렬 기준선 / 사진 모서리: 크기 / 글자: 더블클릭 후 마우스로 일부 글자만 드래그 선택하면 색·굵기·크기가 그 글자에만 적용 / Delete: 삭제 / 글 한 개 선택 시 오른쪽 금색 막대: 가로 폭 / 도표 버튼: 선택 후 오른쪽 아래 금색 네모로 크기(Shift=비율 유지), Alt+방향키로 미세 조절 / 도표 화살표: 클릭 후 끝점 ●로 길이·각도(Shift=15° 단위), 선을 끌어 이동, 방향키 미세 이동, Delete 삭제 / 타임라인 선·점선: 선택 후 금색 네모로 길이, 붉은 원(회전 핸들)으로 각도(Shift=15° 단위) 조절</span><span id="txtMode" class="mode"></span><label class="tx">글자색 <input type="color" id="txtColor" value="#ffffff"></label><select id="txtWeight" title="글자 굵기"><option value="">굵기</option><option value="400">보통</option><option value="600">굵게</option><option value="800">아주 굵게</option></select><label class="tx">크기 <button type="button" id="txtSmaller" title="작게 (Shift: 4px)">A−</button><input type="number" id="txtSize" min="8" max="120" step="1" title="글자 크기(px)"><button type="button" id="txtBigger" title="크게 (Shift: 4px)">A＋</button></label><button type="button" id="txtClear">서식 지우기</button><button type="button" id="figDelete" class="del">선택 삭제</button><button type="button" id="figSave">저장</button><button type="button" id="figReset">초기화</button></div>
@@ -784,7 +1145,85 @@ const popups = {
   'unity-map': { title: '광복 직전 국내외 독립운동 단체', html: IMG('assets/tb-unity-map.png','광복 직전 독립운동 단체') + `<p class="modal-caption">조선 건국 동맹(국내), 조선 독립 동맹·조선 의용군(옌안), 대한민국 임시 정부·한국광복군(충칭)의 상호 연대 모색. 1944년 김구가 조선 독립 동맹의 김두봉에게 서신을 보내 양자 간 교류 추진.</p>` },
   cairo: { title: '카이로 회담 (1943. 11.)', html: IMG('assets/tb-cairo.png','카이로 회담') + `<p class="modal-caption">카이로 선언에서 “한국 인민의 노예 상태에 유의하여 적당한 시기에 한국이 자유롭게 되고 독립하게 될 것을 결의한다.”라고 명시, 한국의 독립 보장.</p>` },
   yalta: { title: '얄타 회담 (1945. 2.)', html: IMG('assets/tb-yalta.png','얄타 회담') + `<p class="modal-caption">독일의 분할 점령, 소련의 대일전 참전을 비롯해 패전국과 해방국에서 자유 선거에 의한 정부 수립 등의 원칙 결정.</p>` },
-  potsdam: { title: '포츠담 회담 (1945. 7.)', html: IMG('assets/tb-potsdam.png','포츠담 회담') + `<p class="modal-caption">카이로 선언의 이행을 강조, 한국의 독립 재확인.</p>` }
+  potsdam: { title: '포츠담 회담 (1945. 7.)', html: IMG('assets/tb-potsdam.png','포츠담 회담') + `<p class="modal-caption">카이로 선언의 이행을 강조, 한국의 독립 재확인.</p>` },
+  // ---- 2-1 냉전 체제와 대한민국 정부 수립 ----
+  'un-charter': { title: '국제 연합(UN) 헌장', html: IMG('assets/c21-un-charter.png','국제 연합 헌장') },
+  'tokyo-trial': { title: '극동 국제 군사 재판(도쿄 재판)', html: IMG('assets/c21-tokyo-trial.png','극동 국제 군사 재판') },
+  'truman': { title: '미국 트루먼 대통령의 의회 연설(1947)', html: IMG('assets/c21-truman.png','트루먼 대통령의 의회 연설') + `<p class="modal-caption">트루먼 독트린 : 미국의 공산주의 팽창 저지 정책.</p>` },
+  'cartoon-sam': { title: '냉전 체제의 형성 만평', html: IMG('assets/c21-cartoon-sam.png','샘 아저씨와 곰 만평') },
+  'cartoon-ice': { title: '냉전 풍자 만평(『만화행진』, 1947. 9.)', html: IMG('assets/c21-cartoon-ice.png','냉전 풍자 만평') },
+  'sanfrancisco': { title: '샌프란시스코 강화 조약 서명(1951)', html: IMG('assets/c21-sanfrancisco.png','샌프란시스코 강화 조약에 서명하는 일본 총리') },
+  'eastasia-map': { title: '동아시아의 냉전(1946~1950)', html: IMG('assets/c21-eastasia-map.png','동아시아의 냉전') },
+  'coldwar-map': { title: '냉전 체제의 전개', html: IMG('assets/c21-coldwar-map.png','냉전 체제의 전개') },
+  'liberation-joy': { title: '광복의 기쁨', html: IMG('assets/c21-liberation-joy.png','광복의 기쁨') },
+  'rusk': { title: '사료 읽기 — 미국과 소련의 38도선 분할 점령', html: IMG('assets/c21-rusk.png','딘 러스크의 회고 진술') },
+  'welcome': { title: '미·소 양군을 환영하는 한국인', html: IMG('assets/c21-welcome.png','평양에 진주한 소련군과 부산에 진주한 미군을 환영하는 주민들') },
+  'line38-village': { title: '38도선이 그어진 마을', html: IMG('assets/c21-line38-village.png','38도선이 그어진 마을') },
+  'line38-crossing': { title: '38도선을 넘는 주민들(1947)', html: IMG('assets/c21-line38-crossing.png','38도선을 넘는 주민들') },
+  'line38-story': { title: '38도선, 민족의 분단선이 되기까지', html: IMG('assets/c21-line38-story.png','38도선, 민족의 분단선이 되기까지') },
+  'geonjun-org': { title: '조선 건국 준비 위원회(건준)의 조직과 활동', html: IMG('assets/c21-geonjun-org.png','건준의 조직과 활동') },
+  'geonjun-decl': { title: '조선 건국 준비 위원회 선언(1945)', html: IMG('assets/c21-geonjun-declaration.png','조선 건국 준비 위원회 선언') },
+  'geonjun-leaders': { title: '여운형과 안재홍', html: IMG('assets/c21-geonjun-leaders.png','여운형(왼쪽)과 안재홍(오른쪽)') + `<p class="modal-caption">여운형(왼쪽)과 안재홍(오른쪽).</p>` },
+  'benninghoff': { title: '재한국 정치 고문 베닝호프가 미국 국무 장관에게(1945. 9. 15.)', html: IMG('assets/c21-benninghoff.png','베닝호프의 서한') },
+  'usamgj-policy': { title: '미군정청의 기본 정책', html: IMG('assets/c21-usamgj-policy.png','미군정청의 기본 정책') },
+  'flag-change': { title: '일장기에서 성조기로', html: IMG('assets/c21-flag-change.png','조선 총독부 청사의 일장기가 내려가고 성조기가 올라가는 모습') },
+  'moscow-decision': { title: '자료 1 — 모스크바 3국 외상 회의 결정서(1945. 12.)', html: IMG('assets/c21-moscow-docs-left.png','모스크바 3국 외상 회의 결정서') },
+  'moscow-report': { title: '자료 2 — 모스크바 3국 외상 회의 결정에 대한 보도', html: IMG('assets/c21-moscow-docs-right.png','모스크바 3국 외상 회의 결정에 대한 보도') },
+  'moscow-newspaper': { title: '모스크바 3국 외상 회의 결과를 보도한 신문 기사', html: IMG('assets/c21-moscow-news.png','동아일보 기사') },
+  'trusteeship-flow': { title: '모스크바 3국 외상 회의 결정에 따른 한국 문제 해결 방안', html: IMG('assets/c21-trusteeship-flow.png','한국 문제 해결 방안') },
+  'antitrust': { title: '신탁 통치 반대 운동(자료 ①·②)', html: IMG('assets/c21-antitrust-docs.png','신탁 통치 반대 국민 총동원 시위 대회 선언문과 전국 대회') },
+  'pro-moscow': { title: '모스크바 3국 외상 회의 결정 지지(자료 ③·④)', html: IMG('assets/c21-pro-docs.png','모스크바 3국 외상 회의 지지 담화문과 지지 대회') },
+  'lr-cartoon': { title: '좌우익의 대립', html: IMG('assets/c21-left-right-cartoon.png','3상 결정 총체적 지지(좌익)와 신탁 통치 절대 반대(우익)') },
+  // ---- 2-1 · 주제02~04 ----
+  'z2-miso-delegates': { title: '미소 공동 위원회의 미국·소련 대표', html: IMG('assets/c22-miso-delegates.png','미소 공동 위원회 대표') },
+  'z2-jeongeup-news': { title: '정읍 발언을 보도한 신문 기사', html: IMG('assets/c22-jeongeup-news.png','정읍 발언 보도') },
+  'z2-jeongeup-source': { title: '사료 — 이승만의 정읍 발언', html: IMG('assets/c22-jeongeup-source.png','이승만의 정읍 발언') + `<p class="modal-caption">『서울신문』, 1946. 6. 4.</p>` },
+  'z2-lr-cartoon': { title: '좌우 합작 만평(『제3특보』, 1946. 10. 28.)', html: IMG('assets/c22-lr-cartoon.png','좌우 합작 만평') },
+  'z2-lr-7principles': { title: '좌우 합작 7원칙(1946. 10.)', html: IMG('assets/c22-lr-7principles.png','좌우 합작 7원칙') },
+  'z2-unga-resolution': { title: '유엔 총회 결의문(1947. 11.)', html: IMG('assets/c22-unga-resolution.png','유엔 총회 결의문') + `<p class="modal-caption">미국 국립인쇄소, 『미국의 대외 관계(FRUS) 1947』 Vol. Ⅵ</p>` },
+  'z2-unscob-poster': { title: '유엔 한국 임시 위원단 환영 포스터', html: IMG('assets/c22-unscob-poster.png','유엔 한국 임시 위원단 환영') },
+  'z2-kim-appeal': { title: '김구의 3천만 동포에게 눈물로 고함(1948. 2.)', html: IMG('assets/c22-kim-appeal.png','김구의 3천만 동포에게 눈물로 고함') },
+  'z2-kimgyusik': { title: '김규식의 발언', html: IMG('assets/c22-kimgyusik.png','김규식의 발언') },
+  'z2-leaders-quotes': { title: '정치 지도자들의 주장 — 김구·이승만·여운형·박헌영', html: IMG('assets/c22-leaders-quotes.png','정치 지도자들의 주장') },
+  'z2-orari': { title: '불타는 오라리 — 방화 사건의 항공 사진', html: IMG('assets/c22-orari.png','오라리 방화 사건') + `<p class="modal-caption">기록 영화 ‘제주도 메이데이’, 미 국립 문서 기록 관리청 소장. 경찰이 조작한 사건으로 4·3 진상 규명 운동 과정에서 밝혀졌다.</p>` },
+  'z2-jeju-refuge': { title: '토벌대를 피해 중산간 지대에 피신한 제주 도민들', html: IMG('assets/c22-jeju-refuge.png','피신한 제주 도민들') },
+  'z2-jeju-interrogation': { title: '심문을 받기 위해 대기 중인 제주 도민(1948. 11.)', html: IMG('assets/c22-jeju-interrogation.png','심문 대기 중인 제주 도민') },
+  'z2-jeju-apology': { title: '제주 4·3 사건에 대한 정부의 공식 사과', html: IMG('assets/c22-jeju-apology.png','정부의 공식 사과') + `<p class="modal-caption">노무현 대통령, 2003. 10. 31.</p>` },
+  'z2-jeju-infographic': { title: '어둠에서 빛으로 제주 4·3', html: IMG('assets/c22-jeju-infographic.png','제주 4·3 피해 통계') },
+  'z2-yeosu-people': { title: '반란 폭도와 양민으로 나뉜 여수의 주민들', html: IMG('assets/c22-yeosu-people.png','여수의 주민들') + `<p class="modal-caption">토벌대가 초등학교 교정에 주민을 모아 놓고 혐의자를 색출하고 있다.</p>` },
+  'z2-v-jeju1': { title: '제주 4·3 사건 ① (영상)', html: `<p class="modal-caption" style="margin-top:0">유튜브 주소를 알려주시면 이 자리에 영상을 연결합니다.<br>수업 PPT의 영상 : [4월 계기교육] 4월 3일 제주 4.3사건</p>` },
+  'z2-v-jeju2': { title: '4·3 초토화 작전에 사라진 마을 ② (영상)', html: `<p class="modal-caption" style="margin-top:0">유튜브 주소를 알려주시면 이 자리에 영상을 연결합니다.<br>수업 PPT의 영상 : 4·3 초토화 작전에 사라진 마을…학살의 현장 [뉴스데스크]</p>` },
+  'z2-v-jeju3': { title: '3·10 총파업, 제주 4·3길을 걷다 ③ (영상)', html: `<p class="modal-caption" style="margin-top:0">유튜브 주소를 알려주시면 이 자리에 영상을 연결합니다.<br>수업 PPT의 영상 : [제주 4.3사건] 직장인 95%가 함께한 유례없는 3.10 총파업</p>` },
+  'z2-v-yeosu1': { title: '여순 사건 진압군 증언 ① (영상)', html: `<p class="modal-caption" style="margin-top:0">유튜브 주소를 알려주시면 이 자리에 영상을 연결합니다.<br>수업 PPT의 영상 : [단독] “6·25보다 비참”…여순사건 70년 만에 진압군 증언 첫 공개 (KBS뉴스)</p>` },
+  'z2-v-yeosu2': { title: '여순 사건 72년 만의 사과 ② (영상)', html: `<p class="modal-caption" style="margin-top:0">유튜브 주소를 알려주시면 이 자리에 영상을 연결합니다.<br>수업 PPT의 영상 : 여순 사건 ‘72년’ 만에 한 풀어…판사 ‘울먹이며’ 사과 (MBC 뉴스데스크)</p>` },
+  'z2-jeheon-seats': { title: '제헌 국회 소속 정당별 국회 의석수', html: IMG('assets/c22-jeheon-seats.png','제헌 국회 정당별 의석수') + `<p class="modal-caption">『역대 국회 의원 선거 상황』, 1963</p>` },
+  'z2-president-vote': { title: '초대 대통령 선거 득표(국회 간선)', html: IMG('assets/c22-president-vote.png','대통령 선거 득표') + `<p class="modal-caption">대한민국 17표, 고려 공화국 7표, 조선 공화국 2표, 한국 1표.</p>` },
+  'z2-charter-imjeong': { title: '대한민국 임시 헌장(1919. 4. 11.)', html: IMG('assets/c22-charter-imjeong.png','대한민국 임시 헌장') },
+  'z2-charter-jeheon': { title: '제헌 헌법(1948. 7. 17.)', html: IMG('assets/c22-charter-jeheon.png','제헌 헌법') },
+  'z2-unga195': { title: '유엔 총회의 대한민국 정부 승인', html: IMG('assets/c22-unga195.png','유엔 총회 결의 제195(Ⅲ)호') + `<p class="modal-caption">유엔 총회 결의 제195(Ⅲ)호(1948. 12.)</p>` },
+  'z2-syngman-oath': { title: '취임 선서 중인 이승만', html: IMG('assets/c22-syngman-oath.png','취임 선서 중인 이승만') },
+  'z2-gwanbo': { title: '『대한민국 관보』 1호', html: IMG('assets/c22-gwanbo.png','대한민국 관보 1호') + `<p class="modal-caption">관보는 정부가 법령, 정부 시책 등을 알리기 위해 발행하는 공식 문서이다. 『대한민국 관보』 1호는 1948년 9월 1일에 발행했는데, 상단에 ‘대한민국 30년 9월 1일’로 표기되어 있다.</p>` },
+  'z2-nk-forces-map': { title: '북한 정권 수립의 주도 세력은 누구였을까?', html: IMG('assets/c22-nk-forces-map.png','북한 정권 수립의 주도 세력') },
+  'z2-nk-constitution': { title: '사료 읽기 — 북한 정권 수립 당시의 조선 민주주의 인민 공화국 헌법', html: IMG('assets/c22-nk-constitution.png','조선 민주주의 인민 공화국 헌법') },
+  'z2-nk-cabinet': { title: '북한 초대 내각(1948)', html: IMG('assets/c22-nk-cabinet.png','북한 초대 내각') + `<p class="modal-caption">홍명희, 김일성, 박헌영, 김원봉, 백남운 등이 포함.</p>` },
+  'z2-nk-flag': { title: '태극기에서 인공기로', html: IMG('assets/c22-nk-flag.png','태극기에서 인공기로') + `<p class="modal-caption">북한은 정권 수립 즈음하여 새로운 국가 수립의 상징으로 태극기 대신에 인공기를 국기로 정하였다.</p>` },
+  'z2-banmin-poster': { title: '반민족 행위 특별 조사 위원회 포고', html: IMG('assets/c22-banmin-poster.png','반민특위 포고') },
+  'z2-banmin-news': { title: '반민특위를 보도한 신문 기사', html: IMG('assets/c22-banmin-news.png','반민특위 보도 기사') + `<p class="modal-caption">『주간 서울』, 1949. 4. 4.</p>` },
+  'z2-banmin-record': { title: '반민특위의 실적', html: IMG('assets/c22-banmin-record.png','반민특위의 실적') + `<p class="modal-caption">사형 1건은 김덕기(일제 시대 고등 경찰).</p>` },
+  'z2-banmin-law': { title: '자료 ① — 반민족 행위 처벌법(1948. 9.)에 규정된 반민족 행위자', html: IMG('assets/c22-banmin-law.png','반민족 행위 처벌법') },
+  'z2-syngman-statement': { title: '자료 ② — 이승만 담화문(1949. 2. 18.)', html: IMG('assets/c22-syngman-statement-1949.png','이승만 담화문') },
+  'z2-syngman-talk': { title: '이승만 대통령 반민특위 관련 담화', html: IMG('assets/c22-syngman-talk.png','이승만 반민특위 관련 담화') },
+  'z2-france-purge': { title: '자료 ① — 프랑스의 과거사 청산', html: IMG('assets/c22-france-purge.png','프랑스의 과거사 청산') + `<p class="modal-caption">『광주일보』, 2018. 10. 12.</p>` },
+  'z2-banmin-investigator': { title: '자료 ② — 당시 조사관이 회고하는 반민 특위 활동과 해체', html: IMG('assets/c22-banmin-investigator.png','반민 특위 조사관의 회고') + `<p class="modal-caption">『경향신문』, 2004. 8. 29.</p>` },
+  'z2-repent-1': { title: '최남선의 참회', html: IMG('assets/c22-repent-choi-namseon.png','최남선') },
+  'z2-repent-2': { title: '최린의 참회', html: IMG('assets/c22-repent-choi-rin.png','최린') },
+  'z2-repent-3': { title: '이광수의 변명', html: IMG('assets/c22-repent-lee-gwangsu.png','이광수') },
+  'z2-v-banmin': { title: '반민특위, 이승만 정부에 의해 무력화되다 (영상)', html: `<p class="modal-caption" style="margin-top:0">유튜브 주소를 알려주시면 이 자리에 영상을 연결합니다.<br>수업 PPT의 영상 : 반민특위, 이승만 정부에 의해 무력화되다</p>` },
+  'z2-farmer-classes': { title: '농민의 계층별 구성(1945)', html: IMG('assets/c22-farmer-classes.png','농민의 계층별 구성') + `<p class="modal-caption">『조선 경제 연보』, 1948</p>` },
+  'z2-land-law-1949': { title: '농지 개혁법(요약, 1949)', html: IMG('assets/c22-land-law-1949.png','농지 개혁법 요약') },
+  'z2-land-bond': { title: '지가 증권', html: IMG('assets/c22-land-bond.png','지가 증권') + `<p class="modal-caption">이승만 정부는 재정이 부족하여 지주에게 1951년부터 5년에 걸쳐 토지 대금을 지급한다는 지가 증권을 발급하였다.</p>` },
+  'z2-land-law-1950': { title: '농지 개혁법(1950, 개정)과 자작지·소작지 면적 변화', html: IMG('assets/c22-land-law-1950.png','농지 개혁법 개정과 면적 변화') + `<p class="modal-caption">『농지 개혁사 연구』, 1989.</p>` },
+  'z2-v-land': { title: '조봉암의 농지개혁이 반대에 부딪히다 (영상)', html: `<p class="modal-caption" style="margin-top:0">유튜브 주소를 알려주시면 이 자리에 영상을 연결합니다.<br>수업 PPT의 영상 : 조봉암의 농지개혁이 반대에 부딪히다</p>` },
 };
 
 const modal=document.getElementById('modal'), modalTitle=document.getElementById('modalTitle'), modalBody=document.getElementById('modalBody');
@@ -882,7 +1321,7 @@ const TOC_DATA={
       [5,'독립 국가 건설 노력',62,['만주에서 항일 연합 전선을 만들어 투쟁하다','중국 관내에서 독립운동을 전개하다','건국을 준비하다'],'BUILT']
     ]],
     ['II','대한민국의 발전',[
-      [1,'냉전 체제와 대한민국 정부 수립',76,['8·15 광복과 냉전의 시대를 맞이하다','통일 정부를 수립하려고 노력하다','대한민국 정부를 수립하다','친일파 청산과 농지 개혁을 추진하다']],
+      [1,'냉전 체제와 대한민국 정부 수립',76,['8·15 광복과 냉전의 시대를 맞이하다','통일 정부를 수립하려고 노력하다','대한민국 정부를 수립하다','친일파 청산과 농지 개혁을 추진하다'],'BUILT'],
       [2,'6·25 전쟁과 남북 분단의 고착화',88,['북한이 전쟁을 일으키다','분단이 고착화되고 독재 체제가 강화되다','전후 복구 사업을 전개하다']],
       [3,'민주화를 위한 노력',96,['4·19 혁명이 일어나다','군사 정변으로 새로운 정부가 수립되다','유신 체제가 성립하다','5·18 민주화 운동이 일어나다','6월 민주 항쟁이 일어나다']],
       [4,'산업화의 성과와 사회·환경 문제',110,['산업화로 경제가 성장하다','산업화로 사회·환경 문제가 나타나다']],
@@ -895,7 +1334,11 @@ const TOC_DATA={
     ]]
   ]
 };
-const BUILT_SIDS={'한국사2|I|5':['s1','s3','s5']}; // 주제17→17-1, 주제18→18-1, 주제19→19-1 (각 소단원의 첫 페이지로 이동)
+// 만들어 둔 단원 : title = 단원 첫 장, topics = 주제별 페이지들 (주제를 누르면 그 첫 페이지로 이동, 해당 페이지들을 보는 동안 그 주제가 강조됨)
+const BUILT_UNITS={
+  '한국사2|I|5':{title:'s0',topics:[['s1','s2'],['s3','s4'],['s5','s5b','s6','s7']]},
+  '한국사2|II|1':{title:'s8',topics:[['s9','s10','s11','s12','s13','s14','s15','s16','s17'],['s18','s19','s20','s21','s22'],['s23','s24','s25','s26'],['s27','s28','s29']]}
+};
 const NAV_BOOK_KEY='kmla-nav-book', NAV_SEC_KEY='kmla-nav-sections', NAV_UNIT_KEY='kmla-nav-units', NAV_OPEN_KEY='kmla-nav-open';
 let navBook=localStorage.getItem(NAV_BOOK_KEY)||'한국사2';
 let navOpenRomans; try{ const sv=JSON.parse(localStorage.getItem(NAV_SEC_KEY)); navOpenRomans=new Set(Array.isArray(sv)?sv:[navBook+'|I']); }catch(e){ navOpenRomans=new Set([navBook+'|I']); }
@@ -903,22 +1346,33 @@ let navOpenUnits; try{ const sv=JSON.parse(localStorage.getItem(NAV_UNIT_KEY)); 
 const navBody=document.getElementById('navBody');
 function navSidIndex(sid){ return slides.findIndex(s=>s.dataset.sid===sid); }
 function navOffset(){ return (document.body.classList.contains('nav-open')&&innerWidth>=1180)?300:0; }
+function navRevealCurrent(){
+  Object.keys(BUILT_UNITS).forEach(ukey=>{
+    const bu=BUILT_UNITS[ukey];
+    if([bu.title].concat(...bu.topics).some(sid=>navSidIndex(sid)===currentIndex)){
+      const [book,roman]=ukey.split('|');
+      navBook=book; navOpenRomans.add(book+'|'+roman); navOpenUnits.add(ukey);
+    }
+  });
+}
 function renderNav(){
+  navRevealCurrent();
   document.querySelectorAll('.nav-tab').forEach(b=>b.classList.toggle('active',b.dataset.book===navBook));
   navBody.innerHTML=TOC_DATA[navBook].map(([roman,title,units])=>{
     const rkey=navBook+'|'+roman, ropen=navOpenRomans.has(rkey);
     let topicNo=0;
     const unitsHtml=units.map(([no,name,page,topics,built])=>{
       const ukey=navBook+'|'+roman+'|'+no, uopen=navOpenUnits.has(ukey);
-      const sids=built?BUILT_SIDS[ukey]:null;
+      const bu=built?BUILT_UNITS[ukey]:null;
       const topicsHtml=topics.map((t,ti)=>{
         topicNo++;
-        const sid=sids&&sids[ti];
-        const idx=sid!=null?navSidIndex(sid):-1;
-        const cur=idx>=0&&idx===currentIndex;
-        return `<button type="button" class="nav-topic${cur?' current':''}"${idx>=0?` data-idx="${idx}"`:''}>주제${String(topicNo).padStart(2,'0')} ${t}</button>`;
+        const pages=bu&&bu.topics[ti]||null;
+        const idx=pages?navSidIndex(pages[0]):-1;
+        const cur=!!pages&&pages.some(sid=>navSidIndex(sid)===currentIndex);
+        return `<button type="button" class="nav-topic${idx>=0?' live':''}${cur?' current':''}"${idx>=0?` data-idx="${idx}"`:''}>주제${String(topicNo).padStart(2,'0')} ${t}</button>`;
       }).join('');
-      return `<div class="nav-unit${built?' built':''}${uopen?' open':''}" data-ukey="${ukey}"><button type="button" class="nav-unit-head"><b>${no}</b><span>${name}</span><i class="chev">▸</i></button><div class="nav-unit-body">${topicsHtml}</div></div>`;
+      const onUnit=!!bu&&[bu.title].concat(...bu.topics).some(sid=>navSidIndex(sid)===currentIndex);
+      return `<div class="nav-unit${built?' built':''}${uopen?' open':''}${onUnit?' here':''}" data-ukey="${ukey}"><button type="button" class="nav-unit-head"><b>${no}</b><span>${name}</span><i class="chev">▸</i></button><div class="nav-unit-body">${topicsHtml}</div></div>`;
     }).join('');
     return `<div class="nav-roman${ropen?' open':''}" data-roman="${roman}"><button type="button" class="nav-roman-head"><span class="chev">▸</span>${roman}. ${title}</button><div class="nav-units">${unitsHtml}</div></div>`;
   }).join('');
