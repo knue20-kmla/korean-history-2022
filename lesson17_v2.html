@@ -2131,7 +2131,7 @@ const popups = {
   'd3-v-228': { title: '2·28 대구 학생 의거 (영상)', html: () => ytHtml('F6i6deE9Ku4', '2·28 대구 학생 의거 영상') },
   'd3-v-315': { title: "3.15 부정선거 (영상)", html: () => ytHtml('03J8WTvlR74', "3.15 부정선거 영상") },
   'd3-v-masan': { title: "3월 15일 의거 (영상)", html: `<p class="modal-caption" style="margin-top:0">아직 영상 주소가 연결되지 않았습니다.<br>교사 모드의 [영상 주소] 버튼에서 유튜브 주소를 입력하면 이 자리에 영상이 나옵니다.<br>수업 PPT의 영상 : 3월 15일 의거</p>` },
-  'd3-v-418': { title: "4.18 고대생 습격사건 (영상)", html: `<p class="modal-caption" style="margin-top:0">아직 영상 주소가 연결되지 않았습니다.<br>교사 모드의 [영상 주소] 버튼에서 유튜브 주소를 입력하면 이 자리에 영상이 나옵니다.<br>수업 PPT의 영상 : 4.18 고대생 습격사건</p>` },
+  'd3-v-418': { title: "4.18 고대생 습격사건 (영상)", html: () => '<div class="vwrap"><iframe src="https://drive.google.com/file/d/1-m-o31Bz4gT68zuggSnENtoPSN3Ss8yW/preview" allow="autoplay" allowfullscreen></iframe></div><p class="modal-caption"><a href="https://drive.google.com/file/d/1-m-o31Bz4gT68zuggSnENtoPSN3Ss8yW/view" target="_blank" rel="noopener" style="color:var(--gold)">Google Drive에서 보기 ↗</a></p>' },
   'd3-v-516': { title: "대한뉴스 제 314호-5.16 (영상)", html: () => ytHtml('XSFgb1mUAVI', "대한뉴스 제 314호-5.16 영상") },
   'd3-v-hanil': { title: "부당한 약속, 1965 한일협정 (영상)", html: () => ytHtml('UBIlkzwv_9g', "부당한 약속, 1965 한일협정 영상") },
   'd3-v-3seon': { title: "3선 개헌 반대운동 (영상)", html: () => ytHtml('FomNscPvmNY', "3선 개헌 반대운동 영상") },
@@ -2810,7 +2810,7 @@ document.getElementById('txtSize').addEventListener('change',e=>{ const v=Math.m
 // highlighter: the marked text gets a bright background and dark letters; a part of a text (edit mode + drag) or a whole selected element
 // video links: the YouTube address of every video popup can be typed / changed here (kept in editState.videos)
 const VIDEO_DEFAULT_ID={'bocheonbo-video':'xiD--BbJEyY','uiyongdae-yt':'sWdlyVZ9Lqs','yangsebong-yt':'QrwHyA1o7NA','uiyongdae-hwabuk-yt':'kDyv9mo2kOI','yun-video':'-wdNnBQpgJ4','lee-video':'ItfZJk6Dv7A','z2-v-landreform':'KHgaB_dFlAg','u2-v-rhee-exile':'hssWxSCNBAg','u2-v-jangjin':'fEcSj0ARIAY','u2-v-bodo':'StrVNpwsia4','u2-v-geochang':'ABKXh5OzGP4','u2-v-cho':'rpxYcnjNECI','d3-v-629':'hzXUDGsJv1M','d3-v-parkjc0':'YQk42R0b13k','d3-v-parkjc':'jBdI2d-huYs','d3-v-seoulstn':'fhqQx3GwL4w','d3-v-228':'F6i6deE9Ku4','d3-v-315':'03J8WTvlR74','d3-v-516':'XSFgb1mUAVI','d3-v-hanil':'UBIlkzwv_9g','d3-v-3seon':'FomNscPvmNY','d3-v-inhyuk3':'4v6th0sViDA','d3-v-060':'AuNjqN-iyYs','d3-v-1026':'AsM5NEPCijc','d3-v-518d':'6dnc18T8qDE','d3-v-hanyeol':'iI7zI0_GLuU'};
-const VIDEO_KEYS=Object.keys(VIDEO_DEFAULT_ID).concat(['z2-v-jeju1','z2-v-jeju2','z2-v-jeju3','z2-v-yeosu1','z2-v-yeosu2','z2-v-banmin','u2-v-war5','u2-v-pow','u2-v-nds','u2-v-busan','u2-v-kimil','d3-v-masan','d3-v-418','d3-v-yushin','d3-v-bodo']);
+const VIDEO_KEYS=Object.keys(VIDEO_DEFAULT_ID).concat(['z2-v-jeju1','z2-v-jeju2','z2-v-jeju3','z2-v-yeosu1','z2-v-yeosu2','z2-v-banmin','u2-v-war5','u2-v-pow','u2-v-nds','u2-v-busan','u2-v-kimil','d3-v-masan','d3-v-yushin','d3-v-bodo']);
 const VIDEO_ORIG_HTML={}; VIDEO_KEYS.forEach(k=>{ if(popups[k]) VIDEO_ORIG_HTML[k]=popups[k].html; });
 editState.videos=editState.videos||{};
 function ytId(u){ u=(u||'').trim(); if(/^[\w-]{11}$/.test(u)) return u; const m=u.match(/(?:[?&]v=|youtu\.be\/|embed\/|shorts\/|live\/)([\w-]{11})/); return m?m[1]:null; }
