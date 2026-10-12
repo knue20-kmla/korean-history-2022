@@ -666,7 +666,7 @@
       },
       "s6|.cmp li|0": {
         "o": "1397125194",
-        "h": "정치·경제·교육의 균등, 민주공화국 건설"
+        "h": "정치·경제·교육의 균등, <span style=\"background-color: rgb(255, 230, 109); color: rgb(16, 30, 52);\">민주공화국</span> 건설"
       },
       "s27|.dg-n|6": {
         "o": "-1410134823",
@@ -1594,7 +1594,7 @@
       },
       "s12|.lead|0": {
         "o": "-1180640027",
-        "h": "<em>(1) 광복의 역사적 의미</em> — 일본의 항복으로 맞이한 광복은 우리 민족 독립 운동의 결실이자 연합군 승리의 결과"
+        "h": "<em>광복의 역사적 의미</em> — 일본의 항복으로 맞이한 광복은 우리 민족 독립 운동의 결실이자 연합군 승리의 결과"
       },
       "s14|.lead|0": {
         "o": "746241745",
@@ -1767,6 +1767,14 @@
       "s5b|.dg-n|7": {
         "o": "468532078",
         "h": "임시 정부 충칭 정착"
+      },
+      "s6|.cmp li|1": {
+        "o": "537803496",
+        "h": "<span style=\"background-color: rgb(255, 230, 109); color: rgb(16, 30, 52);\">보통 선거 실시</span>, 토지와 주요 산업의 국유화"
+      },
+      "s6|.cmp li|3": {
+        "o": "632856805",
+        "h": "<span style=\"background-color: rgb(255, 230, 109); color: rgb(16, 30, 52);\">보통 선거</span>에 의한 <span style=\"background-color: rgb(255, 230, 109); color: rgb(16, 30, 52);\">민주 공화국</span> 수립"
       }
     },
     "del": [
@@ -1931,7 +1939,8 @@
       "s5b|.dg-note|0",
       "s5b|.dg-n|12",
       "s5b|.dg-n|9",
-      "s5b|.dg-n|8"
+      "s5b|.dg-n|8",
+      "s6|.ln|0"
     ],
     "delSig": {
       "s4|.fig|0": "19585276",
@@ -2095,7 +2104,8 @@
       "s5b|.dg-note|0": "1642665749",
       "s5b|.dg-n|12": "545719447",
       "s5b|.dg-n|9": "1633001915",
-      "s5b|.dg-n|8": "891334638"
+      "s5b|.dg-n|8": "891334638",
+      "s6|.ln|0": "-1414438992"
     },
     "widths": {
       "s4|.cat-body|0": 298,
@@ -2109,8 +2119,8 @@
         "y": 52
       },
       "s6|.commons|0": {
-        "x": -79,
-        "y": 48
+        "x": -81,
+        "y": 65
       },
       "s6|.sec h3|0": {
         "x": 0,
@@ -5214,7 +5224,7 @@
       },
       "s15|node|mv4mvleee96": {
         "x": 572,
-        "y": 324
+        "y": 326
       },
       "s15|.dg-group|1": {
         "x": 0,
@@ -5299,6 +5309,14 @@
       "s5b|node|mv50i2omq9a": {
         "x": 4,
         "y": 804
+      },
+      "s14|.dg-p|1": {
+        "x": 60,
+        "y": -14
+      },
+      "s14|.dg-p|0": {
+        "x": 289,
+        "y": -14
       }
     },
     "sizes": {
@@ -5774,6 +5792,9 @@
       "s5b|node|mv50i2omq9a": {
         "w": 1154,
         "h": 497
+      },
+      "s15|node|mv4mvleee96": {
+        "w": 161
       }
     },
     "styles": {
@@ -18233,7 +18254,7 @@
         "dgIdx": -1,
         "left": 100,
         "top": 179,
-        "html": "<div class=\"dg-tx nb\" style=\"left: 100px; top: 179px; width: 1234px; font-size: 21px; font-weight: 400; color: rgb(230, 225, 241);\"><span style=\"background-color: rgb(168, 220, 255); color: rgb(16, 30, 52);\"><span style=\"font-weight: 800;\">&nbsp;직접 통치 방식&nbsp;</span></span></div>"
+        "html": "<div class=\"dg-tx nb\" style=\"left: 100px; top: 179px; width: 161px; font-size: 21px; font-weight: 400; color: rgb(230, 225, 241);\"><span style=\"background-color: rgb(168, 220, 255); color: rgb(16, 30, 52);\"><span style=\"font-weight: 800;\">&nbsp;직접 통치 방식&nbsp;</span></span></div>"
       },
       {
         "aid": "s5b|node|mv4zzn5tyv6",
@@ -21360,5 +21381,5 @@
       "u2-v-busan": "https://www.youtube.com/watch?v=hu9WxeCS-Mg"
     }
   },
-  "savedAt": "2026-10-12T08:52:34.450Z"
+  "savedAt": "2026-10-12T13:30:16.355Z"
 }
