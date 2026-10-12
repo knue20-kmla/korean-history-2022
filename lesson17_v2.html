@@ -2235,6 +2235,7 @@ function show(i){
   document.getElementById('prevBtn').disabled=currentIndex===0;
   document.getElementById('nextBtn').disabled=currentIndex===slides.length-1;
   document.getElementById('progressBar').style.width=((currentIndex+1)/slides.length*100)+'%';
+  if(window.syncFsNav) window.syncFsNav();
   tocList.querySelectorAll('button').forEach((b,n)=>b.classList.toggle('current',n===currentIndex));
   window.scrollTo(0,0);
   if(typeof setSel==='function') setSel(null);
@@ -2242,6 +2243,17 @@ function show(i){
   if(typeof renderNav==='function') renderNav();
 }
 document.getElementById('prevBtn').addEventListener('click',()=>show(currentIndex-1));
+// full-screen view: previous / next buttons at the bottom right
+(function(){
+  const nav=document.createElement('div'); nav.id='fsNav'; nav.setAttribute('role','group'); nav.setAttribute('aria-label','페이지 이동');
+  nav.innerHTML='<button type="button" id="fsPrev" aria-label="이전 페이지" title="이전 (←)">‹</button><span id="fsCount"></span><button type="button" id="fsNext" aria-label="다음 페이지" title="다음 (→)">›</button>';
+  document.body.appendChild(nav);
+  const pv=nav.querySelector('#fsPrev'), nx=nav.querySelector('#fsNext'), ct=nav.querySelector('#fsCount');
+  pv.addEventListener('click',()=>show(currentIndex-1)); nx.addEventListener('click',()=>show(currentIndex+1));
+  window.syncFsNav=()=>{ ct.textContent=(currentIndex+1)+' / '+slides.length; pv.disabled=currentIndex<=0; nx.disabled=currentIndex>=slides.length-1; };
+  document.addEventListener('fullscreenchange',()=>document.body.classList.toggle('is-fs',!!document.fullscreenElement));
+  window.syncFsNav();
+})();
 document.getElementById('nextBtn').addEventListener('click',()=>show(currentIndex+1));
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'){ closePopup(); closeToc(); return; }
@@ -3485,6 +3497,15 @@ show(0);
 #khZoom button:disabled{opacity:.4;cursor:default}
 #khZoom #khZoomVal{min-width:58px;font-size:12px;font-variant-numeric:tabular-nums}
 body.teacher-mode #khZoom{opacity:.3;pointer-events:none}
+#fsNav{position:fixed;right:190px;bottom:22px;z-index:60;display:none;align-items:center;gap:6px;padding:5px 8px;border-radius:999px;background:rgba(13,26,46,.9);border:1px solid rgba(216,173,98,.45);box-shadow:0 8px 24px rgba(0,0,0,.35);opacity:.55;transition:opacity .15s;font-family:inherit}
+#fsNav:hover,#fsNav:focus-within{opacity:1}
+#fsNav button{min-width:38px;min-height:32px;padding:0 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.06);color:#fff;font:700 18px/1 inherit;cursor:pointer}
+#fsNav button:hover:not(:disabled){background:rgba(216,173,98,.28);border-color:rgba(216,173,98,.6)}
+#fsNav button:disabled{opacity:.35;cursor:default}
+#fsNav span{min-width:56px;text-align:center;font-size:12px;font-weight:700;color:#cfd9e4;font-variant-numeric:tabular-nums}
+html:fullscreen #fsNav,body.is-fs #fsNav{display:flex}
+body.teacher-mode #fsNav{display:none!important}
+@media print{#fsNav{display:none!important}}
 @media print{#khZoom{display:none!important}}
 </style>
 <script id="khZoomJs">
