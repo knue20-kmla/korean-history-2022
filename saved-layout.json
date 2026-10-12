@@ -1466,11 +1466,11 @@
       },
       "s15|node|mv4mt11eaf": {
         "o": "1696122861",
-        "h": "<span style=\"background-color: rgb(168, 220, 255); color: rgb(16, 30, 52);\"><span style=\"\"><span style=\"\"><em>간접 통치 방식</em></span></span></span>"
+        "h": "<span style=\"background-color: rgb(168, 220, 255); color: rgb(16, 30, 52);\"><span style=\"\"><span style=\"\"><em>&nbsp;간접 통치 방식&nbsp;</em></span></span></span>"
       },
       "s15|node|mv4mvleee96": {
         "o": "1696122861",
-        "h": "<span style=\"background-color: rgb(168, 220, 255); color: rgb(16, 30, 52);\"><span style=\"font-weight: 800;\">직접 통치 방식</span></span>"
+        "h": "<span style=\"background-color: rgb(168, 220, 255); color: rgb(16, 30, 52);\"><span style=\"font-weight: 800;\">&nbsp;직접 통치 방식&nbsp;</span></span>"
       },
       "s17|.dg-p|4": {
         "o": "-322753605",
@@ -17628,7 +17628,7 @@
         "dgIdx": -1,
         "left": 100,
         "top": 179,
-        "html": "<div class=\"dg-tx nb\" style=\"left: 100px; top: 179px; width: 155px; font-size: 21px; font-weight: 400; color: rgb(230, 225, 241);\"><span style=\"background-color: rgb(168, 220, 255); color: rgb(16, 30, 52);\"><span style=\"\"><span style=\"\"><em>간접 통치 방식</em></span></span></span></div>"
+        "html": "<div class=\"dg-tx nb\" style=\"left: 100px; top: 179px; width: 155px; font-size: 21px; font-weight: 400; color: rgb(230, 225, 241);\"><span style=\"background-color: rgb(168, 220, 255); color: rgb(16, 30, 52);\"><span style=\"\"><span style=\"\"><em>&nbsp;간접 통치 방식&nbsp;</em></span></span></span></div>"
       },
       {
         "aid": "s15|node|mv4mvleee96",
@@ -17636,7 +17636,7 @@
         "dgIdx": -1,
         "left": 100,
         "top": 179,
-        "html": "<div class=\"dg-tx nb\" style=\"left: 100px; top: 179px; width: 1234px; font-size: 21px; font-weight: 400; color: rgb(230, 225, 241);\"><span style=\"background-color: rgb(168, 220, 255); color: rgb(16, 30, 52);\"><span style=\"font-weight: 800;\">직접 통치 방식</span></span></div>"
+        "html": "<div class=\"dg-tx nb\" style=\"left: 100px; top: 179px; width: 1234px; font-size: 21px; font-weight: 400; color: rgb(230, 225, 241);\"><span style=\"background-color: rgb(168, 220, 255); color: rgb(16, 30, 52);\"><span style=\"font-weight: 800;\">&nbsp;직접 통치 방식&nbsp;</span></span></div>"
       }
     ],
     "arrowAdds": [
@@ -20569,5 +20569,5 @@
       "u2-v-busan": "https://www.youtube.com/watch?v=hu9WxeCS-Mg"
     }
   },
-  "savedAt": "2026-10-12T02:41:57.396Z"
+  "savedAt": "2026-10-12T02:48:37.196Z"
 }
