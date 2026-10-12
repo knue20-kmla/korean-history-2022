@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+// tablets: lay the page out 1500px wide (like a desktop window) and let the browser scale it down, so positions and line breaks match the desktop view
+(function(){ try{ var m=Math.min(screen.width,screen.height); if(m>=600&&('ontouchstart' in window||navigator.maxTouchPoints>0)) { document.querySelector('meta[name=viewport]').setAttribute('content','width=1500'); window.__tabletFixed=true; } }catch(e){} })();
+</script>
 <title>5. 독립 국가 건설 노력</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -2378,7 +2382,7 @@ document.querySelectorAll('.nav-tab').forEach(b=>b.addEventListener('click',()=>
 function setNavOpen(on){ document.body.classList.toggle('nav-open',on); localStorage.setItem(NAV_OPEN_KEY,on?'1':'0'); fitSlide(); }
 document.getElementById('navToggle').addEventListener('click',()=>setNavOpen(!document.body.classList.contains('nav-open')));
 document.getElementById('navClose').addEventListener('click',()=>setNavOpen(false));
-if(localStorage.getItem(NAV_OPEN_KEY)!=='0'&&innerWidth>=1280) document.body.classList.add('nav-open');
+if(localStorage.getItem(NAV_OPEN_KEY)!=='0'&&innerWidth>=1280&&!window.__tabletFixed) document.body.classList.add('nav-open');
 renderNav();
 tocList.addEventListener('click',e=>{ const b=e.target.closest('button'); if(b){ show(Number(b.dataset.index)); closeToc(); } });
 let autoplayTimer=null, autoplaying=false; const playButton=document.getElementById('playButton');
