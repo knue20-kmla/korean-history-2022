@@ -1,8 +1,8 @@
 {
   "figs": {
     "s1|0": {
-      "x": -63,
-      "y": -21,
+      "x": -110,
+      "y": -7,
       "w": 302,
       "ih": 274
     },
@@ -28,10 +28,10 @@
       "y": -186
     },
     "s2|0": {
-      "x": -477,
-      "y": 245,
-      "w": 225,
-      "ih": 186
+      "x": -429,
+      "y": 203,
+      "w": 245,
+      "ih": 203
     },
     "s2|1": {
       "x": 192,
@@ -406,11 +406,11 @@
       },
       "s6|.ln|1": {
         "o": "-904127168",
-        "h": "'재미 한족 연합위원회'(1941)는 임정 지원과 한인 국방경위대 조직, 이승만의 외교위원회는 미국에 임정 승인요청(수용되지 않음)."
+        "h": "'<span style=\"color: rgb(255, 230, 109);\">재미 한족 연합위원회</span>'(1941)는 임정 지원과 한인 국방경위대 조직, 이승만의 '<span style=\"color: rgb(255, 230, 107);\">외교위원회</span>'는 미국에 임정 승인요청(수용되지 않음)"
       },
       "s3|.ln|2": {
         "o": "1887699111",
-        "h": "중국 신문의 아쉬움 섞인 보도에 반발한 일본인이 중국인을 습격&nbsp;<span style=\"color: rgb(169, 184, 200); text-indent: -20.7px;\">→&nbsp;</span>일제가 상하이 침략(상하이 사변, 1932)"
+        "h": "중국 신문의 적극 보도, 중국인의 일본인 습격&nbsp;<span style=\"color: rgb(169, 184, 200); text-indent: -20.7px;\">→&nbsp;</span>일제의 상하이 침략(상하이 사변, 1932)"
       },
       "s3|.ln|0": {
         "o": "1611540541",
@@ -442,7 +442,7 @@
       },
       "s4|.ln|5": {
         "o": "-1409067270",
-        "h": "다수 대원은 적극적인 항일 투쟁을 위해 화북으로 이동하여 ‘<span style=\"color: rgb(255, 255, 255); font-weight: 800;\">조선 의용대 화북 지대</span>’ 결성(1941)."
+        "h": "다수 대원은 적극적인 항일 투쟁을 위해 화북 이동 : ‘<span style=\"color: rgb(255, 255, 255); font-weight: 800;\"><span style=\"color: rgb(255, 230, 109);\">조선 의용대 화북 지대</span></span>’ 결성(1941)."
       },
       "s4|.duo-item|1": {
         "o": "-1807586814",
@@ -450,11 +450,11 @@
       },
       "s4|.duo-item|0": {
         "o": "-1208258642",
-        "h": "난징에서 <span style=\"font-weight: 800; font-size: 18px; color: rgb(241, 96, 59);\">민족 혁명당</span> <small>(의열단 + 조선 혁명당 + 한국 독립당 등)</small> 결성 : 임정 고수 김구 : <small style=\"color: rgb(169, 184, 200); font-weight: 400;\">‘<span style=\"font-weight: 800; color: rgb(77, 163, 255);\">한국 국민당</span>’(1935)</small> 결성"
+        "h": "난징에서 <span style=\"font-weight: 800; font-size: 18px; color: rgb(241, 96, 59);\">(조선)민족 혁명당</span> <small>(의열단 + 조선 혁명당 + 한국 독립당 등)</small> 결성&nbsp;<span style=\"text-indent: -20.7px;\">→</span><span style=\"text-indent: -20.7px; color: rgb(175, 188, 203);\"><span style=\"font-weight: 600;\">&nbsp;</span></span>&nbsp;임정 고수 김구 : <small style=\"color: rgb(169, 184, 200); font-weight: 400;\">‘<span style=\"font-weight: 800; color: rgb(77, 163, 255);\"><span style=\"\"><span style=\"\">한국 국민당</span></span></span>’(1935)</small> 결성"
       },
       "s4|.ln|0": {
         "o": "-575333500",
-        "h": "김원봉의 의열단 계열이 당을 주도하자 <span style=\"color: rgb(209, 169, 98);\">조소앙·지청천 등 민족주의 계열 이탈.</span>"
+        "h": "김원봉의 의열단 계열이 당을 주도&nbsp;<span style=\"text-indent: -20.7px;\">→</span>&nbsp;<span style=\"color: rgb(209, 169, 98);\"><span style=\"font-weight: 600;\">조소앙·지청천 등 민족주의 계열 이탈</span></span>"
       },
       "s4|.lead|0": {
         "o": "1354624917",
@@ -810,7 +810,7 @@
       },
       "s25|.dg-n|11": {
         "o": "-221234246",
-        "h": "<span style=\"font-size: 16px;\">토지 개혁(무상 몰수, 무상 분배 → 소작·매매·저당 ×)</span>"
+        "h": "<span style=\"color: rgb(230, 210, 167);\"><span style=\"font-size: 16px;\">토지 개혁(무상 몰수, 무상 분배 → 소작·매매·저당 ×)</span></span>"
       },
       "s25|.dg-n|10": {
         "o": "1767755952",
@@ -1382,7 +1382,7 @@
       },
       "s4|.ln|6": {
         "o": "-1772395584",
-        "h": "이동하지 않은 병력 → 김원봉의 지휘 아래 한국광복군에 합류(1942)."
+        "h": "이동하지 않은 병력 → <span style=\"background-color: rgb(255, 230, 109); color: rgb(16, 30, 52);\">김원봉의 지휘 아래 한국광복군에 합류</span>(1942)."
       },
       "s6|.section-tag|0": {
         "o": "1227109227",
@@ -1478,19 +1478,19 @@
       },
       "s1|.ln|2": {
         "o": "1929800886",
-        "h": "일제의 만주 장악&nbsp;<span style=\"color: rgb(169, 184, 200); text-indent: -20.7px;\">→</span>&nbsp;중국군의 활동 위축, 독립군의 활동 곤란."
+        "h": "일제의 만주 장악&nbsp;<span style=\"color: rgb(169, 184, 200); text-indent: -20.7px;\">→</span>&nbsp;중국군의 활동 위축, 독립군의 활동 어려움"
       },
       "s1|.ln|3": {
         "o": "681139708",
-        "h": "지청천 등 일부는 관내로 이동&nbsp;<span style=\"color: rgb(169, 184, 200); text-indent: -20.7px;\">→</span>&nbsp;임시 정부에 합류, 한국광복군 창설에 기여."
+        "h": "지청천 등 한국 독립당은 <span style=\"color: rgb(218, 200, 160);\">관내로 이동</span>&nbsp;<span style=\"color: rgb(169, 184, 200); text-indent: -20.7px;\">→</span>&nbsp;임시 정부에 합류, 한국광복군 창설에 기여"
       },
       "s2|.ln|0": {
         "o": "555162888",
-        "h": "동북 인민 혁명군 조직 : 중국 공산당 중심 각지의 항일 유격대를 규합"
+        "h": "동북 인민 혁명군 조직 : 중국 공산당 중심 각지의 항일 유격대 규합"
       },
       "s2|.ln|1": {
         "o": "-1011820125",
-        "h": "동북 항일 연군 확대&nbsp;<span style=\"text-indent: -20.7px;\">·개편 : 만주 지역&nbsp;</span>모든 반일 세력을 규합"
+        "h": "동북 항일 연군 확대&nbsp;<span style=\"text-indent: -20.7px;\">·개편 : 만주 지역&nbsp;</span>모든 반일 세력 규합"
       },
       "s2|.ln|2": {
         "o": "871996982",
@@ -1502,7 +1502,7 @@
       },
       "s2|.ln|5": {
         "o": "74671418",
-        "h": "일부는 광복 이후 소련군을 따라 입국하여 북한 정권 수립에 핵심 역할 수행"
+        "h": "일부는 광복 이후 소련군을 따라 입국&nbsp;<span style=\"text-indent: -20.7px;\">→</span>&nbsp;북한 정권 수립에 핵심 역할 수행"
       },
       "s2|.lead|0": {
         "o": "1637208715",
@@ -1530,11 +1530,11 @@
       },
       "s5|.ln|7": {
         "o": "-1869169403",
-        "h": "1941년 대일 선전 포고 후 연합군의 일원으로 인도·미얀마 전선 등에 파견&nbsp;<span style=\"text-indent: -20.7px;\">→</span>&nbsp;선전 활동과 포로 심문 담당."
+        "h": "1941년 대일 선전 포고 후 연합군의 일원으로 인도·미얀마 전선 등에 파견&nbsp;<span style=\"text-indent: -20.7px;\">→</span>&nbsp;선전 활동과 포로 심문 담당"
       },
       "s5|.ln|8": {
         "o": "-1754214780",
-        "h": "1945년 5월 이후 : 미국 전략 정보국(OSS)과 협력하여 특수 훈련, 국내 진공 작전(국내 정진군 편성) 계획."
+        "h": "1945년 5월 이후 : 미국 전략 정보국(OSS)과 협력하여 특수 훈련, 국내 진공 작전(국내 정진군 편성) 계획"
       },
       "s5|.ln|9": {
         "o": "1772973859",
@@ -1798,11 +1798,11 @@
       },
       "s4|.ln|1": {
         "o": "-65790255",
-        "h": "한국 광복 운동 단체 연합회 결성"
+        "h": "<span style=\"background-color: rgb(255, 230, 109); color: rgb(16, 30, 52);\">한국 광복 운동 단체 연합회</span> 결성"
       },
       "s4|.ln|2": {
         "o": "181006430",
-        "h": "조선 민족 전선 연맹 결성"
+        "h": "<span style=\"background-color: rgb(255, 230, 109); color: rgb(16, 30, 52);\">조선 민족 전선 연맹</span> 결성"
       },
       "s4|.br-t|0": {
         "o": "-415237518",
@@ -1843,6 +1843,46 @@
       "s19|node|mv5zbvo7p69": {
         "o": "1825130753",
         "h": "<div style=\"text-align: center;\"><span style=\"background-color: rgba(115, 184, 174, 0.12);\">무상 몰수 무상 분배, 친일파 즉각 청산, 인민위원회에 정권 이양 등</span></div>"
+      },
+      "s5b|.dg-n|3": {
+        "o": "-518261319",
+        "h": "(조선)민족 혁명당(1935, 김원봉)"
+      },
+      "s4|.ln|3": {
+        "o": "1495309304",
+        "h": "<span style=\"color: rgb(175, 188, 203);\"><span style=\"font-weight: 600;\">조선 민족 전선 연맹 : 중국 국민당 정부의 지원&nbsp;</span></span><span style=\"text-indent: -20.7px;\">→</span><span style=\"color: rgb(175, 188, 203);\"><span style=\"font-weight: 600;\">&nbsp;<span style=\"font-weight: 800;\"><span style=\"color: rgb(255, 230, 109);\">조선 의용대</span></span> 창설.</span></span>"
+      },
+      "s2|.ln|3": {
+        "o": "-1230545296",
+        "h": "함경남도 보천보 등에서 일제의 통치 기구 파괴"
+      },
+      "s1|.ln|4": {
+        "o": "773279777",
+        "h": "조선 혁명군은 양세봉 전사(1934) 이후 세력 약화&nbsp;<span style=\"color: rgb(169, 184, 200); text-indent: -20.7px;\">→</span>&nbsp;1930년대 후반까지 항일 투쟁&nbsp;<span style=\"color: rgb(169, 184, 200); text-indent: -20.7px;\">→</span>&nbsp;일부는 <span style=\"color: rgb(177, 166, 140);\">동북 항일 연군</span>에 가담"
+      },
+      "s1|.ln|1": {
+        "o": "-1236493899",
+        "h": "중국 의용군과 연합 : 영릉가·흥경성 전투"
+      },
+      "s1|.ln|0": {
+        "o": "-972308103",
+        "h": "중국 호로군과 연합 : 쌍성보·사도하자·대전자령 전투"
+      },
+      "s1|.lead|0": {
+        "o": "1461452807",
+        "h": "만주 사변(1931)과 만주국 수립으로 만주 일대가 사실상 일제의 점령 지역으로 변화. 중국 내 항일 감정이 높아지며 <em>한국 독립군과 조선 혁명군이 각각 중국인 부대와 연합</em>하여 항일 전쟁 전개"
+      },
+      "s4|.point h3|0": {
+        "o": "418550101",
+        "h": "<span style=\"background-color: rgb(255, 230, 109); color: rgb(16, 30, 52);\">(조선)민족 혁명당 결성</span> (1935)"
+      },
+      "s22|.dg-note|0": {
+        "o": "304511526",
+        "h": "자료 : <span class=\"lnk\" data-popup=\"z2-orari\">오라리 방화 사건 항공 사진</span><span class=\"dg-sep\"> · </span><span class=\"lnk\" data-popup=\"z2-jeju-refuge\">토벌대를 피해 중산간 지대에 피신한 제주 도민들</span><span class=\"dg-sep\"> · </span><span class=\"lnk\" data-popup=\"z2-jeju-apology\">제주 4·3 사건에 대한 정부의 공식 사과</span>"
+      },
+      "s25|.dg-note|0": {
+        "o": "340002626",
+        "h": "자료 : <span class=\"lnk\" data-popup=\"z2-nk-forces-map\">북한 정권 수립의 주도 세력</span>"
       }
     },
     "del": [
@@ -2013,7 +2053,10 @@
       null,
       "s4|.duo-item|1",
       null,
-      "s10|.dg-n|2"
+      "s10|.dg-n|2",
+      "s4|.br-t|0",
+      null,
+      "s25|.fig|0"
     ],
     "delSig": {
       "s4|.fig|0": "19585276",
@@ -2181,7 +2224,9 @@
       "s6|.ln|0": "-1414438992",
       "s4|.fig|1": "1781980909",
       "s4|.duo-item|1": "-1807586814",
-      "s10|.dg-n|2": "-1414899899"
+      "s10|.dg-n|2": "-1414899899",
+      "s4|.br-t|0": "-415237518",
+      "s25|.fig|0": "-986364852"
     },
     "widths": {
       "s4|.cat-body|0": 298,
@@ -2191,7 +2236,8 @@
       "s30|.cat-body|1": 683,
       "s30|.cat-body|2": 621,
       "s30|.cat-body|0": 576,
-      "s18|.lead|0": 1107
+      "s18|.lead|0": 1107,
+      "s5|.point|0": 1036
     },
     "moves": {
       "s6|.tri|0": {
@@ -2407,8 +2453,8 @@
         "y": -88
       },
       "s5|.chip|3": {
-        "x": 96,
-        "y": -88
+        "x": 900,
+        "y": -199
       },
       "s5|.num|1": {
         "x": 96,
@@ -3011,8 +3057,8 @@
         "y": 79
       },
       "s25|.dg-note|0": {
-        "x": 15,
-        "y": -20
+        "x": 0,
+        "y": 10
       },
       "s26|.dg-n|1": {
         "x": 403,
@@ -17812,6 +17858,21 @@
           ]
         ],
         "hidden": false
+      },
+      "s4|add|mv6ahrwjv7n": {
+        "pts": [
+          [
+            715.8,
+            388.2
+          ],
+          [
+            715.8,
+            437.2
+          ]
+        ],
+        "hidden": false,
+        "kind": "arrow",
+        "dash": "dot"
       }
     },
     "rot": {},
@@ -21568,6 +21629,29 @@
             314
           ]
         ]
+      },
+      {
+        "aid": "s4|add|mv6ahrwjv7n",
+        "sid": "s4",
+        "svgIdx": 0,
+        "tag": "line",
+        "attrs": {
+          "stroke": "rgb(216, 173, 98)",
+          "stroke-width": "2",
+          "stroke-linecap": "round"
+        },
+        "mEnd": null,
+        "mStart": null,
+        "pts": [
+          [
+            523.1,
+            494.4
+          ],
+          [
+            523.1,
+            555.4
+          ]
+        ]
       }
     ],
     "arrowGroups": [
@@ -21680,5 +21764,5 @@
       "u2-v-busan": "https://www.youtube.com/watch?v=hu9WxeCS-Mg"
     }
   },
-  "savedAt": "2026-10-13T01:07:20.490Z"
+  "savedAt": "2026-10-13T06:31:39.529Z"
 }
