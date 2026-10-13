@@ -765,7 +765,7 @@
         "h": "진압 과정에서 민간인 피해"
       },
       "s19|node|muvwrgaf1qm": {
-        "o": "-1895827476",
+        "o": "-495295064",
         "h": "김구 : 찬성"
       },
       "s19|node|muvwrq7aaer": {
@@ -1835,6 +1835,14 @@
       "s51|.dg-tx|1": {
         "o": "-2124727797",
         "h": "국군과 UN군이 <em>낙동강 일대에 방어선</em> 구축"
+      },
+      "s19|node|mv5zagg1v9f": {
+        "o": "1722486616",
+        "h": "<span style=\"color: rgb(255, 255, 255); font-size: 14px; text-align: center; white-space: normal;\">신탁 통치 반대, 정부 수립 후 친일파 청산, 무상몰수 무상 분배 반대 등</span>"
+      },
+      "s19|node|mv5zbvo7p69": {
+        "o": "1825130753",
+        "h": "<div style=\"text-align: center;\"><span style=\"background-color: rgba(115, 184, 174, 0.12);\">무상 몰수 무상 분배, 친일파 즉각 청산, 인민위원회에 정권 이양 등</span></div>"
       }
     },
     "del": [
@@ -2680,11 +2688,11 @@
       },
       "s19|.dg-n|10": {
         "x": 56,
-        "y": -18
+        "y": -53
       },
       "s19|.dg-n|11": {
         "x": 395,
-        "y": -32
+        "y": -67
       },
       "s19|.dg-n|12": {
         "x": 522,
@@ -2692,7 +2700,7 @@
       },
       "s19|.dg-n|9": {
         "x": 0,
-        "y": 92
+        "y": 57
       },
       "s19|.dg-note|0": {
         "x": 0,
@@ -2932,15 +2940,15 @@
       },
       "s19|node|muvwu7sxg7l": {
         "x": 522,
-        "y": 229
+        "y": 189
       },
       "s19|node|muvwyjvd65o": {
         "x": 706,
-        "y": 493
+        "y": 458
       },
       "s19|node|muvwymedo0": {
         "x": 706,
-        "y": 463
+        "y": 428
       },
       "s25|.dg-n|12": {
         "x": -741,
@@ -5454,14 +5462,6 @@
         "x": 0,
         "y": -44
       },
-      "s19|node|mv5yn2r7k22": {
-        "x": 236,
-        "y": 9
-      },
-      "s19|node|mv5yox198ve": {
-        "x": 187,
-        "y": 9
-      },
       "s22|.dg-note|1": {
         "x": 0,
         "y": -31
@@ -5477,6 +5477,14 @@
       "s51|.dg-tx|5": {
         "x": 0,
         "y": -22
+      },
+      "s19|node|mv5zagg1v9f": {
+        "x": 763,
+        "y": -84
+      },
+      "s19|node|mv5zbvo7p69": {
+        "x": -75,
+        "y": 11
       }
     },
     "sizes": {
@@ -5980,8 +5988,16 @@
       "s19|node|muvwyjvd65o": {
         "w": 411
       },
-      "s19|node|mv5yox198ve": {
-        "w": 579
+      "s19|node|muvwrgaf1qm": {
+        "w": 334
+      },
+      "s19|node|mv5zagg1v9f": {
+        "w": 435,
+        "h": 28
+      },
+      "s19|node|mv5zbvo7p69": {
+        "w": 377,
+        "h": 28
       }
     },
     "styles": {
@@ -8720,11 +8736,11 @@
         "pts": [
           [
             509.9,
-            305.8
+            264.2
           ],
           [
             529.9,
-            305.8
+            264.2
           ]
         ],
         "hidden": false
@@ -8733,11 +8749,11 @@
         "pts": [
           [
             510.5,
-            232
+            228
           ],
           [
             530.5,
-            232
+            228
           ]
         ],
         "hidden": false
@@ -8759,11 +8775,11 @@
         "pts": [
           [
             509.9,
-            159.6
+            158.5
           ],
           [
             509.9,
-            306.9
+            264.2
           ]
         ],
         "hidden": false
@@ -8811,12 +8827,12 @@
       "s19|arrow|11": {
         "pts": [
           [
-            147.8,
-            243.89999999999998
+            152.2,
+            148.7
           ],
           [
-            147.8,
-            461.3
+            152.2,
+            390.2
           ]
         ],
         "hidden": false
@@ -8838,11 +8854,11 @@
         "pts": [
           [
             359.4,
-            437.2
+            402.2
           ],
           [
             391.5,
-            437.2
+            402.2
           ]
         ],
         "hidden": false
@@ -8864,11 +8880,11 @@
         "pts": [
           [
             359.8,
-            486.8
+            450.8
           ],
           [
             391.9,
-            486.8
+            450.8
           ]
         ],
         "hidden": false
@@ -8877,11 +8893,11 @@
         "pts": [
           [
             302,
-            461.1
+            426.1
           ],
           [
             359.4,
-            461.1
+            426.1
           ]
         ],
         "hidden": false,
@@ -8891,11 +8907,11 @@
         "pts": [
           [
             359.4,
-            436.2
+            401.2
           ],
           [
             359.4,
-            487
+            452
           ]
         ],
         "hidden": false
@@ -8904,11 +8920,11 @@
         "pts": [
           [
             692.5,
-            505.7
+            470.7
           ],
           [
             692.5,
-            566.8
+            531.8
           ]
         ],
         "hidden": false,
@@ -8931,11 +8947,11 @@
         "pts": [
           [
             692.2,
-            538.4
+            503.4
           ],
           [
             719.7,
-            538.4
+            503.4
           ]
         ],
         "hidden": false,
@@ -8945,11 +8961,11 @@
         "pts": [
           [
             692.5,
-            566.8
+            531.8
           ],
           [
             720,
-            566.8
+            531.8
           ]
         ],
         "hidden": false,
@@ -17784,61 +17800,6 @@
         ],
         "hidden": false
       },
-      "s19|add|mv5y7bujb7w": {
-        "pts": [
-          [
-            771.2,
-            242.6
-          ],
-          [
-            771.2,
-            262.4
-          ]
-        ],
-        "hidden": false,
-        "sw": "1.5",
-        "dash": ""
-      },
-      "s19|add|mv5y8jkqac3": {
-        "pts": [
-          [
-            771.2,
-            262.4
-          ],
-          [
-            807.3,
-            262.4
-          ]
-        ],
-        "hidden": false,
-        "kind": "arrow"
-      },
-      "s19|add|mv5ypo37zcg": {
-        "pts": [
-          [
-            724.9,
-            316.9
-          ],
-          [
-            724.9,
-            336.7
-          ]
-        ],
-        "hidden": false
-      },
-      "s19|add|mv5yputp85g": {
-        "pts": [
-          [
-            724.9,
-            336.7
-          ],
-          [
-            761,
-            336.7
-          ]
-        ],
-        "hidden": false
-      },
       "s22|arrow|6": {
         "pts": [
           [
@@ -17973,7 +17934,7 @@
         "dgIdx": -1,
         "left": 172,
         "top": 351,
-        "html": "<div class=\"dg-tx\" style=\"left: 172px; top: 351px; width: 922px; font-size: 18px; font-weight: 400; color: rgb(169, 184, 200);\">김구 : 찬성</div>"
+        "html": "<div class=\"dg-tx\" style=\"left: 172px; top: 351px; width: 334px; font-size: 18px; font-weight: 400; color: rgb(169, 184, 200);\">김구 : 찬성</div>"
       },
       {
         "aid": "s19|node|muvwrq7aaer",
@@ -18616,20 +18577,20 @@
         "html": "<div class=\"dg-group g tlbox\" style=\"left: 12px; top: 331px; width: 281px; height: 103px;\"></div>"
       },
       {
-        "aid": "s19|node|mv5yn2r7k22",
+        "aid": "s19|node|mv5zagg1v9f",
         "sid": "s19",
-        "dgIdx": -1,
-        "left": 718,
-        "top": 528,
-        "html": "<div class=\"dg-tx\" style=\"left: 718px; top: 528px; width: 844px; font-size: 18px; font-weight: 400; color: rgb(169, 184, 200);\"><span style=\"color: rgb(234, 224, 174); font-weight: 600;\">신탁 통치 반대, 정부 수립 후 친일파 청산, 무상 몰수 무상 분배 반대</span> 등 주장</div>"
+        "dgIdx": 0,
+        "left": 33,
+        "top": 299,
+        "html": "<span class=\"dg-p g\" style=\"left: 33px; top: 299px; width: 435px; height: 28px;\"><span style=\"color: rgb(255, 255, 255); font-size: 14px; text-align: center; white-space: normal;\">신탁 통치 반대, 정부 수립 후 친일파 청산, 무상몰수 무상 분배 반대 등</span></span>"
       },
       {
-        "aid": "s19|node|mv5yox198ve",
+        "aid": "s19|node|mv5zbvo7p69",
         "sid": "s19",
-        "dgIdx": -1,
-        "left": 718,
-        "top": 604,
-        "html": "<div class=\"dg-tx\" style=\"left: 718px; top: 604px; width: 579px; font-size: 18px; font-weight: 400; color: rgb(169, 184, 200);\"><span style=\"font-weight: 600; color: rgb(234, 224, 174);\">무상 몰수 무상 분배, 친일파 즉각 청산, 인민위원회에 정권 이양</span> 등 주장</div>"
+        "dgIdx": 0,
+        "left": 820,
+        "top": 239,
+        "html": "<span class=\"dg-p g\" style=\"left: 820px; top: 239px; width: 377px; height: 28px;\"><div style=\"text-align: center;\"><span style=\"background-color: rgba(115, 184, 174, 0.12);\">무상 몰수 무상 분배, 친일파 즉각 청산, 인민위원회에 정권 이양 등</span></div></span>"
       }
     ],
     "arrowAdds": [
@@ -21607,96 +21568,6 @@
             314
           ]
         ]
-      },
-      {
-        "aid": "s19|add|mv5y7bujb7w",
-        "sid": "s19",
-        "svgIdx": 0,
-        "tag": "line",
-        "attrs": {
-          "stroke": "#eae0ae",
-          "stroke-width": "2.6",
-          "stroke-dasharray": "1 6",
-          "stroke-linecap": "round"
-        },
-        "mEnd": null,
-        "mStart": null,
-        "pts": [
-          [
-            767.8,
-            269.6
-          ],
-          [
-            806.4,
-            269.6
-          ]
-        ]
-      },
-      {
-        "aid": "s19|add|mv5y8jkqac3",
-        "sid": "s19",
-        "svgIdx": 0,
-        "tag": "line",
-        "attrs": {
-          "stroke": "#eae0ae",
-          "stroke-width": "1.5"
-        },
-        "mEnd": null,
-        "mStart": null,
-        "pts": [
-          [
-            787.2,
-            269.6
-          ],
-          [
-            787.2,
-            289.4
-          ]
-        ]
-      },
-      {
-        "aid": "s19|add|mv5ypo37zcg",
-        "sid": "s19",
-        "svgIdx": 0,
-        "tag": "line",
-        "attrs": {
-          "stroke": "#eae0ae",
-          "stroke-width": "1.5"
-        },
-        "mEnd": null,
-        "mStart": null,
-        "pts": [
-          [
-            787.2,
-            269.6
-          ],
-          [
-            787.2,
-            289.4
-          ]
-        ]
-      },
-      {
-        "aid": "s19|add|mv5yputp85g",
-        "sid": "s19",
-        "svgIdx": 0,
-        "tag": "line",
-        "attrs": {
-          "stroke": "#eae0ae",
-          "stroke-width": "1.5"
-        },
-        "mEnd": "#eae0ae",
-        "mStart": null,
-        "pts": [
-          [
-            787.2,
-            289.4
-          ],
-          [
-            823.3,
-            289.4
-          ]
-        ]
       }
     ],
     "arrowGroups": [
@@ -21809,5 +21680,5 @@
       "u2-v-busan": "https://www.youtube.com/watch?v=hu9WxeCS-Mg"
     }
   },
-  "savedAt": "2026-10-13T00:59:29.977Z"
+  "savedAt": "2026-10-13T01:07:20.490Z"
 }
