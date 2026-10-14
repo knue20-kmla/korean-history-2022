@@ -893,7 +893,7 @@ body:not(.teacher-mode) #stageRoot{overflow-x:clip}
 /* ===== 모든 페이지의 틀 · 중단원 · 본문 머리말 (kmla_redesign_concept 기반) ===== */
 .slide.framed{position:relative;padding:18px 0 0}
 
-.slide.framed>.frame-bg{position:absolute;z-index:0;top:14px;left:50%;transform:translateX(-50%);width:min(1700px,calc(100% - 36px));height:calc(100vh - 108px);border:1px solid rgba(255,255,255,.08);border-radius:18px;pointer-events:none;background:rgba(255,255,255,.018)}
+.slide.framed>.frame-bg{position:absolute;z-index:0;top:14px;left:50%;transform:translateX(-50%);width:min(1700px,calc(100% - 36px));height:calc(100vh - 36px - var(--headh));border:1px solid rgba(255,255,255,.08);border-radius:18px;pointer-events:none;background:rgba(255,255,255,.018)}
 
 .slide.framed .stage{position:relative;z-index:1}
 
@@ -1510,7 +1510,7 @@ body:not(:has(.slide.unit:not([hidden]))) #khZoom,body:not(:has(.slide.unit:not(
 body:not(.teacher-mode) #stageRoot{overflow-x:clip}
 /* ===== 모든 페이지의 틀 · 중단원 · 본문 머리말 (kmla_redesign_concept 기반) ===== */
 .slide.framed{position:relative;padding:18px 0 0}
-.slide.framed>.frame-bg{position:absolute;z-index:0;top:14px;left:50%;transform:translateX(-50%);width:min(1700px,calc(100% - 36px));height:calc(100vh - 108px);border:1px solid rgba(255,255,255,.08);border-radius:18px;pointer-events:none;background:rgba(255,255,255,.018)}
+.slide.framed>.frame-bg{position:absolute;z-index:0;top:14px;left:50%;transform:translateX(-50%);width:min(1700px,calc(100% - 36px));height:calc(100vh - 36px - var(--headh));border:1px solid rgba(255,255,255,.08);border-radius:18px;pointer-events:none;background:rgba(255,255,255,.018)}
 .slide.framed .stage{position:relative;z-index:1}
 /* 중단원 */
 .slide.unit .stage{padding:46px 64px 0}
@@ -3780,7 +3780,7 @@ function fitSlide(){
 function fitFramedPanel(st,tallest){
   const sl=st.closest('.slide'); if(!sl||!sl.classList.contains('framed')) return;
   const aw=innerWidth-navOffset(); if(aw<980) return;
-  const fw=Math.min(1700,aw-36), fh=innerHeight-108;
+  const fw=Math.min(1700,aw-36), fh=innerHeight-36-(document.body.classList.contains('is-fs')?0:72);
   st.style.zoom=''; st.style.width=BASE_W+'px'; st.style.maxWidth='none'; layoutCats(st);
   const own=st.getBoundingClientRect().height;   // the page's own height: only a page that is taller than the rest is scaled a little more
   const z=Math.max(0.3,Math.min(1,(fw-24)/BASE_W,(fh-8)/Math.max(Math.min(tallest,905),own)));
@@ -4375,7 +4375,7 @@ document.addEventListener('mousedown',e=>{
   document.addEventListener('mousemove',mv); document.addEventListener('mouseup',up);
 });
 window.addEventListener('resize',fitSlide);
-document.addEventListener('fullscreenchange',()=>setTimeout(fitSlide,50));
+document.addEventListener('fullscreenchange',()=>{ setTimeout(fitSlide,50); setTimeout(fitSlide,350); });
 // ---- 자료 보기: gather every picture / video / source link of a page into one box at its bottom ----
 (function(){
   const clean=t=>t.replace(/[↗\s]+$/,'').replace(/^\s*[·•]\s*/,'').replace(/\s+/g,' ').trim();
@@ -4927,6 +4927,10 @@ body.teacher-mode #khZoom{opacity:.3;pointer-events:none}
 #fsNav button:disabled{opacity:.35;cursor:default}
 #fsNav span{min-width:56px;text-align:center;font-size:12px;font-weight:700;color:#cfd9e4;font-variant-numeric:tabular-nums}
 html:fullscreen #fsNav,body.is-fs #fsNav{display:flex}
+/* 전체 보기: 위쪽 메뉴 막대는 숨기고 본문만 화면 가득 */
+body.is-fs{--headh:0px}
+body.is-fs header.top{display:none!important}
+body.is-fs #stageRoot{margin-top:0!important}
 body.teacher-mode #fsNav{display:none!important}
 @media print{#fsNav{display:none!important}}
 @media print{
