@@ -104,6 +104,9 @@ body.teacher-mode #khZoom{display:none}
 .icon-btn:hover,.text-btn:hover{background:rgba(216,173,98,.22);border-color:rgba(216,173,98,.5)}
 .icon-btn{min-width:36px;padding:0 10px}
 .text-btn{font-size:12px;font-weight:700}
+.ask-btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;border-color:rgba(114,200,181,.7);background:linear-gradient(135deg,rgba(114,200,181,.28),rgba(114,200,181,.1));color:#d9f2ec}
+.ask-btn:before{content:"?";display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#73b8ae;color:#0d1a2e;font-size:11px;font-weight:900}
+.ask-btn:hover{background:rgba(114,200,181,.4);border-color:#73b8ae}
 .slide-counter{font-size:12px;font-weight:700;color:var(--dim);letter-spacing:.06em;padding:0 4px}
 
 /* stage */
@@ -1273,6 +1276,11 @@ body.teacher-mode .dg-n.sel,body.teacher-mode .dg-p.sel,body.teacher-mode .dg-tx
 .n17w{gap:30px!important}
 .n17w>.n17{margin:0}
 .n17-out.end:before{top:-4px}
+/* 제안(8. 15.)·수락(8. 16.) 날짜는 각 카드 바로 옆에 */
+.n17{grid-template-columns:minmax(0,1fr) 190px minmax(0,1fr)!important}
+.n17-y2.d15{justify-self:start!important;margin:6px 0 0 -14px}
+.n17-y2.d16{justify-self:end!important;margin:6px -14px 0 0}
+.n17-reply span{margin-top:34px}
 /* 소련의 수락: 미국 제안과 같은 줄, 제안 쪽으로 향하는 화살표 */
 .n17{grid-template-rows:auto 62px 96px 22px!important}
 .n17-panel{grid-row:1/5!important}
@@ -1666,6 +1674,7 @@ body.teacher-mode .dg-n.sel,body.teacher-mode .dg-p.sel,body.teacher-mode .dg-tx
     <button class="icon-btn" id="prevBtn" type="button" aria-label="이전">‹</button>
     <span class="slide-counter" id="slideCounter">1 / 1</span>
     <button class="icon-btn" id="nextBtn" type="button" aria-label="다음">›</button>
+    <a class="text-btn ask-btn" id="askBtn" href="https://kmla-history.party/board" target="_blank" rel="noopener" title="한국사 수업 DB의 질문 게시판 열기 (새 창)">학생 질문</a>
     <button class="text-btn" id="teacherToggle" type="button">교사 모드</button>
     <button class="text-btn" id="bakeBtn" type="button" title="지금 저장된 수정 내용을 lesson17_v2.html 파일 자체에 반영 — 그러면 다른 컴퓨터나 GitHub에서도 이 파일 하나만으로 똑같이 보입니다">반영하기</button>
     <button class="text-btn" id="tocButton" type="button">전체 목차</button>
@@ -2221,7 +2230,7 @@ body.teacher-mode .dg-n.sel,body.teacher-mode .dg-p.sel,body.teacher-mode .dg-tx
 <div class="n17-head l">미국</div><div class="n17-head r">소련</div>
 <div class="n17-y" style="grid-row:2">1945. 8. 9.</div>
 <div class="n17-c r" style="grid-row:2">소련군의 대일 선전 포고 <small>만주와 한반도 북부에서 빠른 진격</small></div>
-<div class="n17-y n17-y2" style="grid-row:3">1945. 8.</div>
+<div class="n17-y n17-y2 d15" style="grid-row:3">1945. 8. 15.</div><div class="n17-y n17-y2 d16" style="grid-row:3">1945. 8. 16.</div>
 <div class="n17-c l" style="grid-row:3">미국의 38도선 경계 분할 점령 제안</div>
 <div class="n17-reply" style="grid-row:3"><i></i><span>수락</span></div>
 <div class="n17-c r acc" style="grid-row:3">소련의 수락</div>
